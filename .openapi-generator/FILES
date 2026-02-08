@@ -1,7 +1,6 @@
 .gitignore
 .gitlab-ci.yml
 .travis.yml
-README.md
 docs/AddPolicyRule201Response.md
 docs/AddSuppressionRequest.md
 docs/AddSuppressionRequestEntriesInner.md
@@ -132,10 +131,8 @@ mailodds/models/validation_response_suppression_match.py
 mailodds/models/validation_result.py
 mailodds/py.typed
 mailodds/rest.py
-pyproject.toml
 requirements.txt
 setup.cfg
-setup.py
 test-requirements.txt
 test/__init__.py
 test/test_add_policy_rule201_response.py

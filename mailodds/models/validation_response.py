@@ -18,29 +18,38 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from mailodds.models.validation_response_policy_applied import ValidationResponsePolicyApplied
 from mailodds.models.validation_response_suppression_match import ValidationResponseSuppressionMatch
 from typing import Optional, Set
 from typing_extensions import Self
 
 class ValidationResponse(BaseModel):
     """
-    ValidationResponse
+    Flat validation response. Conditional fields are omitted (not null) when not applicable.
     """ # noqa: E501
-    schema_version: Optional[StrictStr] = None
+    schema_version: StrictStr
     email: StrictStr
     status: StrictStr = Field(description="Validation status")
-    sub_status: Optional[StrictStr] = Field(default=None, description="Detailed status reason")
     action: StrictStr = Field(description="Recommended action")
-    domain: Optional[StrictStr] = None
-    mx_found: Optional[StrictBool] = None
-    smtp_check: Optional[StrictBool] = None
-    disposable: Optional[StrictBool] = None
-    role_account: Optional[StrictBool] = None
-    free_provider: Optional[StrictBool] = None
+    sub_status: Optional[StrictStr] = Field(default=None, description="Detailed status reason. Omitted when none.")
+    domain: StrictStr
+    mx_found: StrictBool = Field(description="Whether MX records were found for the domain")
+    mx_host: Optional[StrictStr] = Field(default=None, description="Primary MX hostname. Omitted when MX not resolved.")
+    smtp_check: Optional[StrictBool] = Field(default=None, description="Whether SMTP verification passed. Omitted when SMTP not checked.")
+    catch_all: Optional[StrictBool] = Field(default=None, description="Whether domain is catch-all. Omitted when SMTP not checked.")
+    disposable: StrictBool = Field(description="Whether domain is a known disposable email provider")
+    role_account: StrictBool = Field(description="Whether address is a role account (e.g., info@, admin@)")
+    free_provider: StrictBool = Field(description="Whether domain is a known free email provider (e.g., gmail.com)")
+    depth: StrictStr = Field(description="Validation depth used for this check")
+    processed_at: datetime = Field(description="ISO 8601 timestamp of validation")
+    suggested_email: Optional[StrictStr] = Field(default=None, description="Typo correction suggestion. Omitted when no typo detected.")
+    retry_after_ms: Optional[StrictInt] = Field(default=None, description="Suggested retry delay in milliseconds. Present only for retry_later action.")
     suppression_match: Optional[ValidationResponseSuppressionMatch] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "email", "status", "sub_status", "action", "domain", "mx_found", "smtp_check", "disposable", "role_account", "free_provider", "suppression_match"]
+    policy_applied: Optional[ValidationResponsePolicyApplied] = None
+    __properties: ClassVar[List[str]] = ["schema_version", "email", "status", "action", "sub_status", "domain", "mx_found", "mx_host", "smtp_check", "catch_all", "disposable", "role_account", "free_provider", "depth", "processed_at", "suggested_email", "retry_after_ms", "suppression_match", "policy_applied"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -54,6 +63,23 @@ class ValidationResponse(BaseModel):
         """Validates the enum"""
         if value not in set(['accept', 'accept_with_caution', 'reject', 'retry_later']):
             raise ValueError("must be one of enum values ('accept', 'accept_with_caution', 'reject', 'retry_later')")
+        return value
+
+    @field_validator('sub_status')
+    def sub_status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['format_invalid', 'mx_missing', 'mx_timeout', 'smtp_unreachable', 'smtp_rejected', 'disposable', 'role_account', 'greylisted', 'catch_all_detected', 'suppression_match']):
+            raise ValueError("must be one of enum values ('format_invalid', 'mx_missing', 'mx_timeout', 'smtp_unreachable', 'smtp_rejected', 'disposable', 'role_account', 'greylisted', 'catch_all_detected', 'suppression_match')")
+        return value
+
+    @field_validator('depth')
+    def depth_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['standard', 'enhanced']):
+            raise ValueError("must be one of enum values ('standard', 'enhanced')")
         return value
 
     model_config = ConfigDict(
@@ -98,6 +124,9 @@ class ValidationResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of suppression_match
         if self.suppression_match:
             _dict['suppression_match'] = self.suppression_match.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of policy_applied
+        if self.policy_applied:
+            _dict['policy_applied'] = self.policy_applied.to_dict()
         return _dict
 
     @classmethod
@@ -113,15 +142,22 @@ class ValidationResponse(BaseModel):
             "schema_version": obj.get("schema_version"),
             "email": obj.get("email"),
             "status": obj.get("status"),
-            "sub_status": obj.get("sub_status"),
             "action": obj.get("action"),
+            "sub_status": obj.get("sub_status"),
             "domain": obj.get("domain"),
             "mx_found": obj.get("mx_found"),
+            "mx_host": obj.get("mx_host"),
             "smtp_check": obj.get("smtp_check"),
+            "catch_all": obj.get("catch_all"),
             "disposable": obj.get("disposable"),
             "role_account": obj.get("role_account"),
             "free_provider": obj.get("free_provider"),
-            "suppression_match": ValidationResponseSuppressionMatch.from_dict(obj["suppression_match"]) if obj.get("suppression_match") is not None else None
+            "depth": obj.get("depth"),
+            "processed_at": obj.get("processed_at"),
+            "suggested_email": obj.get("suggested_email"),
+            "retry_after_ms": obj.get("retry_after_ms"),
+            "suppression_match": ValidationResponseSuppressionMatch.from_dict(obj["suppression_match"]) if obj.get("suppression_match") is not None else None,
+            "policy_applied": ValidationResponsePolicyApplied.from_dict(obj["policy_applied"]) if obj.get("policy_applied") is not None else None
         })
         return _obj
 

@@ -18,29 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary
+from mailodds.models.validation_response import ValidationResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ValidateRequest(BaseModel):
+class ValidateBatch200Response(BaseModel):
     """
-    ValidateRequest
+    ValidateBatch200Response
     """ # noqa: E501
-    email: StrictStr = Field(description="Email address to validate")
-    depth: Optional[StrictStr] = Field(default='enhanced', description="Validation depth. 'standard' skips SMTP verification.")
-    policy_id: Optional[StrictInt] = Field(default=None, description="Optional policy ID to use instead of default policy")
-    __properties: ClassVar[List[str]] = ["email", "depth", "policy_id"]
-
-    @field_validator('depth')
-    def depth_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['standard', 'enhanced']):
-            raise ValueError("must be one of enum values ('standard', 'enhanced')")
-        return value
+    schema_version: Optional[StrictStr] = None
+    total: Optional[StrictInt] = None
+    summary: Optional[ValidateBatch200ResponseSummary] = None
+    results: Optional[List[ValidationResponse]] = None
+    __properties: ClassVar[List[str]] = ["schema_version", "total", "summary", "results"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +53,7 @@ class ValidateRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ValidateRequest from a JSON string"""
+        """Create an instance of ValidateBatch200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,11 +74,21 @@ class ValidateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of summary
+        if self.summary:
+            _dict['summary'] = self.summary.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        _items = []
+        if self.results:
+            for _item_results in self.results:
+                if _item_results:
+                    _items.append(_item_results.to_dict())
+            _dict['results'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ValidateRequest from a dict"""
+        """Create an instance of ValidateBatch200Response from a dict"""
         if obj is None:
             return None
 
@@ -93,9 +96,10 @@ class ValidateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "email": obj.get("email"),
-            "depth": obj.get("depth") if obj.get("depth") is not None else 'enhanced',
-            "policy_id": obj.get("policy_id")
+            "schema_version": obj.get("schema_version"),
+            "total": obj.get("total"),
+            "summary": ValidateBatch200ResponseSummary.from_dict(obj["summary"]) if obj.get("summary") is not None else None,
+            "results": [ValidationResponse.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
         })
         return _obj
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
 **error** | **str** | Machine-readable error code | 
-**message** | **str** | Human-readable error message | 
+**message** | **str** | Human-readable error message | [optional] 
 
 ## Example
 

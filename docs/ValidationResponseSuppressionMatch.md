@@ -1,13 +1,14 @@
 # ValidationResponseSuppressionMatch
 
+Present only when email matched a suppression list entry.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**matched** | **bool** |  | [optional] 
 **match_type** | **str** |  | [optional] 
 **match_value** | **str** |  | [optional] 
+**reason** | **str** |  | [optional] 
 
 ## Example
 

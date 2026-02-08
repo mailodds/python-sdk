@@ -15,10 +15,10 @@
 
 import unittest
 
-from mailodds.models.validate_request import ValidateRequest
+from mailodds.models.validation_response_policy_applied import ValidationResponsePolicyApplied
 
-class TestValidateRequest(unittest.TestCase):
-    """ValidateRequest unit test stubs"""
+class TestValidationResponsePolicyApplied(unittest.TestCase):
+    """ValidationResponsePolicyApplied unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,28 @@ class TestValidateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ValidateRequest:
-        """Test ValidateRequest
+    def make_instance(self, include_optional) -> ValidationResponsePolicyApplied:
+        """Test ValidationResponsePolicyApplied
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ValidateRequest`
+        # uncomment below to create an instance of `ValidationResponsePolicyApplied`
         """
-        model = ValidateRequest()
+        model = ValidationResponsePolicyApplied()
         if include_optional:
-            return ValidateRequest(
-                email = '',
-                depth = 'enhanced',
-                policy_id = 56
+            return ValidationResponsePolicyApplied(
+                policy_id = 56,
+                policy_name = '',
+                rule_id = 56,
+                rule_type = ''
             )
         else:
-            return ValidateRequest(
-                email = '',
+            return ValidationResponsePolicyApplied(
         )
         """
 
-    def testValidateRequest(self):
-        """Test ValidateRequest"""
+    def testValidationResponsePolicyApplied(self):
+        """Test ValidationResponsePolicyApplied"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

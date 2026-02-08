@@ -15,10 +15,10 @@
 
 import unittest
 
-from mailodds.models.validate_request import ValidateRequest
+from mailodds.models.validate_batch_request import ValidateBatchRequest
 
-class TestValidateRequest(unittest.TestCase):
-    """ValidateRequest unit test stubs"""
+class TestValidateBatchRequest(unittest.TestCase):
+    """ValidateBatchRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,32 @@ class TestValidateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ValidateRequest:
-        """Test ValidateRequest
+    def make_instance(self, include_optional) -> ValidateBatchRequest:
+        """Test ValidateBatchRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ValidateRequest`
+        # uncomment below to create an instance of `ValidateBatchRequest`
         """
-        model = ValidateRequest()
+        model = ValidateBatchRequest()
         if include_optional:
-            return ValidateRequest(
-                email = '',
+            return ValidateBatchRequest(
+                emails = [
+                    ''
+                    ],
                 depth = 'enhanced',
                 policy_id = 56
             )
         else:
-            return ValidateRequest(
-                email = '',
+            return ValidateBatchRequest(
+                emails = [
+                    ''
+                    ],
         )
         """
 
-    def testValidateRequest(self):
-        """Test ValidateRequest"""
+    def testValidateBatchRequest(self):
+        """Test ValidateBatchRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

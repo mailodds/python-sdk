@@ -7,14 +7,15 @@ from mailodds.api.email_validation_api import EmailValidationApi
 from mailodds.models.validate_request import ValidateRequest
 from mailodds.exceptions import UnauthorizedException, BadRequestException, UnprocessableEntityException
 
+# (email, status, action, sub_status, free_provider, disposable, role_account, mx_found, depth)
 TEST_CASES = [
-    ("test@deliverable.mailodds.com", "valid", "accept", None),
-    ("test@invalid.mailodds.com", "invalid", "reject", "smtp_rejected"),
-    ("test@risky.mailodds.com", "catch_all", "accept_with_caution", "catch_all_detected"),
-    ("test@disposable.mailodds.com", "do_not_mail", "reject", "disposable"),
-    ("test@role.mailodds.com", "do_not_mail", "reject", "role_account"),
-    ("test@timeout.mailodds.com", "unknown", "retry_later", "smtp_unreachable"),
-    ("test@freeprovider.mailodds.com", "valid", "accept", None),
+    ("test@deliverable.mailodds.com", "valid", "accept", None, False, False, False, True, "enhanced"),
+    ("test@invalid.mailodds.com", "invalid", "reject", "smtp_rejected", False, False, False, True, "enhanced"),
+    ("test@risky.mailodds.com", "catch_all", "accept_with_caution", "catch_all_detected", False, False, False, True, "enhanced"),
+    ("test@disposable.mailodds.com", "do_not_mail", "reject", "disposable", False, True, False, True, "enhanced"),
+    ("test@role.mailodds.com", "do_not_mail", "reject", "role_account", False, False, True, True, "enhanced"),
+    ("test@timeout.mailodds.com", "unknown", "retry_later", "smtp_unreachable", False, False, False, True, "enhanced"),
+    ("test@freeprovider.mailodds.com", "valid", "accept", None, True, False, False, True, "enhanced"),
 ]
 
 
@@ -39,13 +40,23 @@ def main():
     client = ApiClient(configuration=config)
     api = EmailValidationApi(api_client=client)
 
-    for email, exp_status, exp_action, exp_sub in TEST_CASES:
+    for email, exp_status, exp_action, exp_sub, exp_free, exp_disp, exp_role, exp_mx, exp_depth in TEST_CASES:
         domain = email.split("@")[1].split(".")[0]
         try:
             resp = api.validate_email(ValidateRequest(email=email))
             check(f"{domain}.status", exp_status, resp.status)
             check(f"{domain}.action", exp_action, resp.action)
             check(f"{domain}.sub_status", exp_sub, resp.sub_status)
+            check(f"{domain}.free_provider", exp_free, resp.free_provider)
+            check(f"{domain}.disposable", exp_disp, resp.disposable)
+            check(f"{domain}.role_account", exp_role, resp.role_account)
+            check(f"{domain}.mx_found", exp_mx, resp.mx_found)
+            check(f"{domain}.depth", exp_depth, resp.depth)
+            if not resp.processed_at:
+                failed += 1
+                print(f"  FAIL: {domain}.processed_at is empty")
+            else:
+                passed += 1
         except Exception as e:
             failed += 1
             print(f"  FAIL: {domain} raised {type(e).__name__}: {e}")

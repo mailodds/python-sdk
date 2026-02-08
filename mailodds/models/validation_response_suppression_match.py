@@ -18,19 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
 class ValidationResponseSuppressionMatch(BaseModel):
     """
-    ValidationResponseSuppressionMatch
+    Present only when email matched a suppression list entry.
     """ # noqa: E501
-    matched: Optional[StrictBool] = None
     match_type: Optional[StrictStr] = None
     match_value: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["matched", "match_type", "match_value"]
+    reason: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["match_type", "match_value", "reason"]
 
     @field_validator('match_type')
     def match_type_validate_enum(cls, value):
@@ -93,9 +93,9 @@ class ValidationResponseSuppressionMatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "matched": obj.get("matched"),
             "match_type": obj.get("match_type"),
-            "match_value": obj.get("match_value")
+            "match_value": obj.get("match_value"),
+            "reason": obj.get("reason")
         })
         return _obj
 

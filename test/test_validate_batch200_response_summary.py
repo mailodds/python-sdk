@@ -15,10 +15,10 @@
 
 import unittest
 
-from mailodds.models.validate_request import ValidateRequest
+from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary
 
-class TestValidateRequest(unittest.TestCase):
-    """ValidateRequest unit test stubs"""
+class TestValidateBatch200ResponseSummary(unittest.TestCase):
+    """ValidateBatch200ResponseSummary unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,29 @@ class TestValidateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ValidateRequest:
-        """Test ValidateRequest
+    def make_instance(self, include_optional) -> ValidateBatch200ResponseSummary:
+        """Test ValidateBatch200ResponseSummary
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ValidateRequest`
+        # uncomment below to create an instance of `ValidateBatch200ResponseSummary`
         """
-        model = ValidateRequest()
+        model = ValidateBatch200ResponseSummary()
         if include_optional:
-            return ValidateRequest(
-                email = '',
-                depth = 'enhanced',
-                policy_id = 56
+            return ValidateBatch200ResponseSummary(
+                valid = 56,
+                invalid = 56,
+                catch_all = 56,
+                unknown = 56,
+                do_not_mail = 56
             )
         else:
-            return ValidateRequest(
-                email = '',
+            return ValidateBatch200ResponseSummary(
         )
         """
 
-    def testValidateRequest(self):
-        """Test ValidateRequest"""
+    def testValidateBatch200ResponseSummary(self):
+        """Test ValidateBatch200ResponseSummary"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

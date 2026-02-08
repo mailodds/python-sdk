@@ -36,9 +36,9 @@ class TestValidationResponseSuppressionMatch(unittest.TestCase):
         model = ValidationResponseSuppressionMatch()
         if include_optional:
             return ValidationResponseSuppressionMatch(
-                matched = True,
                 match_type = 'email',
-                match_value = ''
+                match_value = '',
+                reason = ''
             )
         else:
             return ValidationResponseSuppressionMatch(

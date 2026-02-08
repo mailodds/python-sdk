@@ -26,3 +26,7 @@
 ci/**
 # Preserve GitHub Actions workflows
 .github/**
+# Preserve package metadata (repo URL, license, version)
+pyproject.toml
+README.md
+setup.py

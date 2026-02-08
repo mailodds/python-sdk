@@ -61,8 +61,12 @@ from mailodds.models.telemetry_summary_totals import TelemetrySummaryTotals
 from mailodds.models.test_policy_request import TestPolicyRequest
 from mailodds.models.test_policy_request_test_result import TestPolicyRequestTestResult
 from mailodds.models.update_policy_request import UpdatePolicyRequest
+from mailodds.models.validate_batch200_response import ValidateBatch200Response
+from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary
+from mailodds.models.validate_batch_request import ValidateBatchRequest
 from mailodds.models.validate_request import ValidateRequest
 from mailodds.models.validation_response import ValidationResponse
+from mailodds.models.validation_response_policy_applied import ValidationResponsePolicyApplied
 from mailodds.models.validation_response_suppression_match import ValidationResponseSuppressionMatch
 from mailodds.models.validation_result import ValidationResult
 

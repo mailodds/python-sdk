@@ -39,24 +39,43 @@ class TestValidationResponse(unittest.TestCase):
                 schema_version = '1.0',
                 email = '',
                 status = 'valid',
-                sub_status = '',
                 action = 'accept',
+                sub_status = 'format_invalid',
                 domain = '',
                 mx_found = True,
+                mx_host = '',
                 smtp_check = True,
+                catch_all = True,
                 disposable = True,
                 role_account = True,
                 free_provider = True,
+                depth = 'standard',
+                processed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                suggested_email = '',
+                retry_after_ms = 56,
                 suppression_match = mailodds.models.validation_response_suppression_match.ValidationResponse_suppression_match(
-                    matched = True, 
                     match_type = 'email', 
-                    match_value = '', )
+                    match_value = '', 
+                    reason = '', ),
+                policy_applied = mailodds.models.validation_response_policy_applied.ValidationResponse_policy_applied(
+                    policy_id = 56, 
+                    policy_name = '', 
+                    rule_id = 56, 
+                    rule_type = '', )
             )
         else:
             return ValidationResponse(
+                schema_version = '1.0',
                 email = '',
                 status = 'valid',
                 action = 'accept',
+                domain = '',
+                mx_found = True,
+                disposable = True,
+                role_account = True,
+                free_provider = True,
+                depth = 'standard',
+                processed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
         """
 

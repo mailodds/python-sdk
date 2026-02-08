@@ -43,7 +43,6 @@ class TestErrorResponse(unittest.TestCase):
         else:
             return ErrorResponse(
                 error = '',
-                message = '',
         )
         """
 

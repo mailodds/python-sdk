@@ -29,7 +29,7 @@ class ErrorResponse(BaseModel):
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
     error: StrictStr = Field(description="Machine-readable error code")
-    message: StrictStr = Field(description="Human-readable error message")
+    message: Optional[StrictStr] = Field(default=None, description="Human-readable error message")
     __properties: ClassVar[List[str]] = ["schema_version", "error", "message"]
 
     model_config = ConfigDict(

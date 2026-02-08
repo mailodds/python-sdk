@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
@@ -80,8 +80,12 @@ __all__ = [
     "TestPolicyRequest",
     "TestPolicyRequestTestResult",
     "UpdatePolicyRequest",
+    "ValidateBatch200Response",
+    "ValidateBatch200ResponseSummary",
+    "ValidateBatchRequest",
     "ValidateRequest",
     "ValidationResponse",
+    "ValidationResponsePolicyApplied",
     "ValidationResponseSuppressionMatch",
     "ValidationResult",
 ]
@@ -152,8 +156,12 @@ from mailodds.models.telemetry_summary_totals import TelemetrySummaryTotals as T
 from mailodds.models.test_policy_request import TestPolicyRequest as TestPolicyRequest
 from mailodds.models.test_policy_request_test_result import TestPolicyRequestTestResult as TestPolicyRequestTestResult
 from mailodds.models.update_policy_request import UpdatePolicyRequest as UpdatePolicyRequest
+from mailodds.models.validate_batch200_response import ValidateBatch200Response as ValidateBatch200Response
+from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary as ValidateBatch200ResponseSummary
+from mailodds.models.validate_batch_request import ValidateBatchRequest as ValidateBatchRequest
 from mailodds.models.validate_request import ValidateRequest as ValidateRequest
 from mailodds.models.validation_response import ValidationResponse as ValidationResponse
+from mailodds.models.validation_response_policy_applied import ValidationResponsePolicyApplied as ValidationResponsePolicyApplied
 from mailodds.models.validation_response_suppression_match import ValidationResponseSuppressionMatch as ValidationResponseSuppressionMatch
 from mailodds.models.validation_result import ValidationResult as ValidationResult
 

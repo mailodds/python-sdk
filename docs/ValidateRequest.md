@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **str** | Email address to validate | 
+**depth** | **str** | Validation depth. &#39;standard&#39; skips SMTP verification. | [optional] [default to 'enhanced']
 **policy_id** | **int** | Optional policy ID to use instead of default policy | [optional] 
 
 ## Example

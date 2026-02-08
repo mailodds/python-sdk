@@ -27,6 +27,13 @@ class TestEmailValidationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_validate_batch(self) -> None:
+        """Test case for validate_batch
+
+        Validate multiple emails (sync)
+        """
+        pass
+
     def test_validate_email(self) -> None:
         """Test case for validate_email
 

@@ -18,29 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ValidateRequest(BaseModel):
+class ValidateBatch200ResponseSummary(BaseModel):
     """
-    ValidateRequest
+    ValidateBatch200ResponseSummary
     """ # noqa: E501
-    email: StrictStr = Field(description="Email address to validate")
-    depth: Optional[StrictStr] = Field(default='enhanced', description="Validation depth. 'standard' skips SMTP verification.")
-    policy_id: Optional[StrictInt] = Field(default=None, description="Optional policy ID to use instead of default policy")
-    __properties: ClassVar[List[str]] = ["email", "depth", "policy_id"]
-
-    @field_validator('depth')
-    def depth_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['standard', 'enhanced']):
-            raise ValueError("must be one of enum values ('standard', 'enhanced')")
-        return value
+    valid: Optional[StrictInt] = None
+    invalid: Optional[StrictInt] = None
+    catch_all: Optional[StrictInt] = None
+    unknown: Optional[StrictInt] = None
+    do_not_mail: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["valid", "invalid", "catch_all", "unknown", "do_not_mail"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +52,7 @@ class ValidateRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ValidateRequest from a JSON string"""
+        """Create an instance of ValidateBatch200ResponseSummary from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,7 +77,7 @@ class ValidateRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ValidateRequest from a dict"""
+        """Create an instance of ValidateBatch200ResponseSummary from a dict"""
         if obj is None:
             return None
 
@@ -93,9 +85,11 @@ class ValidateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "email": obj.get("email"),
-            "depth": obj.get("depth") if obj.get("depth") is not None else 'enhanced',
-            "policy_id": obj.get("policy_id")
+            "valid": obj.get("valid"),
+            "invalid": obj.get("invalid"),
+            "catch_all": obj.get("catch_all"),
+            "unknown": obj.get("unknown"),
+            "do_not_mail": obj.get("do_not_mail")
         })
         return _obj
 

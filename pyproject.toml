@@ -33,7 +33,7 @@ mypy = ">= 1.5"
 
 
 [tool.pytest.ini_options]
-collect_ignore = ["ci"]
+addopts = "--ignore=ci"
 
 [build-system]
 requires = ["setuptools"]

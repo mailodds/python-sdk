@@ -45,15 +45,15 @@ class ValidationResponse(BaseModel):
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['valid', 'invalid', 'do_not_mail', 'unknown']):
-            raise ValueError("must be one of enum values ('valid', 'invalid', 'do_not_mail', 'unknown')")
+        if value not in set(['valid', 'invalid', 'catch_all', 'do_not_mail', 'unknown']):
+            raise ValueError("must be one of enum values ('valid', 'invalid', 'catch_all', 'do_not_mail', 'unknown')")
         return value
 
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['safe_to_send', 'do_not_send', 'manual_review']):
-            raise ValueError("must be one of enum values ('safe_to_send', 'do_not_send', 'manual_review')")
+        if value not in set(['accept', 'accept_with_caution', 'reject', 'retry_later']):
+            raise ValueError("must be one of enum values ('accept', 'accept_with_caution', 'reject', 'retry_later')")
         return value
 
     model_config = ConfigDict(

@@ -315,7 +315,7 @@ def validate(ctx, email):
         'accept': 'green',
         'reject': 'red',
         'accept_with_caution': 'yellow',
-        'manual_review': 'blue',
+        'retry_later': 'blue',
     }
 
     console.print(f"\n[bold]{email}[/bold]")

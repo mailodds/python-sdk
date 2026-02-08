@@ -40,7 +40,7 @@ class TestValidationResponse(unittest.TestCase):
                 email = '',
                 status = 'valid',
                 sub_status = '',
-                action = 'safe_to_send',
+                action = 'accept',
                 domain = '',
                 mx_found = True,
                 smtp_check = True,
@@ -56,7 +56,7 @@ class TestValidationResponse(unittest.TestCase):
             return ValidationResponse(
                 email = '',
                 status = 'valid',
-                action = 'safe_to_send',
+                action = 'accept',
         )
         """
 

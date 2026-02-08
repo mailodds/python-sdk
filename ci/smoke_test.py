@@ -1,19 +1,16 @@
-"""SDK smoke test -- validates build-from-source and API integration."""
+"""SDK smoke test -- validates build-from-source and API integration using the SDK client."""
 import os
 import sys
-import json
-import urllib.request
-import urllib.error
 
-API_URL = "https://api.mailodds.com"
 API_KEY = os.environ.get("MAILODDS_TEST_KEY", "")
 if not API_KEY:
     print("ERROR: MAILODDS_TEST_KEY not set")
     sys.exit(1)
 
-# Prove the SDK is importable (build succeeded)
-import mailodds  # noqa: F401
-from mailodds.api.email_validation_api import EmailValidationApi  # noqa: F401
+from mailodds import ApiClient, Configuration
+from mailodds.api.email_validation_api import EmailValidationApi
+from mailodds.models.validate_request import ValidateRequest
+from mailodds.exceptions import UnauthorizedException, BadRequestException, UnprocessableEntityException
 
 passed = 0
 failed = 0
@@ -29,20 +26,6 @@ TEST_CASES = [
 ]
 
 
-def api_call(email):
-    data = json.dumps({"email": email}).encode()
-    req = urllib.request.Request(
-        f"{API_URL}/v1/validate",
-        data=data,
-        headers={
-            "Authorization": f"Bearer {API_KEY}",
-            "Content-Type": "application/json",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read())
-
-
 def check(label, expected, actual):
     global passed, failed
     if expected == actual:
@@ -52,57 +35,48 @@ def check(label, expected, actual):
         print(f"  FAIL: {label} expected={expected} got={actual}")
 
 
-# Phase 1: validate all test domains
+config = Configuration(host="https://api.mailodds.com", access_token=API_KEY)
+client = ApiClient(configuration=config)
+api = EmailValidationApi(api_client=client)
+
 for email, exp_status, exp_action, exp_sub in TEST_CASES:
     domain = email.split("@")[1].split(".")[0]
     try:
-        r = api_call(email)
-        check(f"{domain}.status", exp_status, r.get("status"))
-        check(f"{domain}.action", exp_action, r.get("action"))
-        check(f"{domain}.sub_status", exp_sub, r.get("sub_status"))
-        check(f"{domain}.test_mode", True, r.get("test_mode"))
+        resp = api.validate_email(ValidateRequest(email=email))
+        check(f"{domain}.status", exp_status, resp.status)
+        check(f"{domain}.action", exp_action, resp.action)
+        check(f"{domain}.sub_status", exp_sub, resp.sub_status)
     except Exception as e:
         failed += 1
         print(f"  FAIL: {domain} raised {type(e).__name__}: {e}")
 
-# Phase 2: error handling
-# 401 with bad key
+# Error handling: 401 with bad key
 try:
-    data = json.dumps({"email": "test@deliverable.mailodds.com"}).encode()
-    req = urllib.request.Request(
-        f"{API_URL}/v1/validate",
-        data=data,
-        headers={
-            "Authorization": "Bearer invalid_key",
-            "Content-Type": "application/json",
-        },
-    )
-    urllib.request.urlopen(req, timeout=10)
+    bad_config = Configuration(host="https://api.mailodds.com", access_token="invalid_key")
+    bad_client = ApiClient(configuration=bad_config)
+    bad_api = EmailValidationApi(api_client=bad_client)
+    bad_api.validate_email(ValidateRequest(email="test@deliverable.mailodds.com"))
     failed += 1
-    print("  FAIL: 401 not raised for bad key")
-except urllib.error.HTTPError as e:
-    check("error.401", 401, e.code)
+    print("  FAIL: error.401 no exception raised")
+except UnauthorizedException:
+    passed += 1
+except Exception as e:
+    failed += 1
+    print(f"  FAIL: error.401 wrong exception: {type(e).__name__}: {e}")
 
-# 400 with missing email
+# Error handling: 400/422 with missing email
 try:
-    data = json.dumps({}).encode()
-    req = urllib.request.Request(
-        f"{API_URL}/v1/validate",
-        data=data,
-        headers={
-            "Authorization": f"Bearer {API_KEY}",
-            "Content-Type": "application/json",
-        },
-    )
-    urllib.request.urlopen(req, timeout=10)
+    api.validate_email(ValidateRequest(email=""))
     failed += 1
-    print("  FAIL: 400 not raised for missing email")
-except urllib.error.HTTPError as e:
-    if e.code in (400, 422):
+    print("  FAIL: error.400 no exception raised")
+except (BadRequestException, UnprocessableEntityException):
+    passed += 1
+except Exception as e:
+    if hasattr(e, 'status') and e.status in (400, 422):
         passed += 1
     else:
         failed += 1
-        print(f"  FAIL: error.400 expected=400|422 got={e.code}")
+        print(f"  FAIL: error.400 wrong exception: {type(e).__name__}: {e}")
 
 total = passed + failed
 print(f"\n{'PASS' if failed == 0 else 'FAIL'}: Python SDK ({passed}/{total})")

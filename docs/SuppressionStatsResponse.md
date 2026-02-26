@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
 **total** | **int** |  | [optional] 
 **by_type** | [**SuppressionStatsResponseByType**](SuppressionStatsResponseByType.md) |  | [optional] 
 

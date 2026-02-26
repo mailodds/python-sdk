@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.suppression_stats_response_by_type import SuppressionStatsResponseByType
 from typing import Optional, Set
@@ -29,9 +29,10 @@ class SuppressionStatsResponse(BaseModel):
     SuppressionStatsResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     total: Optional[StrictInt] = None
     by_type: Optional[SuppressionStatsResponseByType] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "total", "by_type"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "total", "by_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +89,7 @@ class SuppressionStatsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "total": obj.get("total"),
             "by_type": SuppressionStatsResponseByType.from_dict(obj["by_type"]) if obj.get("by_type") is not None else None
         })

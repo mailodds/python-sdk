@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,11 +28,12 @@ class SuppressionCheckResponse(BaseModel):
     SuppressionCheckResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     email: Optional[StrictStr] = None
     suppressed: Optional[StrictBool] = None
     match_type: Optional[StrictStr] = None
     match_value: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "email", "suppressed", "match_type", "match_value"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "email", "suppressed", "match_type", "match_value"]
 
     @field_validator('match_type')
     def match_type_validate_enum(cls, value):
@@ -96,6 +97,7 @@ class SuppressionCheckResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "email": obj.get("email"),
             "suppressed": obj.get("suppressed"),
             "match_type": obj.get("match_type"),

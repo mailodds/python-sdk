@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,9 @@ class DeleteJob200Response(BaseModel):
     DeleteJob200Response
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     deleted: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "deleted"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "deleted"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +84,7 @@ class DeleteJob200Response(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "deleted": obj.get("deleted")
         })
         return _obj

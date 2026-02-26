@@ -31,6 +31,7 @@ class ValidationResponse(BaseModel):
     Flat validation response. Conditional fields are omitted (not null) when not applicable.
     """ # noqa: E501
     schema_version: StrictStr
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     email: StrictStr
     status: StrictStr = Field(description="Validation status")
     action: StrictStr = Field(description="Recommended action")
@@ -47,9 +48,13 @@ class ValidationResponse(BaseModel):
     processed_at: datetime = Field(description="ISO 8601 timestamp of validation")
     suggested_email: Optional[StrictStr] = Field(default=None, description="Typo correction suggestion. Omitted when no typo detected.")
     retry_after_ms: Optional[StrictInt] = Field(default=None, description="Suggested retry delay in milliseconds. Present only for retry_later action.")
+    has_spf: Optional[StrictBool] = Field(default=None, description="Whether the domain has an SPF record. Omitted for standard depth.")
+    has_dmarc: Optional[StrictBool] = Field(default=None, description="Whether the domain has a DMARC record. Omitted for standard depth.")
+    dmarc_policy: Optional[StrictStr] = Field(default=None, description="The domain's DMARC policy. Omitted when no DMARC record found.")
+    dnsbl_listed: Optional[StrictBool] = Field(default=None, description="Whether the domain's MX IP is on a DNS blocklist (Spamhaus ZEN). Omitted for standard depth.")
     suppression_match: Optional[ValidationResponseSuppressionMatch] = None
     policy_applied: Optional[ValidationResponsePolicyApplied] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "email", "status", "action", "sub_status", "domain", "mx_found", "mx_host", "smtp_check", "catch_all", "disposable", "role_account", "free_provider", "depth", "processed_at", "suggested_email", "retry_after_ms", "suppression_match", "policy_applied"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "email", "status", "action", "sub_status", "domain", "mx_found", "mx_host", "smtp_check", "catch_all", "disposable", "role_account", "free_provider", "depth", "processed_at", "suggested_email", "retry_after_ms", "has_spf", "has_dmarc", "dmarc_policy", "dnsbl_listed", "suppression_match", "policy_applied"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -71,8 +76,8 @@ class ValidationResponse(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['format_invalid', 'mx_missing', 'mx_timeout', 'smtp_unreachable', 'smtp_rejected', 'disposable', 'role_account', 'greylisted', 'catch_all_detected', 'suppression_match']):
-            raise ValueError("must be one of enum values ('format_invalid', 'mx_missing', 'mx_timeout', 'smtp_unreachable', 'smtp_rejected', 'disposable', 'role_account', 'greylisted', 'catch_all_detected', 'suppression_match')")
+        if value not in set(['format_invalid', 'mx_missing', 'mx_timeout', 'smtp_unreachable', 'smtp_rejected', 'disposable', 'role_account', 'greylisted', 'catch_all_detected', 'domain_not_found', 'suppression_match', 'restricted_military', 'restricted_sanctioned']):
+            raise ValueError("must be one of enum values ('format_invalid', 'mx_missing', 'mx_timeout', 'smtp_unreachable', 'smtp_rejected', 'disposable', 'role_account', 'greylisted', 'catch_all_detected', 'domain_not_found', 'suppression_match', 'restricted_military', 'restricted_sanctioned')")
         return value
 
     @field_validator('depth')
@@ -80,6 +85,16 @@ class ValidationResponse(BaseModel):
         """Validates the enum"""
         if value not in set(['standard', 'enhanced']):
             raise ValueError("must be one of enum values ('standard', 'enhanced')")
+        return value
+
+    @field_validator('dmarc_policy')
+    def dmarc_policy_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['none', 'quarantine', 'reject']):
+            raise ValueError("must be one of enum values ('none', 'quarantine', 'reject')")
         return value
 
     model_config = ConfigDict(
@@ -140,6 +155,7 @@ class ValidationResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "email": obj.get("email"),
             "status": obj.get("status"),
             "action": obj.get("action"),
@@ -156,6 +172,10 @@ class ValidationResponse(BaseModel):
             "processed_at": obj.get("processed_at"),
             "suggested_email": obj.get("suggested_email"),
             "retry_after_ms": obj.get("retry_after_ms"),
+            "has_spf": obj.get("has_spf"),
+            "has_dmarc": obj.get("has_dmarc"),
+            "dmarc_policy": obj.get("dmarc_policy"),
+            "dnsbl_listed": obj.get("dnsbl_listed"),
             "suppression_match": ValidationResponseSuppressionMatch.from_dict(obj["suppression_match"]) if obj.get("suppression_match") is not None else None,
             "policy_applied": ValidationResponsePolicyApplied.from_dict(obj["policy_applied"]) if obj.get("policy_applied") is not None else None
         })

@@ -28,11 +28,12 @@ class PolicyTestResponse(BaseModel):
     PolicyTestResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     original: Optional[Dict[str, Any]] = Field(default=None, description="Original validation result before policy")
     modified: Optional[Dict[str, Any]] = Field(default=None, description="Result after policy applied")
     matched_rule: Optional[Dict[str, Any]] = Field(default=None, description="The rule that matched, or null if none matched")
     rules_evaluated: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "original", "modified", "matched_rule", "rules_evaluated"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "original", "modified", "matched_rule", "rules_evaluated"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,7 @@ class PolicyTestResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "original": obj.get("original"),
             "modified": obj.get("modified"),
             "matched_rule": obj.get("matched_rule"),

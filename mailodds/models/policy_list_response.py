@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.policy import Policy
 from mailodds.models.policy_list_response_limits import PolicyListResponseLimits
@@ -30,9 +30,10 @@ class PolicyListResponse(BaseModel):
     PolicyListResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     policies: Optional[List[Policy]] = None
     limits: Optional[PolicyListResponseLimits] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "policies", "limits"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "policies", "limits"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +97,7 @@ class PolicyListResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "policies": [Policy.from_dict(_item) for _item in obj["policies"]] if obj.get("policies") is not None else None,
             "limits": PolicyListResponseLimits.from_dict(obj["limits"]) if obj.get("limits") is not None else None
         })

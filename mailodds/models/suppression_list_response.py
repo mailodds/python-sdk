@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.pagination import Pagination
 from mailodds.models.suppression_entry import SuppressionEntry
@@ -30,9 +30,10 @@ class SuppressionListResponse(BaseModel):
     SuppressionListResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     entries: Optional[List[SuppressionEntry]] = None
     pagination: Optional[Pagination] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "entries", "pagination"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "entries", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +97,7 @@ class SuppressionListResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "entries": [SuppressionEntry.from_dict(_item) for _item in obj["entries"]] if obj.get("entries") is not None else None,
             "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })

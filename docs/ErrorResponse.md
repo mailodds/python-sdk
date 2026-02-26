@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
 **error** | **str** | Machine-readable error code | 
 **message** | **str** | Human-readable error message | [optional] 
 

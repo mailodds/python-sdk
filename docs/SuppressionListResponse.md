@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
 **entries** | [**List[SuppressionEntry]**](SuppressionEntry.md) |  | [optional] 
 **pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 

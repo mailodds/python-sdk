@@ -28,9 +28,10 @@ class ErrorResponse(BaseModel):
     ErrorResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     error: StrictStr = Field(description="Machine-readable error code")
     message: Optional[StrictStr] = Field(default=None, description="Human-readable error message")
-    __properties: ClassVar[List[str]] = ["schema_version", "error", "message"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "error", "message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +85,7 @@ class ErrorResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "error": obj.get("error"),
             "message": obj.get("message")
         })

@@ -7,6 +7,7 @@ Flat validation response. Conditional fields are omitted (not null) when not app
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | 
+**request_id** | **str** | Unique request identifier | [optional] 
 **email** | **str** |  | 
 **status** | **str** | Validation status | 
 **action** | **str** | Recommended action | 
@@ -23,6 +24,10 @@ Name | Type | Description | Notes
 **processed_at** | **datetime** | ISO 8601 timestamp of validation | 
 **suggested_email** | **str** | Typo correction suggestion. Omitted when no typo detected. | [optional] 
 **retry_after_ms** | **int** | Suggested retry delay in milliseconds. Present only for retry_later action. | [optional] 
+**has_spf** | **bool** | Whether the domain has an SPF record. Omitted for standard depth. | [optional] 
+**has_dmarc** | **bool** | Whether the domain has a DMARC record. Omitted for standard depth. | [optional] 
+**dmarc_policy** | **str** | The domain&#39;s DMARC policy. Omitted when no DMARC record found. | [optional] 
+**dnsbl_listed** | **bool** | Whether the domain&#39;s MX IP is on a DNS blocklist (Spamhaus ZEN). Omitted for standard depth. | [optional] 
 **suppression_match** | [**ValidationResponseSuppressionMatch**](ValidationResponseSuppressionMatch.md) |  | [optional] 
 **policy_applied** | [**ValidationResponsePolicyApplied**](ValidationResponsePolicyApplied.md) |  | [optional] 
 

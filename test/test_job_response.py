@@ -46,6 +46,7 @@ class TestJobResponse(unittest.TestCase):
                     summary = mailodds.models.job_summary.Job_summary(
                         valid = 56, 
                         invalid = 56, 
+                        catch_all = 56, 
                         do_not_mail = 56, 
                         unknown = 56, 
                         cancelled_pending = 56, ), 

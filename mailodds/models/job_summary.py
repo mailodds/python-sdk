@@ -29,10 +29,11 @@ class JobSummary(BaseModel):
     """ # noqa: E501
     valid: Optional[StrictInt] = None
     invalid: Optional[StrictInt] = None
+    catch_all: Optional[StrictInt] = None
     do_not_mail: Optional[StrictInt] = None
     unknown: Optional[StrictInt] = None
     cancelled_pending: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["valid", "invalid", "do_not_mail", "unknown", "cancelled_pending"]
+    __properties: ClassVar[List[str]] = ["valid", "invalid", "catch_all", "do_not_mail", "unknown", "cancelled_pending"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,7 @@ class JobSummary(BaseModel):
         _obj = cls.model_validate({
             "valid": obj.get("valid"),
             "invalid": obj.get("invalid"),
+            "catch_all": obj.get("catch_all"),
             "do_not_mail": obj.get("do_not_mail"),
             "unknown": obj.get("unknown"),
             "cancelled_pending": obj.get("cancelled_pending")

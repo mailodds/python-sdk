@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,9 @@ class RemoveSuppression200Response(BaseModel):
     RemoveSuppression200Response
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     removed: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "removed"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "removed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +84,7 @@ class RemoveSuppression200Response(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "removed": obj.get("removed")
         })
         return _obj

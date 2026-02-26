@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.policy_presets_response_presets_inner import PolicyPresetsResponsePresetsInner
 from typing import Optional, Set
@@ -29,8 +29,9 @@ class PolicyPresetsResponse(BaseModel):
     PolicyPresetsResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     presets: Optional[List[PolicyPresetsResponsePresetsInner]] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "presets"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "presets"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,7 @@ class PolicyPresetsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "presets": [PolicyPresetsResponsePresetsInner.from_dict(_item) for _item in obj["presets"]] if obj.get("presets") is not None else None
         })
         return _obj

@@ -20,7 +20,10 @@ __version__ = "1.0.0"
 # Define package exports
 __all__ = [
     "BulkValidationApi",
+    "EmailSendingApi",
     "EmailValidationApi",
+    "SendingDomainsApi",
+    "SubscriberListsApi",
     "SuppressionListsApi",
     "SystemApi",
     "ValidationPoliciesApi",
@@ -37,21 +40,43 @@ __all__ = [
     "AddSuppressionRequest",
     "AddSuppressionRequestEntriesInner",
     "AddSuppressionResponse",
+    "BatchDeliverRequest",
+    "BatchDeliverRequestStructuredData",
+    "BatchDeliverResponse",
+    "BatchDeliverResponseDelivery",
+    "BatchDeliverResponseRejectedInner",
     "CheckSuppressionRequest",
+    "ConfirmSubscription200Response",
     "CreateJobFromS3Request",
     "CreateJobRequest",
+    "CreateList201Response",
+    "CreateListRequest",
     "CreatePolicyFromPresetRequest",
     "CreatePolicyRequest",
+    "CreateSendingDomain201Response",
+    "CreateSendingDomainRequest",
     "DeleteJob200Response",
     "DeletePolicy200Response",
     "DeletePolicyRule200Response",
+    "DeliverRequest",
+    "DeliverRequestOptions",
+    "DeliverRequestStructuredData",
+    "DeliverRequestToInner",
+    "DeliverResponse",
+    "DeliverResponseDelivery",
     "ErrorResponse",
+    "GetLists200Response",
     "GetPresignedUploadRequest",
+    "GetSendingDomainIdentityScore200Response",
+    "GetSendingStats200Response",
+    "GetSendingStats200ResponseStats",
+    "GetSubscribers200Response",
     "HealthCheck200Response",
     "Job",
     "JobListResponse",
     "JobResponse",
     "JobSummary",
+    "ListSendingDomains200Response",
     "Pagination",
     "Policy",
     "PolicyListResponse",
@@ -67,6 +92,16 @@ __all__ = [
     "RemoveSuppression200Response",
     "RemoveSuppressionRequest",
     "ResultsResponse",
+    "SendingDomain",
+    "SendingDomainDnsRecords",
+    "SendingDomainDnsRecordsNs",
+    "SendingDomainIdentityScore",
+    "SendingDomainIdentityScoreChecks",
+    "SendingDomainIdentityScoreChecksDkim",
+    "SendingDomainIdentityScoreChecksDmarc",
+    "SubscribeRequest",
+    "Subscriber",
+    "SubscriberList",
     "SuppressionCheckResponse",
     "SuppressionEntry",
     "SuppressionListResponse",
@@ -79,6 +114,7 @@ __all__ = [
     "TelemetrySummaryTotals",
     "TestPolicyRequest",
     "TestPolicyRequestTestResult",
+    "UnsubscribeSubscriber200Response",
     "UpdatePolicyRequest",
     "ValidateBatch200Response",
     "ValidateBatch200ResponseSummary",
@@ -92,7 +128,10 @@ __all__ = [
 
 # import apis into sdk package
 from mailodds.api.bulk_validation_api import BulkValidationApi as BulkValidationApi
+from mailodds.api.email_sending_api import EmailSendingApi as EmailSendingApi
 from mailodds.api.email_validation_api import EmailValidationApi as EmailValidationApi
+from mailodds.api.sending_domains_api import SendingDomainsApi as SendingDomainsApi
+from mailodds.api.subscriber_lists_api import SubscriberListsApi as SubscriberListsApi
 from mailodds.api.suppression_lists_api import SuppressionListsApi as SuppressionListsApi
 from mailodds.api.system_api import SystemApi as SystemApi
 from mailodds.api.validation_policies_api import ValidationPoliciesApi as ValidationPoliciesApi
@@ -113,21 +152,43 @@ from mailodds.models.add_policy_rule201_response import AddPolicyRule201Response
 from mailodds.models.add_suppression_request import AddSuppressionRequest as AddSuppressionRequest
 from mailodds.models.add_suppression_request_entries_inner import AddSuppressionRequestEntriesInner as AddSuppressionRequestEntriesInner
 from mailodds.models.add_suppression_response import AddSuppressionResponse as AddSuppressionResponse
+from mailodds.models.batch_deliver_request import BatchDeliverRequest as BatchDeliverRequest
+from mailodds.models.batch_deliver_request_structured_data import BatchDeliverRequestStructuredData as BatchDeliverRequestStructuredData
+from mailodds.models.batch_deliver_response import BatchDeliverResponse as BatchDeliverResponse
+from mailodds.models.batch_deliver_response_delivery import BatchDeliverResponseDelivery as BatchDeliverResponseDelivery
+from mailodds.models.batch_deliver_response_rejected_inner import BatchDeliverResponseRejectedInner as BatchDeliverResponseRejectedInner
 from mailodds.models.check_suppression_request import CheckSuppressionRequest as CheckSuppressionRequest
+from mailodds.models.confirm_subscription200_response import ConfirmSubscription200Response as ConfirmSubscription200Response
 from mailodds.models.create_job_from_s3_request import CreateJobFromS3Request as CreateJobFromS3Request
 from mailodds.models.create_job_request import CreateJobRequest as CreateJobRequest
+from mailodds.models.create_list201_response import CreateList201Response as CreateList201Response
+from mailodds.models.create_list_request import CreateListRequest as CreateListRequest
 from mailodds.models.create_policy_from_preset_request import CreatePolicyFromPresetRequest as CreatePolicyFromPresetRequest
 from mailodds.models.create_policy_request import CreatePolicyRequest as CreatePolicyRequest
+from mailodds.models.create_sending_domain201_response import CreateSendingDomain201Response as CreateSendingDomain201Response
+from mailodds.models.create_sending_domain_request import CreateSendingDomainRequest as CreateSendingDomainRequest
 from mailodds.models.delete_job200_response import DeleteJob200Response as DeleteJob200Response
 from mailodds.models.delete_policy200_response import DeletePolicy200Response as DeletePolicy200Response
 from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Response as DeletePolicyRule200Response
+from mailodds.models.deliver_request import DeliverRequest as DeliverRequest
+from mailodds.models.deliver_request_options import DeliverRequestOptions as DeliverRequestOptions
+from mailodds.models.deliver_request_structured_data import DeliverRequestStructuredData as DeliverRequestStructuredData
+from mailodds.models.deliver_request_to_inner import DeliverRequestToInner as DeliverRequestToInner
+from mailodds.models.deliver_response import DeliverResponse as DeliverResponse
+from mailodds.models.deliver_response_delivery import DeliverResponseDelivery as DeliverResponseDelivery
 from mailodds.models.error_response import ErrorResponse as ErrorResponse
+from mailodds.models.get_lists200_response import GetLists200Response as GetLists200Response
 from mailodds.models.get_presigned_upload_request import GetPresignedUploadRequest as GetPresignedUploadRequest
+from mailodds.models.get_sending_domain_identity_score200_response import GetSendingDomainIdentityScore200Response as GetSendingDomainIdentityScore200Response
+from mailodds.models.get_sending_stats200_response import GetSendingStats200Response as GetSendingStats200Response
+from mailodds.models.get_sending_stats200_response_stats import GetSendingStats200ResponseStats as GetSendingStats200ResponseStats
+from mailodds.models.get_subscribers200_response import GetSubscribers200Response as GetSubscribers200Response
 from mailodds.models.health_check200_response import HealthCheck200Response as HealthCheck200Response
 from mailodds.models.job import Job as Job
 from mailodds.models.job_list_response import JobListResponse as JobListResponse
 from mailodds.models.job_response import JobResponse as JobResponse
 from mailodds.models.job_summary import JobSummary as JobSummary
+from mailodds.models.list_sending_domains200_response import ListSendingDomains200Response as ListSendingDomains200Response
 from mailodds.models.pagination import Pagination as Pagination
 from mailodds.models.policy import Policy as Policy
 from mailodds.models.policy_list_response import PolicyListResponse as PolicyListResponse
@@ -143,6 +204,16 @@ from mailodds.models.presigned_upload_response_upload import PresignedUploadResp
 from mailodds.models.remove_suppression200_response import RemoveSuppression200Response as RemoveSuppression200Response
 from mailodds.models.remove_suppression_request import RemoveSuppressionRequest as RemoveSuppressionRequest
 from mailodds.models.results_response import ResultsResponse as ResultsResponse
+from mailodds.models.sending_domain import SendingDomain as SendingDomain
+from mailodds.models.sending_domain_dns_records import SendingDomainDnsRecords as SendingDomainDnsRecords
+from mailodds.models.sending_domain_dns_records_ns import SendingDomainDnsRecordsNs as SendingDomainDnsRecordsNs
+from mailodds.models.sending_domain_identity_score import SendingDomainIdentityScore as SendingDomainIdentityScore
+from mailodds.models.sending_domain_identity_score_checks import SendingDomainIdentityScoreChecks as SendingDomainIdentityScoreChecks
+from mailodds.models.sending_domain_identity_score_checks_dkim import SendingDomainIdentityScoreChecksDkim as SendingDomainIdentityScoreChecksDkim
+from mailodds.models.sending_domain_identity_score_checks_dmarc import SendingDomainIdentityScoreChecksDmarc as SendingDomainIdentityScoreChecksDmarc
+from mailodds.models.subscribe_request import SubscribeRequest as SubscribeRequest
+from mailodds.models.subscriber import Subscriber as Subscriber
+from mailodds.models.subscriber_list import SubscriberList as SubscriberList
 from mailodds.models.suppression_check_response import SuppressionCheckResponse as SuppressionCheckResponse
 from mailodds.models.suppression_entry import SuppressionEntry as SuppressionEntry
 from mailodds.models.suppression_list_response import SuppressionListResponse as SuppressionListResponse
@@ -155,6 +226,7 @@ from mailodds.models.telemetry_summary_top_reasons_inner import TelemetrySummary
 from mailodds.models.telemetry_summary_totals import TelemetrySummaryTotals as TelemetrySummaryTotals
 from mailodds.models.test_policy_request import TestPolicyRequest as TestPolicyRequest
 from mailodds.models.test_policy_request_test_result import TestPolicyRequestTestResult as TestPolicyRequestTestResult
+from mailodds.models.unsubscribe_subscriber200_response import UnsubscribeSubscriber200Response as UnsubscribeSubscriber200Response
 from mailodds.models.update_policy_request import UpdatePolicyRequest as UpdatePolicyRequest
 from mailodds.models.validate_batch200_response import ValidateBatch200Response as ValidateBatch200Response
 from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary as ValidateBatch200ResponseSummary

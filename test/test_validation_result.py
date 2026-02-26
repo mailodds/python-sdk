@@ -37,9 +37,9 @@ class TestValidationResult(unittest.TestCase):
         if include_optional:
             return ValidationResult(
                 email = '',
-                status = '',
+                status = 'valid',
                 sub_status = '',
-                action = '',
+                action = 'accept',
                 processed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:

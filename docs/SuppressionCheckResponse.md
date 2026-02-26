@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
 **email** | **str** |  | [optional] 
 **suppressed** | **bool** |  | [optional] 
 **match_type** | **str** |  | [optional] 

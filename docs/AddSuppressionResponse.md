@@ -6,8 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
-**added** | **int** |  | [optional] 
-**skipped** | **int** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
+**added** | **int** | Number of entries successfully added | [optional] 
+**duplicates** | **int** | Number of duplicate entries skipped | [optional] 
+**invalid** | **int** | Number of invalid entries rejected | [optional] 
+**total** | **int** | Total entries in the request | [optional] 
 
 ## Example
 

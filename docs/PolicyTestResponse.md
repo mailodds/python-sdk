@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
 **original** | **object** | Original validation result before policy | [optional] 
 **modified** | **object** | Result after policy applied | [optional] 
 **matched_rule** | **object** | The rule that matched, or null if none matched | [optional] 

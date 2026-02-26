@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.presigned_upload_response_upload import PresignedUploadResponseUpload
 from typing import Optional, Set
@@ -29,8 +29,9 @@ class PresignedUploadResponse(BaseModel):
     PresignedUploadResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     upload: Optional[PresignedUploadResponseUpload] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "upload"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "upload"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,7 @@ class PresignedUploadResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "upload": PresignedUploadResponseUpload.from_dict(obj["upload"]) if obj.get("upload") is not None else None
         })
         return _obj

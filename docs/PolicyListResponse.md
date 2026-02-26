@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
+**request_id** | **str** | Unique request identifier | [optional] 
 **policies** | [**List[Policy]**](Policy.md) |  | [optional] 
 **limits** | [**PolicyListResponseLimits**](PolicyListResponseLimits.md) |  | [optional] 
 

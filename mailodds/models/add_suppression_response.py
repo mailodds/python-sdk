@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,9 +28,12 @@ class AddSuppressionResponse(BaseModel):
     AddSuppressionResponse
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
-    added: Optional[StrictInt] = None
-    skipped: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "added", "skipped"]
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
+    added: Optional[StrictInt] = Field(default=None, description="Number of entries successfully added")
+    duplicates: Optional[StrictInt] = Field(default=None, description="Number of duplicate entries skipped")
+    invalid: Optional[StrictInt] = Field(default=None, description="Number of invalid entries rejected")
+    total: Optional[StrictInt] = Field(default=None, description="Total entries in the request")
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "added", "duplicates", "invalid", "total"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,8 +87,11 @@ class AddSuppressionResponse(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "added": obj.get("added"),
-            "skipped": obj.get("skipped")
+            "duplicates": obj.get("duplicates"),
+            "invalid": obj.get("invalid"),
+            "total": obj.get("total")
         })
         return _obj
 

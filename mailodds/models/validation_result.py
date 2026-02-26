@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,6 +34,26 @@ class ValidationResult(BaseModel):
     action: Optional[StrictStr] = None
     processed_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["email", "status", "sub_status", "action", "processed_at"]
+
+    @field_validator('status')
+    def status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['valid', 'invalid', 'catch_all', 'do_not_mail', 'unknown']):
+            raise ValueError("must be one of enum values ('valid', 'invalid', 'catch_all', 'do_not_mail', 'unknown')")
+        return value
+
+    @field_validator('action')
+    def action_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['accept', 'accept_with_caution', 'reject', 'retry_later']):
+            raise ValueError("must be one of enum values ('accept', 'accept_with_caution', 'reject', 'retry_later')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

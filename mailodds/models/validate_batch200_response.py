@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary
 from mailodds.models.validation_response import ValidationResponse
@@ -30,10 +30,11 @@ class ValidateBatch200Response(BaseModel):
     ValidateBatch200Response
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
     total: Optional[StrictInt] = None
     summary: Optional[ValidateBatch200ResponseSummary] = None
     results: Optional[List[ValidationResponse]] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "total", "summary", "results"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "total", "summary", "results"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class ValidateBatch200Response(BaseModel):
 
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
+            "request_id": obj.get("request_id"),
             "total": obj.get("total"),
             "summary": ValidateBatch200ResponseSummary.from_dict(obj["summary"]) if obj.get("summary") is not None else None,
             "results": [ValidationResponse.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None

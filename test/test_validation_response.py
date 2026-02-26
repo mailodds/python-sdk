@@ -53,6 +53,10 @@ class TestValidationResponse(unittest.TestCase):
                 processed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 suggested_email = '',
                 retry_after_ms = 56,
+                has_spf = True,
+                has_dmarc = True,
+                dmarc_policy = 'none',
+                dnsbl_listed = True,
                 suppression_match = mailodds.models.validation_response_suppression_match.ValidationResponse_suppression_match(
                     match_type = 'email', 
                     match_value = '', 

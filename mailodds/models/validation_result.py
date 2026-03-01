@@ -3,7 +3,7 @@
 """
     MailOdds Email Validation API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description 
+    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -19,28 +19,30 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from mailodds.models.validation_result_suppression import ValidationResultSuppression
 from typing import Optional, Set
 from typing_extensions import Self
 
 class ValidationResult(BaseModel):
     """
-    ValidationResult
+    Individual result from a bulk validation job
     """ # noqa: E501
-    email: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    sub_status: Optional[StrictStr] = None
-    action: Optional[StrictStr] = None
-    processed_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["email", "status", "sub_status", "action", "processed_at"]
+    email: StrictStr
+    status: StrictStr
+    sub_status: Optional[StrictStr] = Field(default=None, description="Detailed reason. Omitted when none.")
+    action: StrictStr
+    domain: StrictStr = Field(description="Email domain")
+    mx_host: Optional[StrictStr] = Field(default=None, description="Primary MX hostname. Omitted when not resolved.")
+    checks: Optional[Dict[str, Any]] = Field(default=None, description="Detailed check results (JSONB). Omitted when not available.")
+    suppression: Optional[ValidationResultSuppression] = None
+    processed_at: datetime
+    __properties: ClassVar[List[str]] = ["email", "status", "sub_status", "action", "domain", "mx_host", "checks", "suppression", "processed_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['valid', 'invalid', 'catch_all', 'do_not_mail', 'unknown']):
             raise ValueError("must be one of enum values ('valid', 'invalid', 'catch_all', 'do_not_mail', 'unknown')")
         return value
@@ -48,9 +50,6 @@ class ValidationResult(BaseModel):
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['accept', 'accept_with_caution', 'reject', 'retry_later']):
             raise ValueError("must be one of enum values ('accept', 'accept_with_caution', 'reject', 'retry_later')")
         return value
@@ -94,6 +93,9 @@ class ValidationResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of suppression
+        if self.suppression:
+            _dict['suppression'] = self.suppression.to_dict()
         return _dict
 
     @classmethod
@@ -110,6 +112,10 @@ class ValidationResult(BaseModel):
             "status": obj.get("status"),
             "sub_status": obj.get("sub_status"),
             "action": obj.get("action"),
+            "domain": obj.get("domain"),
+            "mx_host": obj.get("mx_host"),
+            "checks": obj.get("checks"),
+            "suppression": ValidationResultSuppression.from_dict(obj["suppression"]) if obj.get("suppression") is not None else None,
             "processed_at": obj.get("processed_at")
         })
         return _obj

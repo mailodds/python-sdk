@@ -3,7 +3,7 @@
 """
     MailOdds Email Validation API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description 
+    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -18,10 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.job import Job
-from mailodds.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,9 +30,10 @@ class JobListResponse(BaseModel):
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
     request_id: Optional[StrictStr] = Field(default=None, description="Unique request identifier")
-    jobs: Optional[List[Job]] = None
-    pagination: Optional[Pagination] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "jobs", "pagination"]
+    data: Optional[List[Job]] = Field(default=None, description="List of jobs")
+    next_cursor: Optional[StrictStr] = Field(default=None, description="Cursor for next page. Null when no more results.")
+    has_more: Optional[StrictBool] = Field(default=None, description="Whether more results exist beyond this page")
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "data", "next_cursor", "has_more"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,16 +74,18 @@ class JobListResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in jobs (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
         _items = []
-        if self.jobs:
-            for _item_jobs in self.jobs:
-                if _item_jobs:
-                    _items.append(_item_jobs.to_dict())
-            _dict['jobs'] = _items
-        # override the default output from pydantic by calling `to_dict()` of pagination
-        if self.pagination:
-            _dict['pagination'] = self.pagination.to_dict()
+        if self.data:
+            for _item_data in self.data:
+                if _item_data:
+                    _items.append(_item_data.to_dict())
+            _dict['data'] = _items
+        # set to None if next_cursor (nullable) is None
+        # and model_fields_set contains the field
+        if self.next_cursor is None and "next_cursor" in self.model_fields_set:
+            _dict['next_cursor'] = None
+
         return _dict
 
     @classmethod
@@ -98,8 +100,9 @@ class JobListResponse(BaseModel):
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
             "request_id": obj.get("request_id"),
-            "jobs": [Job.from_dict(_item) for _item in obj["jobs"]] if obj.get("jobs") is not None else None,
-            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
+            "data": [Job.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "next_cursor": obj.get("next_cursor"),
+            "has_more": obj.get("has_more")
         })
         return _obj
 

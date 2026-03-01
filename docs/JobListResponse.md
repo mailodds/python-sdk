@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
 **request_id** | **str** | Unique request identifier | [optional] 
-**jobs** | [**List[Job]**](Job.md) |  | [optional] 
-**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
+**data** | [**List[Job]**](Job.md) | List of jobs | [optional] 
+**next_cursor** | **str** | Cursor for next page. Null when no more results. | [optional] 
+**has_more** | **bool** | Whether more results exist beyond this page | [optional] 
 
 ## Example
 

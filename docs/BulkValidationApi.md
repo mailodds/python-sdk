@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_jobs**
-> JobListResponse list_jobs(page=page, per_page=per_page, status=status)
+> JobListResponse list_jobs(cursor=cursor, limit=limit, status=status)
 
 List validation jobs
 
@@ -708,13 +708,13 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.BulkValidationApi(api_client)
-    page = 1 # int |  (optional) (default to 1)
-    per_page = 20 # int |  (optional) (default to 20)
+    cursor = 'cursor_example' # str | Pagination cursor (ISO timestamp from previous response) (optional)
+    limit = 50 # int | Results per page (optional) (default to 50)
     status = 'status_example' # str |  (optional)
 
     try:
         # List validation jobs
-        api_response = api_instance.list_jobs(page=page, per_page=per_page, status=status)
+        api_response = api_instance.list_jobs(cursor=cursor, limit=limit, status=status)
         print("The response of BulkValidationApi->list_jobs:\n")
         pprint(api_response)
     except Exception as e:
@@ -728,8 +728,8 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**|  | [optional] [default to 1]
- **per_page** | **int**|  | [optional] [default to 20]
+ **cursor** | **str**| Pagination cursor (ISO timestamp from previous response) | [optional] 
+ **limit** | **int**| Results per page | [optional] [default to 50]
  **status** | **str**|  | [optional] 
 
 ### Return type

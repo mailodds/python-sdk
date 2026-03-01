@@ -3,7 +3,7 @@
 """
     MailOdds Email Validation API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description 
+    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -18,9 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from mailodds.models.sending_domain_identity_score_checks import SendingDomainIdentityScoreChecks
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from mailodds.models.sending_domain_identity_score_breakdown import SendingDomainIdentityScoreBreakdown
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,19 @@ class SendingDomainIdentityScore(BaseModel):
     """
     SendingDomainIdentityScore
     """ # noqa: E501
-    overall_score: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Composite score 0-100")
-    checks: Optional[SendingDomainIdentityScoreChecks] = None
-    __properties: ClassVar[List[str]] = ["overall_score", "checks"]
+    score: StrictInt = Field(description="Total points earned across all checks")
+    max_score: StrictInt = Field(description="Maximum possible score (100)")
+    percentage: StrictInt = Field(description="Score as percentage (same as score since max is 100)")
+    breakdown: SendingDomainIdentityScoreBreakdown
+    grade: StrictStr = Field(description="Letter grade (A+, A, B, C, D, F)")
+    __properties: ClassVar[List[str]] = ["score", "max_score", "percentage", "breakdown", "grade"]
+
+    @field_validator('grade')
+    def grade_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['A+', 'A', 'B', 'C', 'D', 'F']):
+            raise ValueError("must be one of enum values ('A+', 'A', 'B', 'C', 'D', 'F')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,9 +81,9 @@ class SendingDomainIdentityScore(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of checks
-        if self.checks:
-            _dict['checks'] = self.checks.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of breakdown
+        if self.breakdown:
+            _dict['breakdown'] = self.breakdown.to_dict()
         return _dict
 
     @classmethod
@@ -86,8 +96,11 @@ class SendingDomainIdentityScore(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "overall_score": obj.get("overall_score"),
-            "checks": SendingDomainIdentityScoreChecks.from_dict(obj["checks"]) if obj.get("checks") is not None else None
+            "score": obj.get("score"),
+            "max_score": obj.get("max_score"),
+            "percentage": obj.get("percentage"),
+            "breakdown": SendingDomainIdentityScoreBreakdown.from_dict(obj["breakdown"]) if obj.get("breakdown") is not None else None,
+            "grade": obj.get("grade")
         })
         return _obj
 

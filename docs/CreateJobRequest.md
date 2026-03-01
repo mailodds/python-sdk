@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **emails** | **List[str]** | List of emails to validate | 
 **dedup** | **bool** | Remove duplicate emails | [optional] [default to False]
 **metadata** | **object** | Custom metadata for the job | [optional] 
-**webhook_url** | **str** | URL for completion webhook | [optional] 
+**webhook_url** | **str** | URL for completion webhook. Payloads are signed with HMAC-SHA256 if a webhook secret is configured (see Webhooks section). | [optional] 
 **idempotency_key** | **str** | Unique key for idempotent requests | [optional] 
 
 ## Example

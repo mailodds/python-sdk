@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
 **request_id** | **str** | Unique request identifier | [optional] 
-**results** | [**List[ValidationResult]**](ValidationResult.md) |  | [optional] 
+**job** | [**Job**](Job.md) |  | [optional] 
+**data** | [**List[ValidationResult]**](ValidationResult.md) | Validation results for this page | [optional] 
 **pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example

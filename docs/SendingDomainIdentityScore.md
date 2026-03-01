@@ -5,8 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**overall_score** | **float** | Composite score 0-100 | [optional] 
-**checks** | [**SendingDomainIdentityScoreChecks**](SendingDomainIdentityScoreChecks.md) |  | [optional] 
+**score** | **int** | Total points earned across all checks | 
+**max_score** | **int** | Maximum possible score (100) | 
+**percentage** | **int** | Score as percentage (same as score since max is 100) | 
+**breakdown** | [**SendingDomainIdentityScoreBreakdown**](SendingDomainIdentityScoreBreakdown.md) |  | 
+**grade** | **str** | Letter grade (A+, A, B, C, D, F) | 
 
 ## Example
 

@@ -3,7 +3,7 @@
 """
     MailOdds Email Validation API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description 
+    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -21,7 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from mailodds.models.job_artifacts import JobArtifacts
 from mailodds.models.job_summary import JobSummary
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,23 +30,25 @@ class Job(BaseModel):
     """
     Job
     """ # noqa: E501
-    id: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    total_count: Optional[StrictInt] = None
-    processed_count: Optional[StrictInt] = None
-    progress_percent: Optional[Annotated[int, Field(le=100, strict=True, ge=0)]] = None
+    id: StrictStr
+    name: StrictStr = Field(description="Job name (from metadata or auto-generated)")
+    status: StrictStr
+    total_count: StrictInt
+    processed_count: StrictInt
     summary: Optional[JobSummary] = None
-    created_at: Optional[datetime] = None
-    completed_at: Optional[datetime] = None
-    metadata: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["id", "status", "total_count", "processed_count", "progress_percent", "summary", "created_at", "completed_at", "metadata"]
+    created_at: datetime
+    started_at: Optional[datetime] = Field(default=None, description="When processing began. Omitted if not yet started.")
+    completed_at: Optional[datetime] = Field(default=None, description="Omitted if not yet completed.")
+    results_expire_at: datetime = Field(description="When job results will be purged")
+    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Custom metadata attached at creation")
+    error_message: Optional[StrictStr] = Field(default=None, description="Error details. Present only for failed jobs.")
+    request_id: Optional[StrictStr] = Field(default=None, description="Request ID from the job creation request")
+    artifacts: Optional[JobArtifacts] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "status", "total_count", "processed_count", "summary", "created_at", "started_at", "completed_at", "results_expire_at", "metadata", "error_message", "request_id", "artifacts"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['pending', 'processing', 'completed', 'failed', 'cancelled']):
             raise ValueError("must be one of enum values ('pending', 'processing', 'completed', 'failed', 'cancelled')")
         return value
@@ -93,6 +95,9 @@ class Job(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of summary
         if self.summary:
             _dict['summary'] = self.summary.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of artifacts
+        if self.artifacts:
+            _dict['artifacts'] = self.artifacts.to_dict()
         return _dict
 
     @classmethod
@@ -106,14 +111,19 @@ class Job(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "name": obj.get("name"),
             "status": obj.get("status"),
             "total_count": obj.get("total_count"),
             "processed_count": obj.get("processed_count"),
-            "progress_percent": obj.get("progress_percent"),
             "summary": JobSummary.from_dict(obj["summary"]) if obj.get("summary") is not None else None,
             "created_at": obj.get("created_at"),
+            "started_at": obj.get("started_at"),
             "completed_at": obj.get("completed_at"),
-            "metadata": obj.get("metadata")
+            "results_expire_at": obj.get("results_expire_at"),
+            "metadata": obj.get("metadata"),
+            "error_message": obj.get("error_message"),
+            "request_id": obj.get("request_id"),
+            "artifacts": JobArtifacts.from_dict(obj["artifacts"]) if obj.get("artifacts") is not None else None
         })
         return _obj
 

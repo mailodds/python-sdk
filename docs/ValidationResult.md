@@ -1,15 +1,20 @@
 # ValidationResult
 
+Individual result from a bulk validation job
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str** |  | [optional] 
-**status** | **str** |  | [optional] 
-**sub_status** | **str** |  | [optional] 
-**action** | **str** |  | [optional] 
-**processed_at** | **datetime** |  | [optional] 
+**email** | **str** |  | 
+**status** | **str** |  | 
+**sub_status** | **str** | Detailed reason. Omitted when none. | [optional] 
+**action** | **str** |  | 
+**domain** | **str** | Email domain | 
+**mx_host** | **str** | Primary MX hostname. Omitted when not resolved. | [optional] 
+**checks** | **Dict[str, object]** | Detailed check results (JSONB). Omitted when not available. | [optional] 
+**suppression** | [**ValidationResultSuppression**](ValidationResultSuppression.md) |  | [optional] 
+**processed_at** | **datetime** |  | 
 
 ## Example
 

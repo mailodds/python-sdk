@@ -4,7 +4,7 @@
 """
     MailOdds Email Validation API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description 
+    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -50,7 +50,9 @@ from mailodds.models.get_sending_stats200_response import GetSendingStats200Resp
 from mailodds.models.get_sending_stats200_response_stats import GetSendingStats200ResponseStats
 from mailodds.models.get_subscribers200_response import GetSubscribers200Response
 from mailodds.models.health_check200_response import HealthCheck200Response
+from mailodds.models.identity_score_check import IdentityScoreCheck
 from mailodds.models.job import Job
+from mailodds.models.job_artifacts import JobArtifacts
 from mailodds.models.job_list_response import JobListResponse
 from mailodds.models.job_response import JobResponse
 from mailodds.models.job_summary import JobSummary
@@ -74,12 +76,12 @@ from mailodds.models.sending_domain import SendingDomain
 from mailodds.models.sending_domain_dns_records import SendingDomainDnsRecords
 from mailodds.models.sending_domain_dns_records_ns import SendingDomainDnsRecordsNs
 from mailodds.models.sending_domain_identity_score import SendingDomainIdentityScore
-from mailodds.models.sending_domain_identity_score_checks import SendingDomainIdentityScoreChecks
-from mailodds.models.sending_domain_identity_score_checks_dkim import SendingDomainIdentityScoreChecksDkim
-from mailodds.models.sending_domain_identity_score_checks_dmarc import SendingDomainIdentityScoreChecksDmarc
+from mailodds.models.sending_domain_identity_score_breakdown import SendingDomainIdentityScoreBreakdown
 from mailodds.models.subscribe_request import SubscribeRequest
 from mailodds.models.subscriber import Subscriber
 from mailodds.models.subscriber_list import SubscriberList
+from mailodds.models.suppression_audit_response import SuppressionAuditResponse
+from mailodds.models.suppression_audit_response_entries_inner import SuppressionAuditResponseEntriesInner
 from mailodds.models.suppression_check_response import SuppressionCheckResponse
 from mailodds.models.suppression_entry import SuppressionEntry
 from mailodds.models.suppression_list_response import SuppressionListResponse
@@ -102,4 +104,6 @@ from mailodds.models.validation_response import ValidationResponse
 from mailodds.models.validation_response_policy_applied import ValidationResponsePolicyApplied
 from mailodds.models.validation_response_suppression_match import ValidationResponseSuppressionMatch
 from mailodds.models.validation_result import ValidationResult
+from mailodds.models.validation_result_suppression import ValidationResultSuppression
+from mailodds.models.webhook_event import WebhookEvent
 

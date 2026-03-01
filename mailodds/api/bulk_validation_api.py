@@ -3,7 +3,7 @@
 """
     MailOdds Email Validation API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description 
+    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -2341,8 +2341,8 @@ class BulkValidationApi:
     @validate_call
     def list_jobs(
         self,
-        page: Optional[StrictInt] = None,
-        per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
+        cursor: Annotated[Optional[StrictStr], Field(description="Pagination cursor (ISO timestamp from previous response)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Results per page")] = None,
         status: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2361,10 +2361,10 @@ class BulkValidationApi:
 
         List all validation jobs for the authenticated account.
 
-        :param page:
-        :type page: int
-        :param per_page:
-        :type per_page: int
+        :param cursor: Pagination cursor (ISO timestamp from previous response)
+        :type cursor: str
+        :param limit: Results per page
+        :type limit: int
         :param status:
         :type status: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2390,8 +2390,8 @@ class BulkValidationApi:
         """ # noqa: E501
 
         _param = self._list_jobs_serialize(
-            page=page,
-            per_page=per_page,
+            cursor=cursor,
+            limit=limit,
             status=status,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2417,8 +2417,8 @@ class BulkValidationApi:
     @validate_call
     def list_jobs_with_http_info(
         self,
-        page: Optional[StrictInt] = None,
-        per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
+        cursor: Annotated[Optional[StrictStr], Field(description="Pagination cursor (ISO timestamp from previous response)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Results per page")] = None,
         status: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2437,10 +2437,10 @@ class BulkValidationApi:
 
         List all validation jobs for the authenticated account.
 
-        :param page:
-        :type page: int
-        :param per_page:
-        :type per_page: int
+        :param cursor: Pagination cursor (ISO timestamp from previous response)
+        :type cursor: str
+        :param limit: Results per page
+        :type limit: int
         :param status:
         :type status: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2466,8 +2466,8 @@ class BulkValidationApi:
         """ # noqa: E501
 
         _param = self._list_jobs_serialize(
-            page=page,
-            per_page=per_page,
+            cursor=cursor,
+            limit=limit,
             status=status,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2493,8 +2493,8 @@ class BulkValidationApi:
     @validate_call
     def list_jobs_without_preload_content(
         self,
-        page: Optional[StrictInt] = None,
-        per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
+        cursor: Annotated[Optional[StrictStr], Field(description="Pagination cursor (ISO timestamp from previous response)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Results per page")] = None,
         status: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2513,10 +2513,10 @@ class BulkValidationApi:
 
         List all validation jobs for the authenticated account.
 
-        :param page:
-        :type page: int
-        :param per_page:
-        :type per_page: int
+        :param cursor: Pagination cursor (ISO timestamp from previous response)
+        :type cursor: str
+        :param limit: Results per page
+        :type limit: int
         :param status:
         :type status: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2542,8 +2542,8 @@ class BulkValidationApi:
         """ # noqa: E501
 
         _param = self._list_jobs_serialize(
-            page=page,
-            per_page=per_page,
+            cursor=cursor,
+            limit=limit,
             status=status,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2564,8 +2564,8 @@ class BulkValidationApi:
 
     def _list_jobs_serialize(
         self,
-        page,
-        per_page,
+        cursor,
+        limit,
         status,
         _request_auth,
         _content_type,
@@ -2589,13 +2589,13 @@ class BulkValidationApi:
 
         # process the path parameters
         # process the query parameters
-        if page is not None:
+        if cursor is not None:
             
-            _query_params.append(('page', page))
+            _query_params.append(('cursor', cursor))
             
-        if per_page is not None:
+        if limit is not None:
             
-            _query_params.append(('per_page', per_page))
+            _query_params.append(('limit', limit))
             
         if status is not None:
             

@@ -1,5 +1,6 @@
 # JobSummary
 
+Status breakdown. Present when processing has started.
 
 ## Properties
 
@@ -10,7 +11,6 @@ Name | Type | Description | Notes
 **catch_all** | **int** |  | [optional] 
 **do_not_mail** | **int** |  | [optional] 
 **unknown** | **int** |  | [optional] 
-**cancelled_pending** | **int** |  | [optional] 
 
 ## Example
 

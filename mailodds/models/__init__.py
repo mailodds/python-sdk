@@ -2,9 +2,9 @@
 
 # flake8: noqa
 """
-    MailOdds Email Validation API
+    MailOdds Email Platform API
 
-    MailOdds provides email validation services to help maintain clean email lists  and improve deliverability. The API performs multiple validation checks including  format verification, domain validation, MX record checking, and disposable email detection.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
+    MailOdds is an email platform for validation, sending, campaigns, deliverability monitoring, and analytics. The API performs multi-layer validation checks, delivers transactional and campaign email with DKIM dual signing, and tracks engagement with privacy-first analytics.  ## Authentication  All API requests require authentication using a Bearer token. Include your API key  in the Authorization header:  ``` Authorization: Bearer YOUR_API_KEY ```  API keys can be created in the MailOdds dashboard.  ## Rate Limits  Rate limits vary by plan: - Free: 10 requests/minute - Starter: 60 requests/minute   - Pro: 300 requests/minute - Business: 1000 requests/minute - Enterprise: Custom limits  ## Response Format  All responses include: - `schema_version`: API schema version (currently \"1.0\") - `request_id`: Unique request identifier for debugging  Error responses include: - `error`: Machine-readable error code - `message`: Human-readable error description  ## Webhooks  MailOdds can send webhook notifications for job completion and email delivery events. Configure webhooks in the dashboard or per-job via the `webhook_url` field.  ### Event Types  | Event | Description | |-------|-------------| | `job.completed` | Validation job finished processing | | `job.failed` | Validation job failed | | `message.queued` | Email queued for delivery | | `message.delivered` | Email delivered to recipient | | `message.bounced` | Email bounced | | `message.deferred` | Email delivery deferred | | `message.failed` | Email delivery failed | | `message.opened` | Recipient opened the email | | `message.clicked` | Recipient clicked a link |  ### Payload Format  ```json {   \"event\": \"job.completed\",   \"job\": { ... },   \"timestamp\": \"2026-01-15T10:30:00Z\" } ```  ### Webhook Signing  If a webhook secret is configured, each request includes an `X-MailOdds-Signature` header containing an HMAC-SHA256 hex digest of the request body.  **Verification pseudocode:** ``` expected = HMAC-SHA256(webhook_secret, request_body) valid = constant_time_compare(request.headers[\"X-MailOdds-Signature\"], hex(expected)) ```  The payload is serialized with compact JSON (no extra whitespace, sorted keys) before signing.  ### Headers  All webhook requests include: - `Content-Type: application/json` - `User-Agent: MailOdds-Webhook/1.0` - `X-MailOdds-Event: {event_type}` - `X-Request-Id: {uuid}` - `X-MailOdds-Signature: {hmac}` (when secret is configured)  ### Retry Policy  Failed deliveries (non-2xx response or timeout) are retried up to 3 times with exponential backoff (10s, 60s, 300s). 
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@mailodds.com
@@ -14,17 +14,43 @@
 """  # noqa: E501
 
 # import models into model package
+from mailodds.models.add_blacklist_monitor201_response import AddBlacklistMonitor201Response
+from mailodds.models.add_blacklist_monitor_request import AddBlacklistMonitorRequest
+from mailodds.models.add_dmarc_domain201_response import AddDmarcDomain201Response
+from mailodds.models.add_dmarc_domain_request import AddDmarcDomainRequest
 from mailodds.models.add_policy_rule201_response import AddPolicyRule201Response
 from mailodds.models.add_suppression_request import AddSuppressionRequest
 from mailodds.models.add_suppression_request_entries_inner import AddSuppressionRequestEntriesInner
 from mailodds.models.add_suppression_response import AddSuppressionResponse
+from mailodds.models.append_to_contact_list200_response import AppendToContactList200Response
+from mailodds.models.append_to_contact_list_request import AppendToContactListRequest
 from mailodds.models.batch_deliver_request import BatchDeliverRequest
 from mailodds.models.batch_deliver_request_structured_data import BatchDeliverRequestStructuredData
 from mailodds.models.batch_deliver_response import BatchDeliverResponse
 from mailodds.models.batch_deliver_response_delivery import BatchDeliverResponseDelivery
 from mailodds.models.batch_deliver_response_rejected_inner import BatchDeliverResponseRejectedInner
+from mailodds.models.blacklist_monitor import BlacklistMonitor
+from mailodds.models.blacklist_monitor_latest_check import BlacklistMonitorLatestCheck
+from mailodds.models.bounce_analysis_response import BounceAnalysisResponse
+from mailodds.models.bounce_analysis_response_analysis import BounceAnalysisResponseAnalysis
+from mailodds.models.bounce_analysis_response_analysis_categories import BounceAnalysisResponseAnalysisCategories
+from mailodds.models.bounce_analysis_response_analysis_top_domains_inner import BounceAnalysisResponseAnalysisTopDomainsInner
+from mailodds.models.campaign import Campaign
+from mailodds.models.campaign_response import CampaignResponse
+from mailodds.models.campaign_stats import CampaignStats
+from mailodds.models.campaign_variant import CampaignVariant
 from mailodds.models.check_suppression_request import CheckSuppressionRequest
+from mailodds.models.classify_content200_response import ClassifyContent200Response
+from mailodds.models.classify_content200_response_content_check import ClassifyContent200ResponseContentCheck
+from mailodds.models.classify_content200_response_content_check_categories_inner import ClassifyContent200ResponseContentCheckCategoriesInner
+from mailodds.models.classify_content_request import ClassifyContentRequest
 from mailodds.models.confirm_subscription200_response import ConfirmSubscription200Response
+from mailodds.models.contact_list import ContactList
+from mailodds.models.create_bounce_analysis_request import CreateBounceAnalysisRequest
+from mailodds.models.create_campaign_request import CreateCampaignRequest
+from mailodds.models.create_campaign_variant201_response import CreateCampaignVariant201Response
+from mailodds.models.create_contact_list201_response import CreateContactList201Response
+from mailodds.models.create_contact_list_request import CreateContactListRequest
 from mailodds.models.create_job_from_s3_request import CreateJobFromS3Request
 from mailodds.models.create_job_request import CreateJobRequest
 from mailodds.models.create_list201_response import CreateList201Response
@@ -33,6 +59,10 @@ from mailodds.models.create_policy_from_preset_request import CreatePolicyFromPr
 from mailodds.models.create_policy_request import CreatePolicyRequest
 from mailodds.models.create_sending_domain201_response import CreateSendingDomain201Response
 from mailodds.models.create_sending_domain_request import CreateSendingDomainRequest
+from mailodds.models.create_variant_request import CreateVariantRequest
+from mailodds.models.cross_reference_bounces200_response import CrossReferenceBounces200Response
+from mailodds.models.cross_reference_bounces200_response_cross_reference import CrossReferenceBounces200ResponseCrossReference
+from mailodds.models.cross_reference_bounces200_response_cross_reference_entries_inner import CrossReferenceBounces200ResponseCrossReferenceEntriesInner
 from mailodds.models.delete_job200_response import DeleteJob200Response
 from mailodds.models.delete_policy200_response import DeletePolicy200Response
 from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Response
@@ -42,9 +72,51 @@ from mailodds.models.deliver_request_structured_data import DeliverRequestStruct
 from mailodds.models.deliver_request_to_inner import DeliverRequestToInner
 from mailodds.models.deliver_response import DeliverResponse
 from mailodds.models.deliver_response_delivery import DeliverResponseDelivery
+from mailodds.models.dmarc_domain import DmarcDomain
 from mailodds.models.error_response import ErrorResponse
+from mailodds.models.get_blacklist_history200_response import GetBlacklistHistory200Response
+from mailodds.models.get_blacklist_history200_response_checks_inner import GetBlacklistHistory200ResponseChecksInner
+from mailodds.models.get_bounce_records200_response import GetBounceRecords200Response
+from mailodds.models.get_bounce_records200_response_records_inner import GetBounceRecords200ResponseRecordsInner
+from mailodds.models.get_campaign_ab_results200_response import GetCampaignABResults200Response
+from mailodds.models.get_campaign_ab_results200_response_variants_inner import GetCampaignABResults200ResponseVariantsInner
+from mailodds.models.get_campaign_ab_results200_response_winner import GetCampaignABResults200ResponseWinner
+from mailodds.models.get_campaign_attribution200_response import GetCampaignAttribution200Response
+from mailodds.models.get_campaign_attribution200_response_attribution import GetCampaignAttribution200ResponseAttribution
+from mailodds.models.get_campaign_attribution200_response_attribution_first_touch import GetCampaignAttribution200ResponseAttributionFirstTouch
+from mailodds.models.get_campaign_delivery_confidence200_response import GetCampaignDeliveryConfidence200Response
+from mailodds.models.get_campaign_delivery_confidence200_response_factors import GetCampaignDeliveryConfidence200ResponseFactors
+from mailodds.models.get_campaign_delivery_confidence200_response_factors_domain_auth import GetCampaignDeliveryConfidence200ResponseFactorsDomainAuth
+from mailodds.models.get_campaign_delivery_confidence200_response_factors_list_quality import GetCampaignDeliveryConfidence200ResponseFactorsListQuality
+from mailodds.models.get_campaign_delivery_confidence200_response_factors_sender_reputation import GetCampaignDeliveryConfidence200ResponseFactorsSenderReputation
+from mailodds.models.get_campaign_funnel200_response import GetCampaignFunnel200Response
+from mailodds.models.get_campaign_funnel200_response_funnel import GetCampaignFunnel200ResponseFunnel
+from mailodds.models.get_campaign_funnel200_response_rates import GetCampaignFunnel200ResponseRates
+from mailodds.models.get_campaign_provider_intelligence200_response import GetCampaignProviderIntelligence200Response
+from mailodds.models.get_campaign_provider_intelligence200_response_providers_inner import GetCampaignProviderIntelligence200ResponseProvidersInner
+from mailodds.models.get_dmarc_domain200_response import GetDmarcDomain200Response
+from mailodds.models.get_dmarc_domain200_response_domain import GetDmarcDomain200ResponseDomain
+from mailodds.models.get_dmarc_domain200_response_domain_all_of_summary import GetDmarcDomain200ResponseDomainAllOfSummary
+from mailodds.models.get_dmarc_recommendation200_response import GetDmarcRecommendation200Response
+from mailodds.models.get_dmarc_recommendation200_response_recommendation import GetDmarcRecommendation200ResponseRecommendation
+from mailodds.models.get_dmarc_sources200_response import GetDmarcSources200Response
+from mailodds.models.get_dmarc_sources200_response_sources_inner import GetDmarcSources200ResponseSourcesInner
+from mailodds.models.get_dmarc_trend200_response import GetDmarcTrend200Response
+from mailodds.models.get_dmarc_trend200_response_trend_inner import GetDmarcTrend200ResponseTrendInner
+from mailodds.models.get_inactive_contacts_report200_response import GetInactiveContactsReport200Response
+from mailodds.models.get_inactive_contacts_report200_response_by_list_inner import GetInactiveContactsReport200ResponseByListInner
 from mailodds.models.get_lists200_response import GetLists200Response
+from mailodds.models.get_message_events200_response import GetMessageEvents200Response
+from mailodds.models.get_message_events200_response_clicks_inner import GetMessageEvents200ResponseClicksInner
+from mailodds.models.get_message_events200_response_events_inner import GetMessageEvents200ResponseEventsInner
+from mailodds.models.get_message_events200_response_summary import GetMessageEvents200ResponseSummary
 from mailodds.models.get_presigned_upload_request import GetPresignedUploadRequest
+from mailodds.models.get_sender_health200_response import GetSenderHealth200Response
+from mailodds.models.get_sender_health200_response_components import GetSenderHealth200ResponseComponents
+from mailodds.models.get_sender_health200_response_components_delivery_rate import GetSenderHealth200ResponseComponentsDeliveryRate
+from mailodds.models.get_sender_health200_response_volume import GetSenderHealth200ResponseVolume
+from mailodds.models.get_sender_health_trend200_response import GetSenderHealthTrend200Response
+from mailodds.models.get_sender_health_trend200_response_data_points_inner import GetSenderHealthTrend200ResponseDataPointsInner
 from mailodds.models.get_sending_domain_identity_score200_response import GetSendingDomainIdentityScore200Response
 from mailodds.models.get_sending_stats200_response import GetSendingStats200Response
 from mailodds.models.get_sending_stats200_response_stats import GetSendingStats200ResponseStats
@@ -56,7 +128,13 @@ from mailodds.models.job_artifacts import JobArtifacts
 from mailodds.models.job_list_response import JobListResponse
 from mailodds.models.job_response import JobResponse
 from mailodds.models.job_summary import JobSummary
+from mailodds.models.list_blacklist_monitors200_response import ListBlacklistMonitors200Response
+from mailodds.models.list_campaigns200_response import ListCampaigns200Response
+from mailodds.models.list_contact_lists200_response import ListContactLists200Response
+from mailodds.models.list_dmarc_domains200_response import ListDmarcDomains200Response
 from mailodds.models.list_sending_domains200_response import ListSendingDomains200Response
+from mailodds.models.list_server_tests200_response import ListServerTests200Response
+from mailodds.models.list_spam_checks200_response import ListSpamChecks200Response
 from mailodds.models.pagination import Pagination
 from mailodds.models.policy import Policy
 from mailodds.models.policy_list_response import PolicyListResponse
@@ -69,14 +147,31 @@ from mailodds.models.policy_rule_action import PolicyRuleAction
 from mailodds.models.policy_test_response import PolicyTestResponse
 from mailodds.models.presigned_upload_response import PresignedUploadResponse
 from mailodds.models.presigned_upload_response_upload import PresignedUploadResponseUpload
+from mailodds.models.query_contact_list200_response import QueryContactList200Response
+from mailodds.models.query_contact_list200_response_emails_inner import QueryContactList200ResponseEmailsInner
+from mailodds.models.query_contact_list_request import QueryContactListRequest
+from mailodds.models.query_contact_list_request_filters_inner import QueryContactListRequestFiltersInner
 from mailodds.models.remove_suppression200_response import RemoveSuppression200Response
 from mailodds.models.remove_suppression_request import RemoveSuppressionRequest
 from mailodds.models.results_response import ResultsResponse
+from mailodds.models.run_blacklist_check200_response import RunBlacklistCheck200Response
+from mailodds.models.run_blacklist_check200_response_check import RunBlacklistCheck200ResponseCheck
+from mailodds.models.run_server_test201_response import RunServerTest201Response
+from mailodds.models.run_server_test_request import RunServerTestRequest
+from mailodds.models.run_spam_check201_response import RunSpamCheck201Response
+from mailodds.models.run_spam_check_request import RunSpamCheckRequest
+from mailodds.models.schedule_campaign_request import ScheduleCampaignRequest
 from mailodds.models.sending_domain import SendingDomain
 from mailodds.models.sending_domain_dns_records import SendingDomainDnsRecords
 from mailodds.models.sending_domain_dns_records_ns import SendingDomainDnsRecordsNs
 from mailodds.models.sending_domain_identity_score import SendingDomainIdentityScore
 from mailodds.models.sending_domain_identity_score_breakdown import SendingDomainIdentityScoreBreakdown
+from mailodds.models.server_test import ServerTest
+from mailodds.models.server_test_dns_checks import ServerTestDnsChecks
+from mailodds.models.server_test_mx_records_inner import ServerTestMxRecordsInner
+from mailodds.models.server_test_smtp_check import ServerTestSmtpCheck
+from mailodds.models.spam_check import SpamCheck
+from mailodds.models.spam_check_checks import SpamCheckChecks
 from mailodds.models.subscribe_request import SubscribeRequest
 from mailodds.models.subscriber import Subscriber
 from mailodds.models.subscriber_list import SubscriberList

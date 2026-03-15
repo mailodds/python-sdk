@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**score** | **float** | Overall content quality score (0-100) | [optional] 
-**verdict** | **str** | Overall verdict | [optional] 
-**categories** | [**List[ClassifyContent200ResponseContentCheckCategoriesInner]**](ClassifyContent200ResponseContentCheckCategoriesInner.md) |  | [optional] 
+**status** | **str** | Overall content status | [optional] 
+**flag** | **bool** | Whether the content is flagged | [optional] 
+**reason** | **str** | Human-readable reason for the status | [optional] 
+**priority** | **int** | Priority level (1&#x3D;lowest, 5&#x3D;highest) | [optional] 
 **suggestions** | **List[str]** | Improvement suggestions | [optional] 
+**duration_ms** | **int** | Classification duration in milliseconds | [optional] 
 
 ## Example
 

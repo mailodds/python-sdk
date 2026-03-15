@@ -38,7 +38,7 @@ class TestListServerTests200Response(unittest.TestCase):
             return ListServerTests200Response(
                 schema_version = '',
                 request_id = '',
-                tests = [
+                data = [
                     mailodds.models.server_test.ServerTest(
                         id = '', 
                         domain = '', 

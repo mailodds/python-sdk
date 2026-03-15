@@ -31,9 +31,9 @@ class ListServerTests200Response(BaseModel):
     """ # noqa: E501
     schema_version: Optional[StrictStr] = None
     request_id: Optional[StrictStr] = None
-    tests: Optional[List[ServerTest]] = None
+    data: Optional[List[ServerTest]] = None
     pagination: Optional[Pagination] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "tests", "pagination"]
+    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "data", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,13 +74,13 @@ class ListServerTests200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in tests (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
         _items = []
-        if self.tests:
-            for _item_tests in self.tests:
-                if _item_tests:
-                    _items.append(_item_tests.to_dict())
-            _dict['tests'] = _items
+        if self.data:
+            for _item_data in self.data:
+                if _item_data:
+                    _items.append(_item_data.to_dict())
+            _dict['data'] = _items
         # override the default output from pydantic by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
@@ -98,7 +98,7 @@ class ListServerTests200Response(BaseModel):
         _obj = cls.model_validate({
             "schema_version": obj.get("schema_version"),
             "request_id": obj.get("request_id"),
-            "tests": [ServerTest.from_dict(_item) for _item in obj["tests"]] if obj.get("tests") is not None else None,
+            "data": [ServerTest.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj

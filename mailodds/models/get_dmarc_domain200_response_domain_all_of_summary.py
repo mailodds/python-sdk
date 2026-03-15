@@ -27,13 +27,14 @@ class GetDmarcDomain200ResponseDomainAllOfSummary(BaseModel):
     """
     GetDmarcDomain200ResponseDomainAllOfSummary
     """ # noqa: E501
-    total_reports: Optional[StrictInt] = None
-    total_records: Optional[StrictInt] = None
+    days: Optional[StrictInt] = None
+    report_count: Optional[StrictInt] = None
+    source_count: Optional[StrictInt] = None
+    total_messages: Optional[StrictInt] = None
+    total_pass: Optional[StrictInt] = None
+    total_fail: Optional[StrictInt] = None
     pass_rate: Optional[Union[StrictFloat, StrictInt]] = None
-    fail_rate: Optional[Union[StrictFloat, StrictInt]] = None
-    dkim_aligned: Optional[Union[StrictFloat, StrictInt]] = None
-    spf_aligned: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["total_reports", "total_records", "pass_rate", "fail_rate", "dkim_aligned", "spf_aligned"]
+    __properties: ClassVar[List[str]] = ["days", "report_count", "source_count", "total_messages", "total_pass", "total_fail", "pass_rate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,12 +87,13 @@ class GetDmarcDomain200ResponseDomainAllOfSummary(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total_reports": obj.get("total_reports"),
-            "total_records": obj.get("total_records"),
-            "pass_rate": obj.get("pass_rate"),
-            "fail_rate": obj.get("fail_rate"),
-            "dkim_aligned": obj.get("dkim_aligned"),
-            "spf_aligned": obj.get("spf_aligned")
+            "days": obj.get("days"),
+            "report_count": obj.get("report_count"),
+            "source_count": obj.get("source_count"),
+            "total_messages": obj.get("total_messages"),
+            "total_pass": obj.get("total_pass"),
+            "total_fail": obj.get("total_fail"),
+            "pass_rate": obj.get("pass_rate")
         })
         return _obj
 

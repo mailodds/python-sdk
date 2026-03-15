@@ -34,6 +34,13 @@ class TestDMARCMonitoringApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_dmarc_domain(self) -> None:
+        """Test case for delete_dmarc_domain
+
+        Delete a DMARC domain
+        """
+        pass
+
     def test_get_dmarc_domain(self) -> None:
         """Test case for get_dmarc_domain
 

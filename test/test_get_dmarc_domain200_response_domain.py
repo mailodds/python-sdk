@@ -43,12 +43,13 @@ class TestGetDmarcDomain200ResponseDomain(unittest.TestCase):
                 dns_verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 summary = mailodds.models.get_dmarc_domain_200_response_domain_all_of_summary.getDmarcDomain_200_response_domain_allOf_summary(
-                    total_reports = 56, 
-                    total_records = 56, 
-                    pass_rate = 1.337, 
-                    fail_rate = 1.337, 
-                    dkim_aligned = 1.337, 
-                    spf_aligned = 1.337, )
+                    days = 56, 
+                    report_count = 56, 
+                    source_count = 56, 
+                    total_messages = 56, 
+                    total_pass = 56, 
+                    total_fail = 56, 
+                    pass_rate = 1.337, )
             )
         else:
             return GetDmarcDomain200ResponseDomain(

@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class ValidationResponseSuppressionMatch(BaseModel):
     """
-    Present only when email matched a suppression list entry.
+    Present only when email matched a suppression list entry. Null otherwise.
     """ # noqa: E501
     match_type: Optional[StrictStr] = None
     match_value: Optional[StrictStr] = None

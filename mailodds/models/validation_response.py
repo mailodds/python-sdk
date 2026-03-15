@@ -142,6 +142,16 @@ class ValidationResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of policy_applied
         if self.policy_applied:
             _dict['policy_applied'] = self.policy_applied.to_dict()
+        # set to None if suppression_match (nullable) is None
+        # and model_fields_set contains the field
+        if self.suppression_match is None and "suppression_match" in self.model_fields_set:
+            _dict['suppression_match'] = None
+
+        # set to None if policy_applied (nullable) is None
+        # and model_fields_set contains the field
+        if self.policy_applied is None and "policy_applied" in self.model_fields_set:
+            _dict['policy_applied'] = None
+
         return _dict
 
     @classmethod

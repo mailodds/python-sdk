@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class ValidationResponsePolicyApplied(BaseModel):
     """
-    Present when a validation policy modified the result.
+    Present when a validation policy modified the result. Null when no policy is applied.
     """ # noqa: E501
     policy_id: Optional[StrictInt] = None
     policy_name: Optional[StrictStr] = None

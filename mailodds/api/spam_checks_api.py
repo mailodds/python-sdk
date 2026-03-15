@@ -61,7 +61,7 @@ class SpamChecksApi:
     ) -> RunSpamCheck201Response:
         """Get spam check
 
-        Get the detailed result of a specific spam check. Currently available to beta accounts only.
+        Get the detailed result of a specific spam check.
 
         :param check_id: Spam check UUID (required)
         :type check_id: str
@@ -98,7 +98,6 @@ class SpamChecksApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunSpamCheck201Response",
             '401': "ErrorResponse",
-            '403': None,
             '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -131,7 +130,7 @@ class SpamChecksApi:
     ) -> ApiResponse[RunSpamCheck201Response]:
         """Get spam check
 
-        Get the detailed result of a specific spam check. Currently available to beta accounts only.
+        Get the detailed result of a specific spam check.
 
         :param check_id: Spam check UUID (required)
         :type check_id: str
@@ -168,7 +167,6 @@ class SpamChecksApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunSpamCheck201Response",
             '401': "ErrorResponse",
-            '403': None,
             '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -201,7 +199,7 @@ class SpamChecksApi:
     ) -> RESTResponseType:
         """Get spam check
 
-        Get the detailed result of a specific spam check. Currently available to beta accounts only.
+        Get the detailed result of a specific spam check.
 
         :param check_id: Spam check UUID (required)
         :type check_id: str
@@ -238,7 +236,6 @@ class SpamChecksApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunSpamCheck201Response",
             '401': "ErrorResponse",
-            '403': None,
             '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -332,7 +329,7 @@ class SpamChecksApi:
     ) -> ListSpamChecks200Response:
         """List spam checks
 
-        List past spam check results with pagination. Currently available to beta accounts only.
+        List past spam check results with pagination.
 
         :param page:
         :type page: int
@@ -372,7 +369,6 @@ class SpamChecksApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSpamChecks200Response",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -405,7 +401,7 @@ class SpamChecksApi:
     ) -> ApiResponse[ListSpamChecks200Response]:
         """List spam checks
 
-        List past spam check results with pagination. Currently available to beta accounts only.
+        List past spam check results with pagination.
 
         :param page:
         :type page: int
@@ -445,7 +441,6 @@ class SpamChecksApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSpamChecks200Response",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -478,7 +473,7 @@ class SpamChecksApi:
     ) -> RESTResponseType:
         """List spam checks
 
-        List past spam check results with pagination. Currently available to beta accounts only.
+        List past spam check results with pagination.
 
         :param page:
         :type page: int
@@ -518,7 +513,6 @@ class SpamChecksApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSpamChecks200Response",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -617,7 +611,7 @@ class SpamChecksApi:
     ) -> RunSpamCheck201Response:
         """Run spam check
 
-        Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality. Currently available to beta accounts only.
+        Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality.
 
         :param run_spam_check_request: (required)
         :type run_spam_check_request: RunSpamCheckRequest
@@ -655,7 +649,6 @@ class SpamChecksApi:
             '201': "RunSpamCheck201Response",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -687,7 +680,7 @@ class SpamChecksApi:
     ) -> ApiResponse[RunSpamCheck201Response]:
         """Run spam check
 
-        Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality. Currently available to beta accounts only.
+        Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality.
 
         :param run_spam_check_request: (required)
         :type run_spam_check_request: RunSpamCheckRequest
@@ -725,7 +718,6 @@ class SpamChecksApi:
             '201': "RunSpamCheck201Response",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -757,7 +749,7 @@ class SpamChecksApi:
     ) -> RESTResponseType:
         """Run spam check
 
-        Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality. Currently available to beta accounts only.
+        Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality.
 
         :param run_spam_check_request: (required)
         :type run_spam_check_request: RunSpamCheckRequest
@@ -795,7 +787,6 @@ class SpamChecksApi:
             '201': "RunSpamCheck201Response",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.mailodds.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_dmarc_domain**](DMARCMonitoringApi.md#add_dmarc_domain) | **POST** /v1/dmarc-domains | Add DMARC domain
+[**delete_dmarc_domain**](DMARCMonitoringApi.md#delete_dmarc_domain) | **DELETE** /v1/dmarc-domains/{domain_id} | Delete a DMARC domain
 [**get_dmarc_domain**](DMARCMonitoringApi.md#get_dmarc_domain) | **GET** /v1/dmarc-domains/{domain_id} | Get DMARC domain
 [**get_dmarc_recommendation**](DMARCMonitoringApi.md#get_dmarc_recommendation) | **GET** /v1/dmarc-domains/{domain_id}/recommendation | Get DMARC policy recommendation
 [**get_dmarc_sources**](DMARCMonitoringApi.md#get_dmarc_sources) | **GET** /v1/dmarc-domains/{domain_id}/sources | Get DMARC sending sources
@@ -91,6 +92,86 @@ Name | Type | Description  | Notes
 **201** | Domain added |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_dmarc_domain**
+> DeletePolicyRule200Response delete_dmarc_domain(domain_id)
+
+Delete a DMARC domain
+
+Delete a DMARC domain and all its associated reports.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.DMARCMonitoringApi(api_client)
+    domain_id = 'domain_id_example' # str | DMARC domain UUID
+
+    try:
+        # Delete a DMARC domain
+        api_response = api_instance.delete_dmarc_domain(domain_id)
+        print("The response of DMARCMonitoringApi->delete_dmarc_domain:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DMARCMonitoringApi->delete_dmarc_domain: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain_id** | **str**| DMARC domain UUID | 
+
+### Return type
+
+[**DeletePolicyRule200Response**](DeletePolicyRule200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Domain deleted |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

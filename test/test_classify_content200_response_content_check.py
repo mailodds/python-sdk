@@ -36,17 +36,14 @@ class TestClassifyContent200ResponseContentCheck(unittest.TestCase):
         model = ClassifyContent200ResponseContentCheck()
         if include_optional:
             return ClassifyContent200ResponseContentCheck(
-                score = 1.337,
-                verdict = 'clean',
-                categories = [
-                    mailodds.models.classify_content_200_response_content_check_categories_inner.classifyContent_200_response_content_check_categories_inner(
-                        name = '', 
-                        score = 1.337, 
-                        details = '', )
-                    ],
+                status = 'clean',
+                flag = True,
+                reason = '',
+                priority = 56,
                 suggestions = [
                     ''
-                    ]
+                    ],
+                duration_ms = 56
             )
         else:
             return ClassifyContent200ResponseContentCheck(

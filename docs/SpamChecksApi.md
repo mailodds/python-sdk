@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get spam check
 
-Get the detailed result of a specific spam check. Currently available to beta accounts only.
+Get the detailed result of a specific spam check.
 
 ### Example
 
@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Spam check details |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**403** | Feature not available - beta access required |  -  |
 **404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -95,7 +94,7 @@ Name | Type | Description  | Notes
 
 List spam checks
 
-List past spam check results with pagination. Currently available to beta accounts only.
+List past spam check results with pagination.
 
 ### Example
 
@@ -168,7 +167,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | List of spam checks |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**403** | Feature not available - beta access required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -177,7 +175,7 @@ Name | Type | Description  | Notes
 
 Run spam check
 
-Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality. Currently available to beta accounts only.
+Run backend spam checks on email sending parameters. Checks domain reputation, link safety, and subject line quality.
 
 ### Example
 
@@ -250,7 +248,6 @@ Name | Type | Description  | Notes
 **201** | Spam check result |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**403** | Feature not available - beta access required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

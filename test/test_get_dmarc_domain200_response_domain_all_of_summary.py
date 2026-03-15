@@ -36,12 +36,13 @@ class TestGetDmarcDomain200ResponseDomainAllOfSummary(unittest.TestCase):
         model = GetDmarcDomain200ResponseDomainAllOfSummary()
         if include_optional:
             return GetDmarcDomain200ResponseDomainAllOfSummary(
-                total_reports = 56,
-                total_records = 56,
-                pass_rate = 1.337,
-                fail_rate = 1.337,
-                dkim_aligned = 1.337,
-                spf_aligned = 1.337
+                days = 56,
+                report_count = 56,
+                source_count = 56,
+                total_messages = 56,
+                total_pass = 56,
+                total_fail = 56,
+                pass_rate = 1.337
             )
         else:
             return GetDmarcDomain200ResponseDomainAllOfSummary(

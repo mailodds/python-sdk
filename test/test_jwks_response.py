@@ -15,10 +15,10 @@
 
 import unittest
 
-from mailodds.models.classify_content200_response_content_check_categories_inner import ClassifyContent200ResponseContentCheckCategoriesInner
+from mailodds.models.jwks_response import JwksResponse
 
-class TestClassifyContent200ResponseContentCheckCategoriesInner(unittest.TestCase):
-    """ClassifyContent200ResponseContentCheckCategoriesInner unit test stubs"""
+class TestJwksResponse(unittest.TestCase):
+    """JwksResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,33 @@ class TestClassifyContent200ResponseContentCheckCategoriesInner(unittest.TestCas
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ClassifyContent200ResponseContentCheckCategoriesInner:
-        """Test ClassifyContent200ResponseContentCheckCategoriesInner
+    def make_instance(self, include_optional) -> JwksResponse:
+        """Test JwksResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ClassifyContent200ResponseContentCheckCategoriesInner`
+        # uncomment below to create an instance of `JwksResponse`
         """
-        model = ClassifyContent200ResponseContentCheckCategoriesInner()
+        model = JwksResponse()
         if include_optional:
-            return ClassifyContent200ResponseContentCheckCategoriesInner(
-                name = '',
-                score = 1.337,
-                details = ''
+            return JwksResponse(
+                keys = [
+                    mailodds.models.jwks_response_keys_inner.JwksResponse_keys_inner(
+                        kty = '', 
+                        use = '', 
+                        kid = '', 
+                        alg = '', 
+                        n = '', 
+                        e = '', )
+                    ]
             )
         else:
-            return ClassifyContent200ResponseContentCheckCategoriesInner(
+            return JwksResponse(
         )
         """
 
-    def testClassifyContent200ResponseContentCheckCategoriesInner(self):
-        """Test ClassifyContent200ResponseContentCheckCategoriesInner"""
+    def testJwksResponse(self):
+        """Test JwksResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

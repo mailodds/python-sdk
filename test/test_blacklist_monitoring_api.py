@@ -34,6 +34,13 @@ class TestBlacklistMonitoringApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_blacklist_monitor(self) -> None:
+        """Test case for delete_blacklist_monitor
+
+        Delete a blacklist monitor
+        """
+        pass
+
     def test_get_blacklist_history(self) -> None:
         """Test case for get_blacklist_history
 

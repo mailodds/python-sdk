@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
 **request_id** | **str** |  | [optional] 
-**tests** | [**List[ServerTest]**](ServerTest.md) |  | [optional] 
+**data** | [**List[ServerTest]**](ServerTest.md) |  | [optional] 
 **pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example

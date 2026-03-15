@@ -41,6 +41,13 @@ class TestContactListsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_contact_list(self) -> None:
+        """Test case for delete_contact_list
+
+        Delete a contact list
+        """
+        pass
+
     def test_get_inactive_contacts_report(self) -> None:
         """Test case for get_inactive_contacts_report
 

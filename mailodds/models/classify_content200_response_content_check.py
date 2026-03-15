@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from mailodds.models.classify_content200_response_content_check_categories_inner import ClassifyContent200ResponseContentCheckCategoriesInner
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,14 +27,16 @@ class ClassifyContent200ResponseContentCheck(BaseModel):
     """
     ClassifyContent200ResponseContentCheck
     """ # noqa: E501
-    score: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Overall content quality score (0-100)")
-    verdict: Optional[StrictStr] = Field(default=None, description="Overall verdict")
-    categories: Optional[List[ClassifyContent200ResponseContentCheckCategoriesInner]] = None
+    status: Optional[StrictStr] = Field(default=None, description="Overall content status")
+    flag: Optional[StrictBool] = Field(default=None, description="Whether the content is flagged")
+    reason: Optional[StrictStr] = Field(default=None, description="Human-readable reason for the status")
+    priority: Optional[StrictInt] = Field(default=None, description="Priority level (1=lowest, 5=highest)")
     suggestions: Optional[List[StrictStr]] = Field(default=None, description="Improvement suggestions")
-    __properties: ClassVar[List[str]] = ["score", "verdict", "categories", "suggestions"]
+    duration_ms: Optional[StrictInt] = Field(default=None, description="Classification duration in milliseconds")
+    __properties: ClassVar[List[str]] = ["status", "flag", "reason", "priority", "suggestions", "duration_ms"]
 
-    @field_validator('verdict')
-    def verdict_validate_enum(cls, value):
+    @field_validator('status')
+    def status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
@@ -83,13 +84,6 @@ class ClassifyContent200ResponseContentCheck(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in categories (list)
-        _items = []
-        if self.categories:
-            for _item_categories in self.categories:
-                if _item_categories:
-                    _items.append(_item_categories.to_dict())
-            _dict['categories'] = _items
         return _dict
 
     @classmethod
@@ -102,10 +96,12 @@ class ClassifyContent200ResponseContentCheck(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "score": obj.get("score"),
-            "verdict": obj.get("verdict"),
-            "categories": [ClassifyContent200ResponseContentCheckCategoriesInner.from_dict(_item) for _item in obj["categories"]] if obj.get("categories") is not None else None,
-            "suggestions": obj.get("suggestions")
+            "status": obj.get("status"),
+            "flag": obj.get("flag"),
+            "reason": obj.get("reason"),
+            "priority": obj.get("priority"),
+            "suggestions": obj.get("suggestions"),
+            "duration_ms": obj.get("duration_ms")
         })
         return _obj
 

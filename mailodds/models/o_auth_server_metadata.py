@@ -18,19 +18,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ClassifyContent200ResponseContentCheckCategoriesInner(BaseModel):
+class OAuthServerMetadata(BaseModel):
     """
-    ClassifyContent200ResponseContentCheckCategoriesInner
+    OAuth 2.0 Authorization Server Metadata (RFC 8414)
     """ # noqa: E501
-    name: Optional[StrictStr] = None
-    score: Optional[Union[StrictFloat, StrictInt]] = None
-    details: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "score", "details"]
+    issuer: Optional[StrictStr] = None
+    authorization_endpoint: Optional[StrictStr] = None
+    token_endpoint: Optional[StrictStr] = None
+    revocation_endpoint: Optional[StrictStr] = None
+    introspection_endpoint: Optional[StrictStr] = None
+    jwks_uri: Optional[StrictStr] = None
+    response_types_supported: Optional[List[StrictStr]] = None
+    grant_types_supported: Optional[List[StrictStr]] = None
+    token_endpoint_auth_methods_supported: Optional[List[StrictStr]] = None
+    scopes_supported: Optional[List[StrictStr]] = None
+    code_challenge_methods_supported: Optional[List[StrictStr]] = None
+    revocation_endpoint_auth_methods_supported: Optional[List[StrictStr]] = None
+    introspection_endpoint_auth_methods_supported: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["issuer", "authorization_endpoint", "token_endpoint", "revocation_endpoint", "introspection_endpoint", "jwks_uri", "response_types_supported", "grant_types_supported", "token_endpoint_auth_methods_supported", "scopes_supported", "code_challenge_methods_supported", "revocation_endpoint_auth_methods_supported", "introspection_endpoint_auth_methods_supported"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +60,7 @@ class ClassifyContent200ResponseContentCheckCategoriesInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ClassifyContent200ResponseContentCheckCategoriesInner from a JSON string"""
+        """Create an instance of OAuthServerMetadata from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +85,7 @@ class ClassifyContent200ResponseContentCheckCategoriesInner(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ClassifyContent200ResponseContentCheckCategoriesInner from a dict"""
+        """Create an instance of OAuthServerMetadata from a dict"""
         if obj is None:
             return None
 
@@ -83,9 +93,19 @@ class ClassifyContent200ResponseContentCheckCategoriesInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "score": obj.get("score"),
-            "details": obj.get("details")
+            "issuer": obj.get("issuer"),
+            "authorization_endpoint": obj.get("authorization_endpoint"),
+            "token_endpoint": obj.get("token_endpoint"),
+            "revocation_endpoint": obj.get("revocation_endpoint"),
+            "introspection_endpoint": obj.get("introspection_endpoint"),
+            "jwks_uri": obj.get("jwks_uri"),
+            "response_types_supported": obj.get("response_types_supported"),
+            "grant_types_supported": obj.get("grant_types_supported"),
+            "token_endpoint_auth_methods_supported": obj.get("token_endpoint_auth_methods_supported"),
+            "scopes_supported": obj.get("scopes_supported"),
+            "code_challenge_methods_supported": obj.get("code_challenge_methods_supported"),
+            "revocation_endpoint_auth_methods_supported": obj.get("revocation_endpoint_auth_methods_supported"),
+            "introspection_endpoint_auth_methods_supported": obj.get("introspection_endpoint_auth_methods_supported")
         })
         return _obj
 

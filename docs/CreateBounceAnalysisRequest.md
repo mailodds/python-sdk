@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**domain_id** | **str** | Sending domain UUID to analyze bounces for | 
-**period** | **str** | Time period to analyze | [optional] [default to '30d']
+**text** | **str** | Bounce log text to analyze. Identifies patterns, categorizes bounce types, and provides remediation recommendations. | 
+**name** | **str** | Optional name for this bounce analysis | [optional] 
 
 ## Example
 

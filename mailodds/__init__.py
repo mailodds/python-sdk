@@ -195,6 +195,8 @@ __all__ = [
     "GetReplyForwarding200Response",
     "GetReputation200Response",
     "GetReputationTimeline200Response",
+    "GetReputationTimeline200ResponseTimeline",
+    "GetReputationTimeline200ResponseTimelineTimelineInner",
     "GetSenderHealth200Response",
     "GetSenderHealth200ResponseComponents",
     "GetSenderHealth200ResponseComponentsDeliveryRate",
@@ -504,6 +506,8 @@ from mailodds.models.get_product200_response import GetProduct200Response as Get
 from mailodds.models.get_reply_forwarding200_response import GetReplyForwarding200Response as GetReplyForwarding200Response
 from mailodds.models.get_reputation200_response import GetReputation200Response as GetReputation200Response
 from mailodds.models.get_reputation_timeline200_response import GetReputationTimeline200Response as GetReputationTimeline200Response
+from mailodds.models.get_reputation_timeline200_response_timeline import GetReputationTimeline200ResponseTimeline as GetReputationTimeline200ResponseTimeline
+from mailodds.models.get_reputation_timeline200_response_timeline_timeline_inner import GetReputationTimeline200ResponseTimelineTimelineInner as GetReputationTimeline200ResponseTimelineTimelineInner
 from mailodds.models.get_sender_health200_response import GetSenderHealth200Response as GetSenderHealth200Response
 from mailodds.models.get_sender_health200_response_components import GetSenderHealth200ResponseComponents as GetSenderHealth200ResponseComponents
 from mailodds.models.get_sender_health200_response_components_delivery_rate import GetSenderHealth200ResponseComponentsDeliveryRate as GetSenderHealth200ResponseComponentsDeliveryRate

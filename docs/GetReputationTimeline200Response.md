@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
 **request_id** | **str** |  | [optional] 
-**timeline** | **List[object]** |  | [optional] 
+**timeline** | [**GetReputationTimeline200ResponseTimeline**](GetReputationTimeline200ResponseTimeline.md) |  | [optional] 
 
 ## Example
 

@@ -18,20 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from mailodds.models.get_reputation_timeline200_response_timeline import GetReputationTimeline200ResponseTimeline
+from datetime import date
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetReputationTimeline200Response(BaseModel):
+class GetReputationTimeline200ResponseTimelineTimelineInner(BaseModel):
     """
-    GetReputationTimeline200Response
+    GetReputationTimeline200ResponseTimelineTimelineInner
     """ # noqa: E501
-    schema_version: Optional[StrictStr] = None
-    request_id: Optional[StrictStr] = None
-    timeline: Optional[GetReputationTimeline200ResponseTimeline] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "timeline"]
+    var_date: Optional[date] = Field(default=None, alias="date")
+    sent: Optional[StrictInt] = None
+    bounce_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    complaint_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    open_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    delivery_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    __properties: ClassVar[List[str]] = ["date", "sent", "bounce_rate", "complaint_rate", "open_rate", "delivery_rate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +54,7 @@ class GetReputationTimeline200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetReputationTimeline200Response from a JSON string"""
+        """Create an instance of GetReputationTimeline200ResponseTimelineTimelineInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +75,11 @@ class GetReputationTimeline200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of timeline
-        if self.timeline:
-            _dict['timeline'] = self.timeline.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetReputationTimeline200Response from a dict"""
+        """Create an instance of GetReputationTimeline200ResponseTimelineTimelineInner from a dict"""
         if obj is None:
             return None
 
@@ -87,9 +87,12 @@ class GetReputationTimeline200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "schema_version": obj.get("schema_version"),
-            "request_id": obj.get("request_id"),
-            "timeline": GetReputationTimeline200ResponseTimeline.from_dict(obj["timeline"]) if obj.get("timeline") is not None else None
+            "date": obj.get("date"),
+            "sent": obj.get("sent"),
+            "bounce_rate": obj.get("bounce_rate"),
+            "complaint_rate": obj.get("complaint_rate"),
+            "open_rate": obj.get("open_rate"),
+            "delivery_rate": obj.get("delivery_rate")
         })
         return _obj
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,19 +27,9 @@ class CreateBounceAnalysisRequest(BaseModel):
     """
     CreateBounceAnalysisRequest
     """ # noqa: E501
-    domain_id: StrictStr = Field(description="Sending domain UUID to analyze bounces for")
-    period: Optional[StrictStr] = Field(default='30d', description="Time period to analyze")
-    __properties: ClassVar[List[str]] = ["domain_id", "period"]
-
-    @field_validator('period')
-    def period_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['7d', '30d', '90d']):
-            raise ValueError("must be one of enum values ('7d', '30d', '90d')")
-        return value
+    text: StrictStr = Field(description="Bounce log text to analyze. Identifies patterns, categorizes bounce types, and provides remediation recommendations.")
+    name: Optional[StrictStr] = Field(default=None, description="Optional name for this bounce analysis")
+    __properties: ClassVar[List[str]] = ["text", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,8 +82,8 @@ class CreateBounceAnalysisRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "domain_id": obj.get("domain_id"),
-            "period": obj.get("period") if obj.get("period") is not None else '30d'
+            "text": obj.get("text"),
+            "name": obj.get("name")
         })
         return _obj
 

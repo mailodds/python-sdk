@@ -151,6 +151,8 @@ docs/GetProduct200Response.md
 docs/GetReplyForwarding200Response.md
 docs/GetReputation200Response.md
 docs/GetReputationTimeline200Response.md
+docs/GetReputationTimeline200ResponseTimeline.md
+docs/GetReputationTimeline200ResponseTimelineTimelineInner.md
 docs/GetSenderHealth200Response.md
 docs/GetSenderHealth200ResponseComponents.md
 docs/GetSenderHealth200ResponseComponentsDeliveryRate.md
@@ -469,6 +471,8 @@ mailodds/models/get_product200_response.py
 mailodds/models/get_reply_forwarding200_response.py
 mailodds/models/get_reputation200_response.py
 mailodds/models/get_reputation_timeline200_response.py
+mailodds/models/get_reputation_timeline200_response_timeline.py
+mailodds/models/get_reputation_timeline200_response_timeline_timeline_inner.py
 mailodds/models/get_sender_health200_response.py
 mailodds/models/get_sender_health200_response_components.py
 mailodds/models/get_sender_health200_response_components_delivery_rate.py
@@ -751,6 +755,8 @@ test/test_get_product200_response.py
 test/test_get_reply_forwarding200_response.py
 test/test_get_reputation200_response.py
 test/test_get_reputation_timeline200_response.py
+test/test_get_reputation_timeline200_response_timeline.py
+test/test_get_reputation_timeline200_response_timeline_timeline_inner.py
 test/test_get_sender_health200_response.py
 test/test_get_sender_health200_response_components.py
 test/test_get_sender_health200_response_components_delivery_rate.py

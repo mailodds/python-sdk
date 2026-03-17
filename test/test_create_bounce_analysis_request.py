@@ -36,12 +36,12 @@ class TestCreateBounceAnalysisRequest(unittest.TestCase):
         model = CreateBounceAnalysisRequest()
         if include_optional:
             return CreateBounceAnalysisRequest(
-                domain_id = '',
-                period = '30d'
+                text = '',
+                name = ''
             )
         else:
             return CreateBounceAnalysisRequest(
-                domain_id = '',
+                text = '',
         )
         """
 

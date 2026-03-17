@@ -405,31 +405,28 @@ def main():
     bounce_api = BounceAnalysisApi(api_client=client)
     analysis_id = None
     try:
-        # Verify delete returns 404 for non-existent analysis (spec/backend mismatch on create params)
+        create_resp = bounce_api.create_bounce_analysis(
+            CreateBounceAnalysisRequest(
+                text="550 5.1.1 User unknown\n452 4.2.2 Mailbox full",
+                name=f"py-smoke-{ts}",
+            )
+        )
+        check("bounce_analysis.create", True, create_resp.analysis is not None)
+        analysis_id = create_resp.analysis.id
+
+        del_resp = bounce_api.delete_bounce_analysis(analysis_id)
+        check("bounce_analysis.delete", True, del_resp.deleted)
+        analysis_id = None
+
+        # Verify deleted
         try:
-            bounce_api.delete_bounce_analysis("nonexistent-smoke-test")
+            bounce_api.get_bounce_analysis(analysis_id or "deleted")
+            failed += 1
+            print("  FAIL: bounce_analysis.deleted still accessible")
+        except NotFoundException:
+            passed += 1
         except Exception:
-            pass  # 404 is expected
-        passed += 1
-        if False:
-            check("bounce_analysis.create", True, create_resp.analysis is not None)
-            analysis_id = create_resp.analysis.id
-
-            del_resp = bounce_api.delete_bounce_analysis(analysis_id)
-            check("bounce_analysis.delete", True, del_resp.deleted)
-            analysis_id = None
-
-            # Verify deleted
-            try:
-                bounce_api.get_bounce_analysis(analysis_id or "deleted")
-                failed += 1
-                print("  FAIL: bounce_analysis.deleted still accessible")
-            except NotFoundException:
-                passed += 1
-            except Exception:
-                passed += 1  # Any error means it was deleted
-        else:
-            print("  SKIP: bounce_analysis (create returned no analysis)")
+            passed += 1  # Any error means it was deleted
     except ForbiddenException:
         print("  SKIP: bounce_analysis (plan-gated)")
     except Exception as e:

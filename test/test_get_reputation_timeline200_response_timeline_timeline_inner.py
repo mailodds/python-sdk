@@ -15,10 +15,10 @@
 
 import unittest
 
-from mailodds.models.get_reputation_timeline200_response import GetReputationTimeline200Response
+from mailodds.models.get_reputation_timeline200_response_timeline_timeline_inner import GetReputationTimeline200ResponseTimelineTimelineInner
 
-class TestGetReputationTimeline200Response(unittest.TestCase):
-    """GetReputationTimeline200Response unit test stubs"""
+class TestGetReputationTimeline200ResponseTimelineTimelineInner(unittest.TestCase):
+    """GetReputationTimeline200ResponseTimelineTimelineInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,37 +26,30 @@ class TestGetReputationTimeline200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GetReputationTimeline200Response:
-        """Test GetReputationTimeline200Response
+    def make_instance(self, include_optional) -> GetReputationTimeline200ResponseTimelineTimelineInner:
+        """Test GetReputationTimeline200ResponseTimelineTimelineInner
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `GetReputationTimeline200Response`
+        # uncomment below to create an instance of `GetReputationTimeline200ResponseTimelineTimelineInner`
         """
-        model = GetReputationTimeline200Response()
+        model = GetReputationTimeline200ResponseTimelineTimelineInner()
         if include_optional:
-            return GetReputationTimeline200Response(
-                schema_version = '',
-                request_id = '',
-                timeline = mailodds.models.get_reputation_timeline_200_response_timeline.getReputationTimeline_200_response_timeline(
-                    period = '24h', 
-                    timeline = [
-                        mailodds.models.get_reputation_timeline_200_response_timeline_timeline_inner.getReputationTimeline_200_response_timeline_timeline_inner(
-                            date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(), 
-                            sent = 56, 
-                            bounce_rate = 1.337, 
-                            complaint_rate = 1.337, 
-                            open_rate = 1.337, 
-                            delivery_rate = 1.337, )
-                        ], )
+            return GetReputationTimeline200ResponseTimelineTimelineInner(
+                var_date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
+                sent = 56,
+                bounce_rate = 1.337,
+                complaint_rate = 1.337,
+                open_rate = 1.337,
+                delivery_rate = 1.337
             )
         else:
-            return GetReputationTimeline200Response(
+            return GetReputationTimeline200ResponseTimelineTimelineInner(
         )
         """
 
-    def testGetReputationTimeline200Response(self):
-        """Test GetReputationTimeline200Response"""
+    def testGetReputationTimeline200ResponseTimelineTimelineInner(self):
+        """Test GetReputationTimeline200ResponseTimelineTimelineInner"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -34,6 +34,13 @@ class TestProductsApi(unittest.TestCase):
         """
         pass
 
+    def test_bulk_update_products(self) -> None:
+        """Test case for bulk_update_products
+
+        Bulk update products
+        """
+        pass
+
     def test_get_product(self) -> None:
         """Test case for get_product
 

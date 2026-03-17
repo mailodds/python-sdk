@@ -41,6 +41,13 @@ class TestBounceAnalysisApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_bounce_analysis(self) -> None:
+        """Test case for delete_bounce_analysis
+
+        Delete bounce analysis
+        """
+        pass
+
     def test_get_bounce_analysis(self) -> None:
         """Test case for get_bounce_analysis
 

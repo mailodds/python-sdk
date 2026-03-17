@@ -27,6 +27,13 @@ class TestContactListsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_add_contact(self) -> None:
+        """Test case for add_contact
+
+        Add contact to list
+        """
+        pass
+
     def test_append_to_contact_list(self) -> None:
         """Test case for append_to_contact_list
 
@@ -41,6 +48,13 @@ class TestContactListsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_contact(self) -> None:
+        """Test case for delete_contact
+
+        Delete contact
+        """
+        pass
+
     def test_delete_contact_list(self) -> None:
         """Test case for delete_contact_list
 
@@ -48,10 +62,24 @@ class TestContactListsApi(unittest.TestCase):
         """
         pass
 
+    def test_export_contact_list(self) -> None:
+        """Test case for export_contact_list
+
+        Export contact list
+        """
+        pass
+
     def test_get_inactive_contacts_report(self) -> None:
         """Test case for get_inactive_contacts_report
 
         Get inactive contacts report
+        """
+        pass
+
+    def test_import_contact_list(self) -> None:
+        """Test case for import_contact_list
+
+        Import contacts from CSV
         """
         pass
 
@@ -66,6 +94,13 @@ class TestContactListsApi(unittest.TestCase):
         """Test case for query_contact_list
 
         Query contact list
+        """
+        pass
+
+    def test_update_contact(self) -> None:
+        """Test case for update_contact
+
+        Update contact
         """
         pass
 

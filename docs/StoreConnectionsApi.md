@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**create_store**](StoreConnectionsApi.md#create_store) | **POST** /v1/stores | Create a store connection
 [**disconnect_store**](StoreConnectionsApi.md#disconnect_store) | **DELETE** /v1/stores/{store_id} | Disconnect a store
 [**get_store**](StoreConnectionsApi.md#get_store) | **GET** /v1/stores/{store_id} | Get a store connection
+[**get_sync_job_errors**](StoreConnectionsApi.md#get_sync_job_errors) | **GET** /v1/stores/{store_id}/sync-jobs/{job_id}/errors | Get sync job errors
 [**list_stores**](StoreConnectionsApi.md#list_stores) | **GET** /v1/stores | List store connections
+[**list_sync_jobs**](StoreConnectionsApi.md#list_sync_jobs) | **GET** /v1/stores/{store_id}/sync-jobs | List sync jobs
 [**trigger_sync**](StoreConnectionsApi.md#trigger_sync) | **POST** /v1/stores/{store_id}/sync | Trigger product sync
 [**update_store**](StoreConnectionsApi.md#update_store) | **PUT** /v1/stores/{store_id} | Update a store connection
 
@@ -253,6 +255,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_sync_job_errors**
+> GetSyncJobErrors200Response get_sync_job_errors(store_id, job_id, page=page, per_page=per_page)
+
+Get sync job errors
+
+Get error details for a sync job.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.get_sync_job_errors200_response import GetSyncJobErrors200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.StoreConnectionsApi(api_client)
+    store_id = 'store_id_example' # str | Store ID
+    job_id = 'job_id_example' # str | Sync job ID
+    page = 1 # int |  (optional) (default to 1)
+    per_page = 50 # int |  (optional) (default to 50)
+
+    try:
+        # Get sync job errors
+        api_response = api_instance.get_sync_job_errors(store_id, job_id, page=page, per_page=per_page)
+        print("The response of StoreConnectionsApi->get_sync_job_errors:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling StoreConnectionsApi->get_sync_job_errors: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **store_id** | **str**| Store ID | 
+ **job_id** | **str**| Sync job ID | 
+ **page** | **int**|  | [optional] [default to 1]
+ **per_page** | **int**|  | [optional] [default to 50]
+
+### Return type
+
+[**GetSyncJobErrors200Response**](GetSyncJobErrors200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Sync job errors |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_stores**
 > ListStores200Response list_stores(status=status)
 
@@ -329,6 +417,90 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | List of store connections |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_sync_jobs**
+> ListSyncJobs200Response list_sync_jobs(store_id, page=page, per_page=per_page)
+
+List sync jobs
+
+List sync job history for a store.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.list_sync_jobs200_response import ListSyncJobs200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.StoreConnectionsApi(api_client)
+    store_id = 'store_id_example' # str | Store ID
+    page = 1 # int |  (optional) (default to 1)
+    per_page = 20 # int |  (optional) (default to 20)
+
+    try:
+        # List sync jobs
+        api_response = api_instance.list_sync_jobs(store_id, page=page, per_page=per_page)
+        print("The response of StoreConnectionsApi->list_sync_jobs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling StoreConnectionsApi->list_sync_jobs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **store_id** | **str**| Store ID | 
+ **page** | **int**|  | [optional] [default to 1]
+ **per_page** | **int**|  | [optional] [default to 20]
+
+### Return type
+
+[**ListSyncJobs200Response**](ListSyncJobs200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of sync jobs |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

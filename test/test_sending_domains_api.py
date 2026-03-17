@@ -41,6 +41,13 @@ class TestSendingDomainsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_reply_forwarding(self) -> None:
+        """Test case for get_reply_forwarding
+
+        Get reply forwarding config
+        """
+        pass
+
     def test_get_sending_domain(self) -> None:
         """Test case for get_sending_domain
 
@@ -66,6 +73,13 @@ class TestSendingDomainsApi(unittest.TestCase):
         """Test case for list_sending_domains
 
         List sending domains
+        """
+        pass
+
+    def test_update_reply_forwarding(self) -> None:
+        """Test case for update_reply_forwarding
+
+        Update reply forwarding config
         """
         pass
 

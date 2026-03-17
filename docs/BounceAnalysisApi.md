@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_bounce_analysis**](BounceAnalysisApi.md#create_bounce_analysis) | **POST** /v1/bounce-analyses | Analyze bounce logs
 [**cross_reference_bounces**](BounceAnalysisApi.md#cross_reference_bounces) | **GET** /v1/bounce-analyses/{analysis_id}/cross-reference | Cross-reference bounces with validation logs
+[**delete_bounce_analysis**](BounceAnalysisApi.md#delete_bounce_analysis) | **DELETE** /v1/bounce-analyses/{analysis_id} | Delete bounce analysis
 [**get_bounce_analysis**](BounceAnalysisApi.md#get_bounce_analysis) | **GET** /v1/bounce-analyses/{analysis_id} | Get bounce analysis
 [**get_bounce_records**](BounceAnalysisApi.md#get_bounce_records) | **GET** /v1/bounce-analyses/{analysis_id}/records | Get bounce records
 
@@ -167,6 +168,86 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Cross-reference results |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_bounce_analysis**
+> DeletePolicyRule200Response delete_bounce_analysis(analysis_id)
+
+Delete bounce analysis
+
+Delete a bounce analysis and all associated records.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.BounceAnalysisApi(api_client)
+    analysis_id = 'analysis_id_example' # str | Bounce analysis ID
+
+    try:
+        # Delete bounce analysis
+        api_response = api_instance.delete_bounce_analysis(analysis_id)
+        print("The response of BounceAnalysisApi->delete_bounce_analysis:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BounceAnalysisApi->delete_bounce_analysis: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **analysis_id** | **str**| Bounce analysis ID | 
+
+### Return type
+
+[**DeletePolicyRule200Response**](DeletePolicyRule200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Bounce analysis deleted |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
 

@@ -90,6 +90,13 @@ class TestBulkValidationApi(unittest.TestCase):
         """
         pass
 
+    def test_retry_job(self) -> None:
+        """Test case for retry_job
+
+        Retry failed job
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

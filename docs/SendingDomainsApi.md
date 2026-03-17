@@ -6,10 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_sending_domain**](SendingDomainsApi.md#create_sending_domain) | **POST** /v1/sending-domains | Add a sending domain
 [**delete_sending_domain**](SendingDomainsApi.md#delete_sending_domain) | **DELETE** /v1/sending-domains/{domain_id} | Delete a sending domain
+[**get_reply_forwarding**](SendingDomainsApi.md#get_reply_forwarding) | **GET** /v1/sending-domains/{domain_id}/reply-forwarding | Get reply forwarding config
 [**get_sending_domain**](SendingDomainsApi.md#get_sending_domain) | **GET** /v1/sending-domains/{domain_id} | Get a sending domain
 [**get_sending_domain_identity_score**](SendingDomainsApi.md#get_sending_domain_identity_score) | **GET** /v1/sending-domains/{domain_id}/identity-score | Get domain identity score
 [**get_sending_stats**](SendingDomainsApi.md#get_sending_stats) | **GET** /v1/sending-stats | Get sending statistics
 [**list_sending_domains**](SendingDomainsApi.md#list_sending_domains) | **GET** /v1/sending-domains | List sending domains
+[**update_reply_forwarding**](SendingDomainsApi.md#update_reply_forwarding) | **PATCH** /v1/sending-domains/{domain_id}/reply-forwarding | Update reply forwarding config
 [**verify_sending_domain**](SendingDomainsApi.md#verify_sending_domain) | **POST** /v1/sending-domains/{domain_id}/verify | Verify domain DNS records
 
 
@@ -171,6 +173,87 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Domain deleted |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_reply_forwarding**
+> GetReplyForwarding200Response get_reply_forwarding(domain_id)
+
+Get reply forwarding config
+
+Get the reply forwarding configuration for a sending domain. Requires Growth+ plan.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.get_reply_forwarding200_response import GetReplyForwarding200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.SendingDomainsApi(api_client)
+    domain_id = 'domain_id_example' # str | Sending domain ID
+
+    try:
+        # Get reply forwarding config
+        api_response = api_instance.get_reply_forwarding(domain_id)
+        print("The response of SendingDomainsApi->get_reply_forwarding:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SendingDomainsApi->get_reply_forwarding: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain_id** | **str**| Sending domain ID | 
+
+### Return type
+
+[**GetReplyForwarding200Response**](GetReplyForwarding200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Reply forwarding configuration |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**403** | Forbidden - Insufficient permissions or no credits |  -  |
 **404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -490,6 +573,91 @@ This endpoint does not need any parameter.
 **200** | List of sending domains |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_reply_forwarding**
+> GetReplyForwarding200Response update_reply_forwarding(domain_id, update_reply_forwarding_request)
+
+Update reply forwarding config
+
+Configure reply forwarding for a sending domain. Set forward_replies_to to null to disable. Requires Growth+ plan.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.get_reply_forwarding200_response import GetReplyForwarding200Response
+from mailodds.models.update_reply_forwarding_request import UpdateReplyForwardingRequest
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.SendingDomainsApi(api_client)
+    domain_id = 'domain_id_example' # str | Sending domain ID
+    update_reply_forwarding_request = mailodds.UpdateReplyForwardingRequest() # UpdateReplyForwardingRequest | 
+
+    try:
+        # Update reply forwarding config
+        api_response = api_instance.update_reply_forwarding(domain_id, update_reply_forwarding_request)
+        print("The response of SendingDomainsApi->update_reply_forwarding:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SendingDomainsApi->update_reply_forwarding: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain_id** | **str**| Sending domain ID | 
+ **update_reply_forwarding_request** | [**UpdateReplyForwardingRequest**](UpdateReplyForwardingRequest.md)|  | 
+
+### Return type
+
+[**GetReplyForwarding200Response**](GetReplyForwarding200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Reply forwarding updated |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**403** | Forbidden - Insufficient permissions or no credits |  -  |
+**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

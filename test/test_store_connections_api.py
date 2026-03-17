@@ -48,10 +48,24 @@ class TestStoreConnectionsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_sync_job_errors(self) -> None:
+        """Test case for get_sync_job_errors
+
+        Get sync job errors
+        """
+        pass
+
     def test_list_stores(self) -> None:
         """Test case for list_stores
 
         List store connections
+        """
+        pass
+
+    def test_list_sync_jobs(self) -> None:
+        """Test case for list_sync_jobs
+
+        List sync jobs
         """
         pass
 

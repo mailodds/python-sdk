@@ -27,6 +27,13 @@ class TestSpamChecksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_delete_spam_check(self) -> None:
+        """Test case for delete_spam_check
+
+        Delete spam check
+        """
+        pass
+
     def test_get_spam_check(self) -> None:
         """Test case for get_spam_check
 

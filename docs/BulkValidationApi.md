@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_job_results**](BulkValidationApi.md#get_job_results) | **GET** /v1/jobs/{job_id}/results | Get job results
 [**get_presigned_upload**](BulkValidationApi.md#get_presigned_upload) | **POST** /v1/jobs/upload/presigned | Get S3 presigned upload URL
 [**list_jobs**](BulkValidationApi.md#list_jobs) | **GET** /v1/jobs | List validation jobs
+[**retry_job**](BulkValidationApi.md#retry_job) | **POST** /v1/jobs/{job_id}/retry | Retry failed job
 
 
 # **cancel_job**
@@ -751,6 +752,87 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | List of jobs |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retry_job**
+> RetryJob200Response retry_job(job_id)
+
+Retry failed job
+
+Retry processing for a failed or cancelled validation job. Re-queues unprocessed emails.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.retry_job200_response import RetryJob200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.BulkValidationApi(api_client)
+    job_id = 'job_id_example' # str | Job ID
+
+    try:
+        # Retry failed job
+        api_response = api_instance.retry_job(job_id)
+        print("The response of BulkValidationApi->retry_job:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BulkValidationApi->retry_job: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID | 
+
+### Return type
+
+[**RetryJob200Response**](RetryJob200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Job retry initiated |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

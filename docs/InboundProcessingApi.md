@@ -50,7 +50,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.InboundProcessingApi(api_client)
-    message_id = 'message_id_example' # str | Message ID
+    message_id = 'message_id_example' # str | 
     correct_inbound_message_request = mailodds.CorrectInboundMessageRequest() # CorrectInboundMessageRequest | 
 
     try:
@@ -69,7 +69,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **message_id** | **str**| Message ID | 
+ **message_id** | **str**|  | 
  **correct_inbound_message_request** | [**CorrectInboundMessageRequest**](CorrectInboundMessageRequest.md)|  | 
 
 ### Return type
@@ -90,9 +90,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Message updated with correction |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
 **404** | Resource not found |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -175,8 +176,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Bounce statistics |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -257,8 +258,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Bounce statistics summary |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -339,8 +340,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Complaint assessment |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -381,7 +382,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.InboundProcessingApi(api_client)
-    message_id = 'message_id_example' # str | Message ID
+    message_id = 'message_id_example' # str | 
 
     try:
         # Get inbound message
@@ -399,7 +400,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **message_id** | **str**| Message ID | 
+ **message_id** | **str**|  | 
 
 ### Return type
 
@@ -419,9 +420,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Inbound message details |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -516,8 +517,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Paginated list of inbound messages |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

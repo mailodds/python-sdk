@@ -18,25 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CampaignStats(BaseModel):
+class GetBounceStats200ResponseStats(BaseModel):
     """
-    Delivery and engagement statistics.
+    Bounce statistics with time-series data
     """ # noqa: E501
-    sent: Optional[StrictInt] = None
-    delivered: Optional[StrictInt] = None
-    opened: Optional[StrictInt] = None
-    clicked: Optional[StrictInt] = None
-    bounced: Optional[StrictInt] = None
-    unsubscribed: Optional[StrictInt] = None
-    suppressed: Optional[StrictInt] = None
-    failed: Optional[StrictInt] = None
-    conversions: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["sent", "delivered", "opened", "clicked", "bounced", "unsubscribed", "suppressed", "failed", "conversions"]
+    period: Optional[StrictStr] = None
+    group_by: Optional[StrictStr] = None
+    data: Optional[List[Dict[str, Any]]] = None
+    __properties: ClassVar[List[str]] = ["period", "group_by", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +50,7 @@ class CampaignStats(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CampaignStats from a JSON string"""
+        """Create an instance of GetBounceStats200ResponseStats from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +75,7 @@ class CampaignStats(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CampaignStats from a dict"""
+        """Create an instance of GetBounceStats200ResponseStats from a dict"""
         if obj is None:
             return None
 
@@ -89,15 +83,9 @@ class CampaignStats(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "sent": obj.get("sent"),
-            "delivered": obj.get("delivered"),
-            "opened": obj.get("opened"),
-            "clicked": obj.get("clicked"),
-            "bounced": obj.get("bounced"),
-            "unsubscribed": obj.get("unsubscribed"),
-            "suppressed": obj.get("suppressed"),
-            "failed": obj.get("failed"),
-            "conversions": obj.get("conversions")
+            "period": obj.get("period"),
+            "group_by": obj.get("group_by"),
+            "data": obj.get("data")
         })
         return _obj
 

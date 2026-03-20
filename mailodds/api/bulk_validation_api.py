@@ -104,8 +104,8 @@ class BulkValidationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -174,8 +174,8 @@ class BulkValidationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -244,8 +244,8 @@ class BulkValidationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1243,8 +1243,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteJob200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1312,8 +1312,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteJob200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1381,8 +1381,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteJob200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1510,8 +1510,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1579,8 +1579,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1648,8 +1648,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1793,8 +1793,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultsResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1878,8 +1878,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultsResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1963,8 +1963,8 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultsResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2114,8 +2114,9 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PresignedUploadResponse",
-            '401': "ErrorResponse",
             '503': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2183,8 +2184,9 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PresignedUploadResponse",
-            '401': "ErrorResponse",
             '503': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2252,8 +2254,9 @@ class BulkValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PresignedUploadResponse",
-            '401': "ErrorResponse",
             '503': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2642,7 +2645,7 @@ class BulkValidationApi:
     @validate_call
     def retry_job(
         self,
-        job_id: Annotated[StrictStr, Field(description="Job ID")],
+        job_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2660,7 +2663,7 @@ class BulkValidationApi:
 
         Retry processing for a failed or cancelled validation job. Re-queues unprocessed emails.
 
-        :param job_id: Job ID (required)
+        :param job_id: (required)
         :type job_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2695,8 +2698,8 @@ class BulkValidationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RetryJob200Response",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2712,7 +2715,7 @@ class BulkValidationApi:
     @validate_call
     def retry_job_with_http_info(
         self,
-        job_id: Annotated[StrictStr, Field(description="Job ID")],
+        job_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2730,7 +2733,7 @@ class BulkValidationApi:
 
         Retry processing for a failed or cancelled validation job. Re-queues unprocessed emails.
 
-        :param job_id: Job ID (required)
+        :param job_id: (required)
         :type job_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2765,8 +2768,8 @@ class BulkValidationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RetryJob200Response",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2782,7 +2785,7 @@ class BulkValidationApi:
     @validate_call
     def retry_job_without_preload_content(
         self,
-        job_id: Annotated[StrictStr, Field(description="Job ID")],
+        job_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2800,7 +2803,7 @@ class BulkValidationApi:
 
         Retry processing for a failed or cancelled validation job. Re-queues unprocessed emails.
 
-        :param job_id: Job ID (required)
+        :param job_id: (required)
         :type job_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2835,8 +2838,8 @@ class BulkValidationApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RetryJob200Response",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

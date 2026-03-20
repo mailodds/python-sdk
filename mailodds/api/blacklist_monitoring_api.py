@@ -328,7 +328,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def delete_blacklist_monitor(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -346,7 +346,7 @@ class BlacklistMonitoringApi:
 
         Permanently remove a blacklist monitor and its check history.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -380,8 +380,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -397,7 +397,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def delete_blacklist_monitor_with_http_info(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,7 +415,7 @@ class BlacklistMonitoringApi:
 
         Permanently remove a blacklist monitor and its check history.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -449,8 +449,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -466,7 +466,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def delete_blacklist_monitor_without_preload_content(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -484,7 +484,7 @@ class BlacklistMonitoringApi:
 
         Permanently remove a blacklist monitor and its check history.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -518,8 +518,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -595,7 +595,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def get_blacklist_history(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -615,7 +615,7 @@ class BlacklistMonitoringApi:
 
         Get the listing and delisting timeline for a monitored IP or domain.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param page:
         :type page: int
@@ -655,8 +655,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBlacklistHistory200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -672,7 +672,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def get_blacklist_history_with_http_info(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -692,7 +692,7 @@ class BlacklistMonitoringApi:
 
         Get the listing and delisting timeline for a monitored IP or domain.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param page:
         :type page: int
@@ -732,8 +732,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBlacklistHistory200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -749,7 +749,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def get_blacklist_history_without_preload_content(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -769,7 +769,7 @@ class BlacklistMonitoringApi:
 
         Get the listing and delisting timeline for a monitored IP or domain.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param page:
         :type page: int
@@ -809,8 +809,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBlacklistHistory200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1145,7 +1145,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def run_blacklist_check(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1163,7 +1163,7 @@ class BlacklistMonitoringApi:
 
         Run an on-demand DNSBL check for a monitored IP or domain.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1197,8 +1197,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunBlacklistCheck200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1214,7 +1214,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def run_blacklist_check_with_http_info(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1232,7 +1232,7 @@ class BlacklistMonitoringApi:
 
         Run an on-demand DNSBL check for a monitored IP or domain.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1266,8 +1266,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunBlacklistCheck200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1283,7 +1283,7 @@ class BlacklistMonitoringApi:
     @validate_call
     def run_blacklist_check_without_preload_content(
         self,
-        monitor_id: Annotated[StrictStr, Field(description="Monitor UUID")],
+        monitor_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1301,7 +1301,7 @@ class BlacklistMonitoringApi:
 
         Run an on-demand DNSBL check for a monitored IP or domain.
 
-        :param monitor_id: Monitor UUID (required)
+        :param monitor_id: (required)
         :type monitor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1335,8 +1335,8 @@ class BlacklistMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunBlacklistCheck200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

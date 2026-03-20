@@ -48,7 +48,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ProductsApi(api_client)
-    store_id = 'store_id_example' # str | Store connection UUID
+    store_id = 'store_id_example' # str | 
     batch_products_request = mailodds.BatchProductsRequest() # BatchProductsRequest | 
 
     try:
@@ -67,7 +67,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store connection UUID | 
+ **store_id** | **str**|  | 
  **batch_products_request** | [**BatchProductsRequest**](BatchProductsRequest.md)|  | 
 
 ### Return type
@@ -88,9 +88,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Batch results |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -212,7 +212,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ProductsApi(api_client)
-    product_id = 'product_id_example' # str | Product UUID
+    product_id = 'product_id_example' # str | 
 
     try:
         # Get a product
@@ -230,7 +230,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product_id** | **str**| Product UUID | 
+ **product_id** | **str**|  | 
 
 ### Return type
 
@@ -250,8 +250,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Product details |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

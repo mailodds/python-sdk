@@ -50,8 +50,8 @@ class StoreConnection(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['woocommerce', 'prestashop', 'shopify', 'feed']):
-            raise ValueError("must be one of enum values ('woocommerce', 'prestashop', 'shopify', 'feed')")
+        if value not in set(['woocommerce', 'prestashop', 'shopify', 'feed', 'custom']):
+            raise ValueError("must be one of enum values ('woocommerce', 'prestashop', 'shopify', 'feed', 'custom')")
         return value
 
     @field_validator('status')

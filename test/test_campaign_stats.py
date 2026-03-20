@@ -42,10 +42,9 @@ class TestCampaignStats(unittest.TestCase):
                 clicked = 56,
                 bounced = 56,
                 unsubscribed = 56,
-                complained = 56,
-                delivery_rate = 1.337,
-                open_rate = 1.337,
-                click_rate = 1.337
+                suppressed = 56,
+                failed = 56,
+                conversions = 56
             )
         else:
             return CampaignStats(

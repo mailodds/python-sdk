@@ -65,7 +65,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CreateToken200Response:
         """Create token
 
@@ -163,7 +163,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CreateToken200Response]:
         """Create token
 
@@ -261,7 +261,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create token
 
@@ -349,10 +349,7 @@ class OAuth20Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.mailodds.com'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -447,7 +444,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> JwksResponse:
         """Get JSON Web Key Set
 
@@ -510,7 +507,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[JwksResponse]:
         """Get JSON Web Key Set
 
@@ -573,7 +570,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get JSON Web Key Set
 
@@ -626,10 +623,7 @@ class OAuth20Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.mailodds.com'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -699,7 +693,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> IntrospectToken200Response:
         """Introspect token
 
@@ -749,6 +743,7 @@ class OAuth20Api:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "IntrospectToken200Response",
             '401': None,
+            '400': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -779,7 +774,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[IntrospectToken200Response]:
         """Introspect token
 
@@ -829,6 +824,7 @@ class OAuth20Api:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "IntrospectToken200Response",
             '401': None,
+            '400': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -859,7 +855,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Introspect token
 
@@ -909,6 +905,7 @@ class OAuth20Api:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "IntrospectToken200Response",
             '401': None,
+            '400': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -929,10 +926,7 @@ class OAuth20Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.mailodds.com'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1019,7 +1013,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OAuthServerMetadata:
         """OAuth server metadata
 
@@ -1082,7 +1076,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OAuthServerMetadata]:
         """OAuth server metadata
 
@@ -1145,7 +1139,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """OAuth server metadata
 
@@ -1198,10 +1192,7 @@ class OAuth20Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.mailodds.com'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1271,7 +1262,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Revoke token
 
@@ -1321,6 +1312,7 @@ class OAuth20Api:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
+            '400': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1351,7 +1343,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Revoke token
 
@@ -1401,6 +1393,7 @@ class OAuth20Api:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
+            '400': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1431,7 +1424,7 @@ class OAuth20Api:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Revoke token
 
@@ -1481,6 +1474,7 @@ class OAuth20Api:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
+            '400': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1501,10 +1495,7 @@ class OAuth20Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.mailodds.com'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1533,6 +1524,13 @@ class OAuth20Api:
         # process the body parameter
 
 
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:

@@ -100,9 +100,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchCheckOoo200Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -170,9 +170,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchCheckOoo200Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -240,9 +240,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchCheckOoo200Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -331,7 +331,7 @@ class OutOfOfficeApi:
     @validate_call
     def delete_ooo_contact(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -349,7 +349,7 @@ class OutOfOfficeApi:
 
         Clear out-of-office status for an email address. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -383,9 +383,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteOooContact200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -401,7 +401,7 @@ class OutOfOfficeApi:
     @validate_call
     def delete_ooo_contact_with_http_info(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -419,7 +419,7 @@ class OutOfOfficeApi:
 
         Clear out-of-office status for an email address. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -453,9 +453,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteOooContact200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -471,7 +471,7 @@ class OutOfOfficeApi:
     @validate_call
     def delete_ooo_contact_without_preload_content(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -489,7 +489,7 @@ class OutOfOfficeApi:
 
         Clear out-of-office status for an email address. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -523,9 +523,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteOooContact200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -601,7 +601,7 @@ class OutOfOfficeApi:
     @validate_call
     def get_ooo_status(
         self,
-        email: Annotated[StrictStr, Field(description="Email address to check")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -619,7 +619,7 @@ class OutOfOfficeApi:
 
         Check if a specific email address is currently out-of-office. Requires Growth+ plan.
 
-        :param email: Email address to check (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -653,8 +653,8 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetOooStatus200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -670,7 +670,7 @@ class OutOfOfficeApi:
     @validate_call
     def get_ooo_status_with_http_info(
         self,
-        email: Annotated[StrictStr, Field(description="Email address to check")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -688,7 +688,7 @@ class OutOfOfficeApi:
 
         Check if a specific email address is currently out-of-office. Requires Growth+ plan.
 
-        :param email: Email address to check (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -722,8 +722,8 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetOooStatus200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -739,7 +739,7 @@ class OutOfOfficeApi:
     @validate_call
     def get_ooo_status_without_preload_content(
         self,
-        email: Annotated[StrictStr, Field(description="Email address to check")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -757,7 +757,7 @@ class OutOfOfficeApi:
 
         Check if a specific email address is currently out-of-office. Requires Growth+ plan.
 
-        :param email: Email address to check (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -791,8 +791,8 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetOooStatus200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -928,8 +928,8 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListOooContacts200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1005,8 +1005,8 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListOooContacts200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1082,8 +1082,8 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListOooContacts200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1171,7 +1171,7 @@ class OutOfOfficeApi:
     @validate_call
     def update_ooo_contact(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         update_ooo_contact_request: UpdateOooContactRequest,
         _request_timeout: Union[
             None,
@@ -1190,7 +1190,7 @@ class OutOfOfficeApi:
 
         Manually set or clear out-of-office status for an email. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param update_ooo_contact_request: (required)
         :type update_ooo_contact_request: UpdateOooContactRequest
@@ -1227,8 +1227,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1244,7 +1245,7 @@ class OutOfOfficeApi:
     @validate_call
     def update_ooo_contact_with_http_info(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         update_ooo_contact_request: UpdateOooContactRequest,
         _request_timeout: Union[
             None,
@@ -1263,7 +1264,7 @@ class OutOfOfficeApi:
 
         Manually set or clear out-of-office status for an email. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param update_ooo_contact_request: (required)
         :type update_ooo_contact_request: UpdateOooContactRequest
@@ -1300,8 +1301,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1317,7 +1319,7 @@ class OutOfOfficeApi:
     @validate_call
     def update_ooo_contact_without_preload_content(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         update_ooo_contact_request: UpdateOooContactRequest,
         _request_timeout: Union[
             None,
@@ -1336,7 +1338,7 @@ class OutOfOfficeApi:
 
         Manually set or clear out-of-office status for an email. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param update_ooo_contact_request: (required)
         :type update_ooo_contact_request: UpdateOooContactRequest
@@ -1373,8 +1375,9 @@ class OutOfOfficeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

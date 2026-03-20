@@ -49,7 +49,7 @@ class InboundProcessingApi:
     @validate_call
     def correct_inbound_message(
         self,
-        message_id: Annotated[StrictStr, Field(description="Message ID")],
+        message_id: StrictStr,
         correct_inbound_message_request: CorrectInboundMessageRequest,
         _request_timeout: Union[
             None,
@@ -68,7 +68,7 @@ class InboundProcessingApi:
 
         Submit a human correction for an inbound message classification. Requires Pro+ plan.
 
-        :param message_id: Message ID (required)
+        :param message_id: (required)
         :type message_id: str
         :param correct_inbound_message_request: (required)
         :type correct_inbound_message_request: CorrectInboundMessageRequest
@@ -105,9 +105,10 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInboundMessage200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -123,7 +124,7 @@ class InboundProcessingApi:
     @validate_call
     def correct_inbound_message_with_http_info(
         self,
-        message_id: Annotated[StrictStr, Field(description="Message ID")],
+        message_id: StrictStr,
         correct_inbound_message_request: CorrectInboundMessageRequest,
         _request_timeout: Union[
             None,
@@ -142,7 +143,7 @@ class InboundProcessingApi:
 
         Submit a human correction for an inbound message classification. Requires Pro+ plan.
 
-        :param message_id: Message ID (required)
+        :param message_id: (required)
         :type message_id: str
         :param correct_inbound_message_request: (required)
         :type correct_inbound_message_request: CorrectInboundMessageRequest
@@ -179,9 +180,10 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInboundMessage200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -197,7 +199,7 @@ class InboundProcessingApi:
     @validate_call
     def correct_inbound_message_without_preload_content(
         self,
-        message_id: Annotated[StrictStr, Field(description="Message ID")],
+        message_id: StrictStr,
         correct_inbound_message_request: CorrectInboundMessageRequest,
         _request_timeout: Union[
             None,
@@ -216,7 +218,7 @@ class InboundProcessingApi:
 
         Submit a human correction for an inbound message classification. Requires Pro+ plan.
 
-        :param message_id: Message ID (required)
+        :param message_id: (required)
         :type message_id: str
         :param correct_inbound_message_request: (required)
         :type correct_inbound_message_request: CorrectInboundMessageRequest
@@ -253,9 +255,10 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInboundMessage200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -407,8 +410,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStats200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -484,8 +487,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStats200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -561,8 +564,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStats200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -706,8 +709,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStatsSummary200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -779,8 +782,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStatsSummary200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -852,8 +855,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStatsSummary200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -992,8 +995,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetComplaintAssessment200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1065,8 +1068,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetComplaintAssessment200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1138,8 +1141,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetComplaintAssessment200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1222,7 +1225,7 @@ class InboundProcessingApi:
     @validate_call
     def get_inbound_message(
         self,
-        message_id: Annotated[StrictStr, Field(description="Message ID")],
+        message_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1240,7 +1243,7 @@ class InboundProcessingApi:
 
         Get a single inbound message with full body content. Requires Growth+ plan.
 
-        :param message_id: Message ID (required)
+        :param message_id: (required)
         :type message_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1274,9 +1277,9 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInboundMessage200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1292,7 +1295,7 @@ class InboundProcessingApi:
     @validate_call
     def get_inbound_message_with_http_info(
         self,
-        message_id: Annotated[StrictStr, Field(description="Message ID")],
+        message_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1310,7 +1313,7 @@ class InboundProcessingApi:
 
         Get a single inbound message with full body content. Requires Growth+ plan.
 
-        :param message_id: Message ID (required)
+        :param message_id: (required)
         :type message_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1344,9 +1347,9 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInboundMessage200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1362,7 +1365,7 @@ class InboundProcessingApi:
     @validate_call
     def get_inbound_message_without_preload_content(
         self,
-        message_id: Annotated[StrictStr, Field(description="Message ID")],
+        message_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1380,7 +1383,7 @@ class InboundProcessingApi:
 
         Get a single inbound message with full body content. Requires Growth+ plan.
 
-        :param message_id: Message ID (required)
+        :param message_id: (required)
         :type message_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1414,9 +1417,9 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInboundMessage200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1576,8 +1579,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListInboundMessages200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1677,8 +1680,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListInboundMessages200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1778,8 +1781,8 @@ class InboundProcessingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListInboundMessages200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

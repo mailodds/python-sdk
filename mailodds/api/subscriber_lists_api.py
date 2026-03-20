@@ -371,9 +371,9 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateList201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -441,9 +441,9 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateList201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -511,9 +511,9 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateList201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -654,8 +654,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -723,8 +723,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -792,8 +792,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -921,8 +921,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateList201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -990,8 +990,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateList201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1059,8 +1059,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateList201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1483,8 +1483,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSubscribers200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1564,8 +1564,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSubscribers200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1645,8 +1645,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSubscribers200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1793,11 +1793,11 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "UnsubscribeSubscriber200Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '422': "ErrorResponse",
             '429': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1869,11 +1869,11 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "UnsubscribeSubscriber200Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '422': "ErrorResponse",
             '429': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1945,11 +1945,11 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "UnsubscribeSubscriber200Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '422': "ErrorResponse",
             '429': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2097,8 +2097,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UnsubscribeSubscriber200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2170,8 +2170,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UnsubscribeSubscriber200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2243,8 +2243,8 @@ class SubscriberListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "UnsubscribeSubscriber200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

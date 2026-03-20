@@ -129,7 +129,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.BlacklistMonitoringApi(api_client)
-    monitor_id = 'monitor_id_example' # str | Monitor UUID
+    monitor_id = 'monitor_id_example' # str | 
 
     try:
         # Delete a blacklist monitor
@@ -147,7 +147,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitor_id** | **str**| Monitor UUID | 
+ **monitor_id** | **str**|  | 
 
 ### Return type
 
@@ -167,8 +167,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Monitor deleted |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -209,7 +209,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.BlacklistMonitoringApi(api_client)
-    monitor_id = 'monitor_id_example' # str | Monitor UUID
+    monitor_id = 'monitor_id_example' # str | 
     page = 1 # int |  (optional) (default to 1)
     per_page = 20 # int |  (optional) (default to 20)
 
@@ -229,7 +229,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitor_id** | **str**| Monitor UUID | 
+ **monitor_id** | **str**|  | 
  **page** | **int**|  | [optional] [default to 1]
  **per_page** | **int**|  | [optional] [default to 20]
 
@@ -251,8 +251,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Check history |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -368,7 +368,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.BlacklistMonitoringApi(api_client)
-    monitor_id = 'monitor_id_example' # str | Monitor UUID
+    monitor_id = 'monitor_id_example' # str | 
 
     try:
         # Run blacklist check
@@ -386,7 +386,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitor_id** | **str**| Monitor UUID | 
+ **monitor_id** | **str**|  | 
 
 ### Return type
 
@@ -406,8 +406,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Check result |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

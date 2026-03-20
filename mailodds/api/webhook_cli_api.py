@@ -99,6 +99,7 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWebhookCliSession201Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -167,6 +168,7 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWebhookCliSession201Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -235,6 +237,7 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateWebhookCliSession201Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -324,7 +327,7 @@ class WebhookCLIApi:
     @validate_call
     def delete_webhook_cli_session(
         self,
-        session_id: Annotated[StrictStr, Field(description="Session ID")],
+        session_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -342,7 +345,7 @@ class WebhookCLIApi:
 
         Close a webhook CLI forwarding session.
 
-        :param session_id: Session ID (required)
+        :param session_id: (required)
         :type session_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -376,8 +379,8 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteWebhookCliSession200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -393,7 +396,7 @@ class WebhookCLIApi:
     @validate_call
     def delete_webhook_cli_session_with_http_info(
         self,
-        session_id: Annotated[StrictStr, Field(description="Session ID")],
+        session_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -411,7 +414,7 @@ class WebhookCLIApi:
 
         Close a webhook CLI forwarding session.
 
-        :param session_id: Session ID (required)
+        :param session_id: (required)
         :type session_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -445,8 +448,8 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteWebhookCliSession200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -462,7 +465,7 @@ class WebhookCLIApi:
     @validate_call
     def delete_webhook_cli_session_without_preload_content(
         self,
-        session_id: Annotated[StrictStr, Field(description="Session ID")],
+        session_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -480,7 +483,7 @@ class WebhookCLIApi:
 
         Close a webhook CLI forwarding session.
 
-        :param session_id: Session ID (required)
+        :param session_id: (required)
         :type session_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -514,8 +517,8 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteWebhookCliSession200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -857,7 +860,7 @@ class WebhookCLIApi:
     @validate_call
     def replay_webhook_delivery(
         self,
-        delivery_id: Annotated[StrictInt, Field(description="Delivery ID")],
+        delivery_id: StrictInt,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -875,7 +878,7 @@ class WebhookCLIApi:
 
         Replay a historical webhook delivery to active CLI sessions.
 
-        :param delivery_id: Delivery ID (required)
+        :param delivery_id: (required)
         :type delivery_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -909,8 +912,8 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ReplayWebhookDelivery200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -926,7 +929,7 @@ class WebhookCLIApi:
     @validate_call
     def replay_webhook_delivery_with_http_info(
         self,
-        delivery_id: Annotated[StrictInt, Field(description="Delivery ID")],
+        delivery_id: StrictInt,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -944,7 +947,7 @@ class WebhookCLIApi:
 
         Replay a historical webhook delivery to active CLI sessions.
 
-        :param delivery_id: Delivery ID (required)
+        :param delivery_id: (required)
         :type delivery_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -978,8 +981,8 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ReplayWebhookDelivery200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -995,7 +998,7 @@ class WebhookCLIApi:
     @validate_call
     def replay_webhook_delivery_without_preload_content(
         self,
-        delivery_id: Annotated[StrictInt, Field(description="Delivery ID")],
+        delivery_id: StrictInt,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1013,7 +1016,7 @@ class WebhookCLIApi:
 
         Replay a historical webhook delivery to active CLI sessions.
 
-        :param delivery_id: Delivery ID (required)
+        :param delivery_id: (required)
         :type delivery_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1047,8 +1050,8 @@ class WebhookCLIApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ReplayWebhookDelivery200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

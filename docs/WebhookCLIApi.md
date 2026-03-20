@@ -86,6 +86,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Session created |  -  |
+**400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -127,7 +128,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.WebhookCLIApi(api_client)
-    session_id = 'session_id_example' # str | Session ID
+    session_id = 'session_id_example' # str | 
 
     try:
         # Close CLI session
@@ -145,7 +146,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**| Session ID | 
+ **session_id** | **str**|  | 
 
 ### Return type
 
@@ -165,8 +166,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Session closed |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -286,7 +287,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.WebhookCLIApi(api_client)
-    delivery_id = 56 # int | Delivery ID
+    delivery_id = 56 # int | 
 
     try:
         # Replay webhook delivery
@@ -304,7 +305,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **delivery_id** | **int**| Delivery ID | 
+ **delivery_id** | **int**|  | 
 
 ### Return type
 
@@ -324,8 +325,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Delivery replayed |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -46,7 +46,7 @@ class SpamChecksApi:
     @validate_call
     def delete_spam_check(
         self,
-        check_id: Annotated[StrictStr, Field(description="Spam check ID")],
+        check_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -64,7 +64,7 @@ class SpamChecksApi:
 
         Delete a spam check result.
 
-        :param check_id: Spam check ID (required)
+        :param check_id: (required)
         :type check_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -98,8 +98,8 @@ class SpamChecksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,7 +115,7 @@ class SpamChecksApi:
     @validate_call
     def delete_spam_check_with_http_info(
         self,
-        check_id: Annotated[StrictStr, Field(description="Spam check ID")],
+        check_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,7 +133,7 @@ class SpamChecksApi:
 
         Delete a spam check result.
 
-        :param check_id: Spam check ID (required)
+        :param check_id: (required)
         :type check_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -167,8 +167,8 @@ class SpamChecksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -184,7 +184,7 @@ class SpamChecksApi:
     @validate_call
     def delete_spam_check_without_preload_content(
         self,
-        check_id: Annotated[StrictStr, Field(description="Spam check ID")],
+        check_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -202,7 +202,7 @@ class SpamChecksApi:
 
         Delete a spam check result.
 
-        :param check_id: Spam check ID (required)
+        :param check_id: (required)
         :type check_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -236,8 +236,8 @@ class SpamChecksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -313,7 +313,7 @@ class SpamChecksApi:
     @validate_call
     def get_spam_check(
         self,
-        check_id: Annotated[StrictStr, Field(description="Spam check UUID")],
+        check_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -331,7 +331,7 @@ class SpamChecksApi:
 
         Get the detailed result of a specific spam check.
 
-        :param check_id: Spam check UUID (required)
+        :param check_id: (required)
         :type check_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -365,8 +365,8 @@ class SpamChecksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunSpamCheck201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -382,7 +382,7 @@ class SpamChecksApi:
     @validate_call
     def get_spam_check_with_http_info(
         self,
-        check_id: Annotated[StrictStr, Field(description="Spam check UUID")],
+        check_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -400,7 +400,7 @@ class SpamChecksApi:
 
         Get the detailed result of a specific spam check.
 
-        :param check_id: Spam check UUID (required)
+        :param check_id: (required)
         :type check_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -434,8 +434,8 @@ class SpamChecksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunSpamCheck201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -451,7 +451,7 @@ class SpamChecksApi:
     @validate_call
     def get_spam_check_without_preload_content(
         self,
-        check_id: Annotated[StrictStr, Field(description="Spam check UUID")],
+        check_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -469,7 +469,7 @@ class SpamChecksApi:
 
         Get the detailed result of a specific spam check.
 
-        :param check_id: Spam check UUID (required)
+        :param check_id: (required)
         :type check_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -503,8 +503,8 @@ class SpamChecksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunSpamCheck201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

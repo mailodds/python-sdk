@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Alert rule created |  -  |
+**403** | Forbidden - Insufficient permissions or no credits |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**403** | Forbidden - Insufficient permissions or no credits |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -130,7 +130,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.AlertRulesApi(api_client)
-    rule_id = 'rule_id_example' # str | Alert rule ID
+    rule_id = 'rule_id_example' # str | 
 
     try:
         # Delete alert rule
@@ -148,7 +148,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rule_id** | **str**| Alert rule ID | 
+ **rule_id** | **str**|  | 
 
 ### Return type
 
@@ -168,9 +168,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Alert rule deleted |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -211,7 +211,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.AlertRulesApi(api_client)
-    rule_id = 'rule_id_example' # str | Alert rule ID
+    rule_id = 'rule_id_example' # str | 
 
     try:
         # Get alert rule
@@ -229,7 +229,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rule_id** | **str**| Alert rule ID | 
+ **rule_id** | **str**|  | 
 
 ### Return type
 
@@ -249,9 +249,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Alert rule details |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -326,8 +326,8 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of alert rules |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -369,7 +369,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.AlertRulesApi(api_client)
-    rule_id = 'rule_id_example' # str | Alert rule ID
+    rule_id = 'rule_id_example' # str | 
     update_alert_rule_request = mailodds.UpdateAlertRuleRequest() # UpdateAlertRuleRequest | 
 
     try:
@@ -388,7 +388,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rule_id** | **str**| Alert rule ID | 
+ **rule_id** | **str**|  | 
  **update_alert_rule_request** | [**UpdateAlertRuleRequest**](UpdateAlertRuleRequest.md)|  | 
 
 ### Return type
@@ -409,10 +409,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Alert rule updated |  -  |
-**400** | Bad request |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
 **404** | Resource not found |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

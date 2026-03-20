@@ -55,7 +55,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list ID
+    list_id = 'list_id_example' # str | 
     add_contact_request = mailodds.AddContactRequest() # AddContactRequest | 
 
     try:
@@ -74,7 +74,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list ID | 
+ **list_id** | **str**|  | 
  **add_contact_request** | [**AddContactRequest**](AddContactRequest.md)|  | 
 
 ### Return type
@@ -95,9 +95,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Contact added |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -139,7 +139,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list UUID
+    list_id = 'list_id_example' # str | 
     append_to_contact_list_request = mailodds.AppendToContactListRequest() # AppendToContactListRequest | 
 
     try:
@@ -158,7 +158,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list UUID | 
+ **list_id** | **str**|  | 
  **append_to_contact_list_request** | [**AppendToContactListRequest**](AppendToContactListRequest.md)|  | 
 
 ### Return type
@@ -179,9 +179,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Append result |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -261,9 +261,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Contact list created |  -  |
+**403** | Forbidden - Insufficient permissions or no credits |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**403** | Forbidden - Insufficient permissions or no credits |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -304,8 +304,8 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list ID
-    contact_id = 'contact_id_example' # str | Contact ID
+    list_id = 'list_id_example' # str | 
+    contact_id = 'contact_id_example' # str | 
 
     try:
         # Delete contact
@@ -323,8 +323,8 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list ID | 
- **contact_id** | **str**| Contact ID | 
+ **list_id** | **str**|  | 
+ **contact_id** | **str**|  | 
 
 ### Return type
 
@@ -344,8 +344,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Contact deleted |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -386,7 +386,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list UUID
+    list_id = 'list_id_example' # str | 
 
     try:
         # Delete a contact list
@@ -404,7 +404,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list UUID | 
+ **list_id** | **str**|  | 
 
 ### Return type
 
@@ -424,8 +424,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Contact list deleted |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -465,7 +465,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list ID
+    list_id = 'list_id_example' # str | 
 
     try:
         # Export contact list
@@ -483,7 +483,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list ID | 
+ **list_id** | **str**|  | 
 
 ### Return type
 
@@ -503,8 +503,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | CSV export |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -583,8 +583,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Inactive contacts report |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -625,7 +625,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list ID
+    list_id = 'list_id_example' # str | 
     file = None # bytearray | CSV file (max 10MB)
     column_mapping = 'column_mapping_example' # str | JSON mapping of CSV columns to contact fields (optional)
     consent_source = 'consent_source_example' # str | Source of consent for imported contacts (optional)
@@ -647,7 +647,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list ID | 
+ **list_id** | **str**|  | 
  **file** | **bytearray**| CSV file (max 10MB) | 
  **column_mapping** | **str**| JSON mapping of CSV columns to contact fields | [optional] 
  **consent_source** | **str**| Source of consent for imported contacts | [optional] 
@@ -671,9 +671,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Import results |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -754,8 +754,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of contact lists |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -797,7 +797,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list UUID
+    list_id = 'list_id_example' # str | 
     query_contact_list_request = mailodds.QueryContactListRequest() # QueryContactListRequest | 
 
     try:
@@ -816,7 +816,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list UUID | 
+ **list_id** | **str**|  | 
  **query_contact_list_request** | [**QueryContactListRequest**](QueryContactListRequest.md)|  | 
 
 ### Return type
@@ -837,9 +837,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Query results |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -881,8 +881,8 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.ContactListsApi(api_client)
-    list_id = 'list_id_example' # str | Contact list ID
-    contact_id = 'contact_id_example' # str | Contact ID
+    list_id = 'list_id_example' # str | 
+    contact_id = 'contact_id_example' # str | 
     update_contact_request = mailodds.UpdateContactRequest() # UpdateContactRequest | 
 
     try:
@@ -901,8 +901,8 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | **str**| Contact list ID | 
- **contact_id** | **str**| Contact ID | 
+ **list_id** | **str**|  | 
+ **contact_id** | **str**|  | 
  **update_contact_request** | [**UpdateContactRequest**](UpdateContactRequest.md)|  | 
 
 ### Return type
@@ -923,9 +923,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Contact updated |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

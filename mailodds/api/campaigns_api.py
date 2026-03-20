@@ -101,8 +101,8 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -171,8 +171,8 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -241,8 +241,8 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -370,9 +370,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CampaignResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -440,9 +440,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CampaignResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -510,9 +510,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CampaignResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -657,9 +657,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateCampaignVariant201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -731,9 +731,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateCampaignVariant201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -805,9 +805,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateCampaignVariant201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -951,8 +951,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1020,8 +1020,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1089,8 +1089,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1522,9 +1522,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1596,9 +1596,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1670,9 +1670,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1817,8 +1817,8 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "CampaignResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1887,8 +1887,8 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "CampaignResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1957,8 +1957,8 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "CampaignResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

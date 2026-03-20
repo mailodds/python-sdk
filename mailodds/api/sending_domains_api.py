@@ -102,9 +102,9 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateSendingDomain201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -172,9 +172,9 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateSendingDomain201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -242,9 +242,9 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateSendingDomain201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -385,8 +385,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -454,8 +454,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -523,8 +523,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -652,9 +652,9 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetReplyForwarding200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -722,9 +722,9 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetReplyForwarding200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -792,9 +792,9 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetReplyForwarding200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -922,8 +922,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSendingDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -991,8 +991,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSendingDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1060,8 +1060,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSendingDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1189,8 +1189,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSendingDomainIdentityScore200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1258,8 +1258,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSendingDomainIdentityScore200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1327,8 +1327,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSendingDomainIdentityScore200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1460,8 +1460,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSendingStats200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1533,8 +1533,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSendingStats200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1606,8 +1606,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSendingStats200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1738,8 +1738,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSendingDomains200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1803,8 +1803,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSendingDomains200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1868,8 +1868,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSendingDomains200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1998,10 +1998,10 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetReplyForwarding200Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2073,10 +2073,10 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetReplyForwarding200Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2148,10 +2148,10 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetReplyForwarding200Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2295,8 +2295,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSendingDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2364,8 +2364,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSendingDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2433,8 +2433,8 @@ class SendingDomainsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSendingDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

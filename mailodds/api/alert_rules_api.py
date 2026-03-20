@@ -17,8 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
-from typing_extensions import Annotated
+from pydantic import StrictStr
 from mailodds.models.create_alert_rule201_response import CreateAlertRule201Response
 from mailodds.models.create_alert_rule_request import CreateAlertRuleRequest
 from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Response
@@ -98,9 +97,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateAlertRule201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -168,9 +167,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateAlertRule201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -238,9 +237,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateAlertRule201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -329,7 +328,7 @@ class AlertRulesApi:
     @validate_call
     def delete_alert_rule(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -347,7 +346,7 @@ class AlertRulesApi:
 
         Delete an alert rule. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -381,9 +380,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -399,7 +398,7 @@ class AlertRulesApi:
     @validate_call
     def delete_alert_rule_with_http_info(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -417,7 +416,7 @@ class AlertRulesApi:
 
         Delete an alert rule. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -451,9 +450,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -469,7 +468,7 @@ class AlertRulesApi:
     @validate_call
     def delete_alert_rule_without_preload_content(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -487,7 +486,7 @@ class AlertRulesApi:
 
         Delete an alert rule. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -521,9 +520,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -599,7 +598,7 @@ class AlertRulesApi:
     @validate_call
     def get_alert_rule(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -617,7 +616,7 @@ class AlertRulesApi:
 
         Get a single alert rule by ID. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -651,9 +650,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateAlertRule201Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -669,7 +668,7 @@ class AlertRulesApi:
     @validate_call
     def get_alert_rule_with_http_info(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -687,7 +686,7 @@ class AlertRulesApi:
 
         Get a single alert rule by ID. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -721,9 +720,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateAlertRule201Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -739,7 +738,7 @@ class AlertRulesApi:
     @validate_call
     def get_alert_rule_without_preload_content(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -757,7 +756,7 @@ class AlertRulesApi:
 
         Get a single alert rule by ID. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -791,9 +790,9 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateAlertRule201Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -917,8 +916,8 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListAlertRules200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -982,8 +981,8 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListAlertRules200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1047,8 +1046,8 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListAlertRules200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1121,7 +1120,7 @@ class AlertRulesApi:
     @validate_call
     def update_alert_rule(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         update_alert_rule_request: UpdateAlertRuleRequest,
         _request_timeout: Union[
             None,
@@ -1140,7 +1139,7 @@ class AlertRulesApi:
 
         Update an existing alert rule. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param update_alert_rule_request: (required)
         :type update_alert_rule_request: UpdateAlertRuleRequest
@@ -1177,10 +1176,10 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateAlertRule201Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1196,7 +1195,7 @@ class AlertRulesApi:
     @validate_call
     def update_alert_rule_with_http_info(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         update_alert_rule_request: UpdateAlertRuleRequest,
         _request_timeout: Union[
             None,
@@ -1215,7 +1214,7 @@ class AlertRulesApi:
 
         Update an existing alert rule. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param update_alert_rule_request: (required)
         :type update_alert_rule_request: UpdateAlertRuleRequest
@@ -1252,10 +1251,10 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateAlertRule201Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1271,7 +1270,7 @@ class AlertRulesApi:
     @validate_call
     def update_alert_rule_without_preload_content(
         self,
-        rule_id: Annotated[StrictStr, Field(description="Alert rule ID")],
+        rule_id: StrictStr,
         update_alert_rule_request: UpdateAlertRuleRequest,
         _request_timeout: Union[
             None,
@@ -1290,7 +1289,7 @@ class AlertRulesApi:
 
         Update an existing alert rule. Requires Growth+ plan.
 
-        :param rule_id: Alert rule ID (required)
+        :param rule_id: (required)
         :type rule_id: str
         :param update_alert_rule_request: (required)
         :type update_alert_rule_request: UpdateAlertRuleRequest
@@ -1327,10 +1326,10 @@ class AlertRulesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateAlertRule201Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
             '404': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

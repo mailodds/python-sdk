@@ -115,8 +115,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDisengagedContacts200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -200,8 +200,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDisengagedContacts200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -285,8 +285,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDisengagedContacts200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -384,7 +384,7 @@ class EngagementApi:
     @validate_call
     def get_engagement_score(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -402,7 +402,7 @@ class EngagementApi:
 
         Get the engagement score for a specific email address. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -436,8 +436,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetEngagementScore200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -453,7 +453,7 @@ class EngagementApi:
     @validate_call
     def get_engagement_score_with_http_info(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -471,7 +471,7 @@ class EngagementApi:
 
         Get the engagement score for a specific email address. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -505,8 +505,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetEngagementScore200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -522,7 +522,7 @@ class EngagementApi:
     @validate_call
     def get_engagement_score_without_preload_content(
         self,
-        email: Annotated[StrictStr, Field(description="Email address")],
+        email: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -540,7 +540,7 @@ class EngagementApi:
 
         Get the engagement score for a specific email address. Requires Growth+ plan.
 
-        :param email: Email address (required)
+        :param email: (required)
         :type email: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -574,8 +574,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetEngagementScore200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -703,8 +703,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStatsSummary200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -772,8 +772,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStatsSummary200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -841,8 +841,8 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceStatsSummary200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -972,8 +972,9 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SuppressDisengaged200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1041,8 +1042,9 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SuppressDisengaged200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1110,8 +1112,9 @@ class EngagementApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SuppressDisengaged200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

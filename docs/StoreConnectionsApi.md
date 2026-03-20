@@ -132,7 +132,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.StoreConnectionsApi(api_client)
-    store_id = 'store_id_example' # str | Store connection UUID
+    store_id = 'store_id_example' # str | 
 
     try:
         # Disconnect a store
@@ -150,7 +150,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store connection UUID | 
+ **store_id** | **str**|  | 
 
 ### Return type
 
@@ -170,8 +170,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Store disconnected |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -212,7 +212,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.StoreConnectionsApi(api_client)
-    store_id = 'store_id_example' # str | Store connection UUID
+    store_id = 'store_id_example' # str | 
 
     try:
         # Get a store connection
@@ -230,7 +230,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store connection UUID | 
+ **store_id** | **str**|  | 
 
 ### Return type
 
@@ -250,8 +250,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Store connection details |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -292,8 +292,8 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.StoreConnectionsApi(api_client)
-    store_id = 'store_id_example' # str | Store ID
-    job_id = 'job_id_example' # str | Sync job ID
+    store_id = 'store_id_example' # str | 
+    job_id = 'job_id_example' # str | 
     page = 1 # int |  (optional) (default to 1)
     per_page = 50 # int |  (optional) (default to 50)
 
@@ -313,8 +313,8 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store ID | 
- **job_id** | **str**| Sync job ID | 
+ **store_id** | **str**|  | 
+ **job_id** | **str**|  | 
  **page** | **int**|  | [optional] [default to 1]
  **per_page** | **int**|  | [optional] [default to 50]
 
@@ -336,8 +336,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Sync job errors |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -457,7 +457,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.StoreConnectionsApi(api_client)
-    store_id = 'store_id_example' # str | Store ID
+    store_id = 'store_id_example' # str | 
     page = 1 # int |  (optional) (default to 1)
     per_page = 20 # int |  (optional) (default to 20)
 
@@ -477,7 +477,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store ID | 
+ **store_id** | **str**|  | 
  **page** | **int**|  | [optional] [default to 1]
  **per_page** | **int**|  | [optional] [default to 20]
 
@@ -499,8 +499,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of sync jobs |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -541,7 +541,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.StoreConnectionsApi(api_client)
-    store_id = 'store_id_example' # str | Store connection UUID
+    store_id = 'store_id_example' # str | 
     idempotency_key = 'idempotency_key_example' # str | Idempotency key to prevent duplicate syncs (5 min TTL) (optional)
 
     try:
@@ -560,7 +560,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store connection UUID | 
+ **store_id** | **str**|  | 
  **idempotency_key** | **str**| Idempotency key to prevent duplicate syncs (5 min TTL) | [optional] 
 
 ### Return type
@@ -582,8 +582,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Sync scheduled |  -  |
 **400** | Bad request |  -  |
-**401** | Unauthorized - Invalid or missing API key |  -  |
 **404** | Resource not found |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -625,7 +625,7 @@ configuration = mailodds.Configuration(
 with mailodds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mailodds.StoreConnectionsApi(api_client)
-    store_id = 'store_id_example' # str | Store connection UUID
+    store_id = 'store_id_example' # str | 
     update_store_request = mailodds.UpdateStoreRequest() # UpdateStoreRequest | 
 
     try:
@@ -644,7 +644,7 @@ with mailodds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **str**| Store connection UUID | 
+ **store_id** | **str**|  | 
  **update_store_request** | [**UpdateStoreRequest**](UpdateStoreRequest.md)|  | 
 
 ### Return type
@@ -665,9 +665,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Store connection updated |  -  |
+**404** | Resource not found |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

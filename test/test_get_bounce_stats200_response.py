@@ -38,9 +38,12 @@ class TestGetBounceStats200Response(unittest.TestCase):
             return GetBounceStats200Response(
                 schema_version = '',
                 request_id = '',
-                stats = [
-                    None
-                    ]
+                stats = mailodds.models.get_bounce_stats_200_response_stats.getBounceStats_200_response_stats(
+                    period = '', 
+                    group_by = '', 
+                    data = [
+                        None
+                        ], )
             )
         else:
             return GetBounceStats200Response(

@@ -95,8 +95,8 @@ class MessageEventsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMessageEvents200Response",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -165,8 +165,8 @@ class MessageEventsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMessageEvents200Response",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -235,8 +235,8 @@ class MessageEventsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMessageEvents200Response",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

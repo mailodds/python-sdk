@@ -382,8 +382,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -451,8 +451,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -520,8 +520,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -653,8 +653,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcDomain200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -726,8 +726,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcDomain200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -799,8 +799,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcDomain200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -933,8 +933,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcRecommendation200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1002,8 +1002,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcRecommendation200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1071,8 +1071,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcRecommendation200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1212,8 +1212,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcSources200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1293,8 +1293,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcSources200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1374,8 +1374,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcSources200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1522,8 +1522,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcTrend200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1595,8 +1595,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcTrend200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1668,8 +1668,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDmarcTrend200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2051,8 +2051,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AddDmarcDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2120,8 +2120,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AddDmarcDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2189,8 +2189,8 @@ class DMARCMonitoringApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AddDmarcDomain201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

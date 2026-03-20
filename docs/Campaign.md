@@ -6,18 +6,32 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Campaign UUID | 
+**account_id** | **int** |  | [optional] 
 **name** | **str** | Campaign name | 
 **status** | **str** |  | 
-**list_id** | **str** | Target subscriber list UUID | 
 **domain_id** | **str** | Sending domain UUID | 
-**from_email** | **str** |  | 
-**from_name** | **str** |  | [optional] 
+**subject** | **str** |  | [optional] 
+**from_address** | **str** | Sender email address | 
 **reply_to** | **str** |  | [optional] 
+**html_body** | **str** |  | [optional] 
+**text_body** | **str** |  | [optional] 
+**html_body_dark** | **str** |  | [optional] 
+**text_body_dark** | **str** |  | [optional] 
+**campaign_type** | **str** |  | [optional] 
+**auto_detect_schema** | **bool** |  | [optional] 
+**promo_annotations** | **object** |  | [optional] 
+**throwaway_policy** | **str** |  | [optional] 
 **scheduled_at** | **datetime** |  | [optional] 
-**sent_at** | **datetime** |  | [optional] 
-**cancelled_at** | **datetime** |  | [optional] 
-**variant_count** | **int** | Number of A/B variants | [optional] 
+**started_at** | **datetime** |  | [optional] 
+**completed_at** | **datetime** |  | [optional] 
+**recipient_count** | **int** |  | [optional] 
+**is_ab_test** | **bool** |  | [optional] 
+**winning_variant_id** | **str** |  | [optional] 
+**ab_test_config** | **object** |  | [optional] 
+**error_message** | **str** |  | [optional] 
 **stats** | [**CampaignStats**](CampaignStats.md) |  | [optional] 
+**open_rate** | **float** |  | [optional] 
+**click_rate** | **float** |  | [optional] 
 **created_at** | **datetime** |  | 
 **updated_at** | **datetime** |  | [optional] 
 

@@ -375,9 +375,9 @@ class EmailValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ValidationResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -445,9 +445,9 @@ class EmailValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ValidationResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -515,9 +515,9 @@ class EmailValidationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ValidationResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -147,6 +147,7 @@ __all__ = [
     "GetBounceRecords200Response",
     "GetBounceRecords200ResponseRecordsInner",
     "GetBounceStats200Response",
+    "GetBounceStats200ResponseStats",
     "GetBounceStatsSummary200Response",
     "GetCampaignABResults200Response",
     "GetCampaignABResults200ResponseVariantsInner",
@@ -458,6 +459,7 @@ from mailodds.models.get_blacklist_history200_response_checks_inner import GetBl
 from mailodds.models.get_bounce_records200_response import GetBounceRecords200Response as GetBounceRecords200Response
 from mailodds.models.get_bounce_records200_response_records_inner import GetBounceRecords200ResponseRecordsInner as GetBounceRecords200ResponseRecordsInner
 from mailodds.models.get_bounce_stats200_response import GetBounceStats200Response as GetBounceStats200Response
+from mailodds.models.get_bounce_stats200_response_stats import GetBounceStats200ResponseStats as GetBounceStats200ResponseStats
 from mailodds.models.get_bounce_stats_summary200_response import GetBounceStatsSummary200Response as GetBounceStatsSummary200Response
 from mailodds.models.get_campaign_ab_results200_response import GetCampaignABResults200Response as GetCampaignABResults200Response
 from mailodds.models.get_campaign_ab_results200_response_variants_inner import GetCampaignABResults200ResponseVariantsInner as GetCampaignABResults200ResponseVariantsInner

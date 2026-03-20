@@ -330,7 +330,7 @@ class StoreConnectionsApi:
     @validate_call
     def disconnect_store(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -348,7 +348,7 @@ class StoreConnectionsApi:
 
         Disconnect a store and deactivate its products. Products are retained but marked inactive.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -382,8 +382,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DisconnectStore200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -399,7 +399,7 @@ class StoreConnectionsApi:
     @validate_call
     def disconnect_store_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -417,7 +417,7 @@ class StoreConnectionsApi:
 
         Disconnect a store and deactivate its products. Products are retained but marked inactive.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -451,8 +451,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DisconnectStore200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -468,7 +468,7 @@ class StoreConnectionsApi:
     @validate_call
     def disconnect_store_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -486,7 +486,7 @@ class StoreConnectionsApi:
 
         Disconnect a store and deactivate its products. Products are retained but marked inactive.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -520,8 +520,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DisconnectStore200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -597,7 +597,7 @@ class StoreConnectionsApi:
     @validate_call
     def get_store(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -615,7 +615,7 @@ class StoreConnectionsApi:
 
         Get details of a specific store connection including sync status and product count.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -649,8 +649,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateStore201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -666,7 +666,7 @@ class StoreConnectionsApi:
     @validate_call
     def get_store_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -684,7 +684,7 @@ class StoreConnectionsApi:
 
         Get details of a specific store connection including sync status and product count.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -718,8 +718,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateStore201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -735,7 +735,7 @@ class StoreConnectionsApi:
     @validate_call
     def get_store_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -753,7 +753,7 @@ class StoreConnectionsApi:
 
         Get details of a specific store connection including sync status and product count.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -787,8 +787,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateStore201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -864,8 +864,8 @@ class StoreConnectionsApi:
     @validate_call
     def get_sync_job_errors(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store ID")],
-        job_id: Annotated[StrictStr, Field(description="Sync job ID")],
+        store_id: StrictStr,
+        job_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -885,9 +885,9 @@ class StoreConnectionsApi:
 
         Get error details for a sync job.
 
-        :param store_id: Store ID (required)
+        :param store_id: (required)
         :type store_id: str
-        :param job_id: Sync job ID (required)
+        :param job_id: (required)
         :type job_id: str
         :param page:
         :type page: int
@@ -928,8 +928,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSyncJobErrors200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -945,8 +945,8 @@ class StoreConnectionsApi:
     @validate_call
     def get_sync_job_errors_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store ID")],
-        job_id: Annotated[StrictStr, Field(description="Sync job ID")],
+        store_id: StrictStr,
+        job_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -966,9 +966,9 @@ class StoreConnectionsApi:
 
         Get error details for a sync job.
 
-        :param store_id: Store ID (required)
+        :param store_id: (required)
         :type store_id: str
-        :param job_id: Sync job ID (required)
+        :param job_id: (required)
         :type job_id: str
         :param page:
         :type page: int
@@ -1009,8 +1009,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSyncJobErrors200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1026,8 +1026,8 @@ class StoreConnectionsApi:
     @validate_call
     def get_sync_job_errors_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store ID")],
-        job_id: Annotated[StrictStr, Field(description="Sync job ID")],
+        store_id: StrictStr,
+        job_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -1047,9 +1047,9 @@ class StoreConnectionsApi:
 
         Get error details for a sync job.
 
-        :param store_id: Store ID (required)
+        :param store_id: (required)
         :type store_id: str
-        :param job_id: Sync job ID (required)
+        :param job_id: (required)
         :type job_id: str
         :param page:
         :type page: int
@@ -1090,8 +1090,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetSyncJobErrors200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1446,7 +1446,7 @@ class StoreConnectionsApi:
     @validate_call
     def list_sync_jobs(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store ID")],
+        store_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -1466,7 +1466,7 @@ class StoreConnectionsApi:
 
         List sync job history for a store.
 
-        :param store_id: Store ID (required)
+        :param store_id: (required)
         :type store_id: str
         :param page:
         :type page: int
@@ -1506,8 +1506,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSyncJobs200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1523,7 +1523,7 @@ class StoreConnectionsApi:
     @validate_call
     def list_sync_jobs_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store ID")],
+        store_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -1543,7 +1543,7 @@ class StoreConnectionsApi:
 
         List sync job history for a store.
 
-        :param store_id: Store ID (required)
+        :param store_id: (required)
         :type store_id: str
         :param page:
         :type page: int
@@ -1583,8 +1583,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSyncJobs200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1600,7 +1600,7 @@ class StoreConnectionsApi:
     @validate_call
     def list_sync_jobs_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store ID")],
+        store_id: StrictStr,
         page: Optional[StrictInt] = None,
         per_page: Optional[Annotated[int, Field(le=100, strict=True)]] = None,
         _request_timeout: Union[
@@ -1620,7 +1620,7 @@ class StoreConnectionsApi:
 
         List sync job history for a store.
 
-        :param store_id: Store ID (required)
+        :param store_id: (required)
         :type store_id: str
         :param page:
         :type page: int
@@ -1660,8 +1660,8 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListSyncJobs200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1747,7 +1747,7 @@ class StoreConnectionsApi:
     @validate_call
     def trigger_sync(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         idempotency_key: Annotated[Optional[StrictStr], Field(description="Idempotency key to prevent duplicate syncs (5 min TTL)")] = None,
         _request_timeout: Union[
             None,
@@ -1766,7 +1766,7 @@ class StoreConnectionsApi:
 
         Trigger a manual product sync for a store. Supports idempotency via the Idempotency-Key header (5 minute TTL).
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param idempotency_key: Idempotency key to prevent duplicate syncs (5 min TTL)
         :type idempotency_key: str
@@ -1804,8 +1804,8 @@ class StoreConnectionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SyncResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1821,7 +1821,7 @@ class StoreConnectionsApi:
     @validate_call
     def trigger_sync_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         idempotency_key: Annotated[Optional[StrictStr], Field(description="Idempotency key to prevent duplicate syncs (5 min TTL)")] = None,
         _request_timeout: Union[
             None,
@@ -1840,7 +1840,7 @@ class StoreConnectionsApi:
 
         Trigger a manual product sync for a store. Supports idempotency via the Idempotency-Key header (5 minute TTL).
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param idempotency_key: Idempotency key to prevent duplicate syncs (5 min TTL)
         :type idempotency_key: str
@@ -1878,8 +1878,8 @@ class StoreConnectionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SyncResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1895,7 +1895,7 @@ class StoreConnectionsApi:
     @validate_call
     def trigger_sync_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         idempotency_key: Annotated[Optional[StrictStr], Field(description="Idempotency key to prevent duplicate syncs (5 min TTL)")] = None,
         _request_timeout: Union[
             None,
@@ -1914,7 +1914,7 @@ class StoreConnectionsApi:
 
         Trigger a manual product sync for a store. Supports idempotency via the Idempotency-Key header (5 minute TTL).
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param idempotency_key: Idempotency key to prevent duplicate syncs (5 min TTL)
         :type idempotency_key: str
@@ -1952,8 +1952,8 @@ class StoreConnectionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SyncResponse",
             '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2032,7 +2032,7 @@ class StoreConnectionsApi:
     @validate_call
     def update_store(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         update_store_request: UpdateStoreRequest,
         _request_timeout: Union[
             None,
@@ -2051,7 +2051,7 @@ class StoreConnectionsApi:
 
         Update store settings such as name, sync interval, or credentials.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param update_store_request: (required)
         :type update_store_request: UpdateStoreRequest
@@ -2088,9 +2088,9 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateStore201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2106,7 +2106,7 @@ class StoreConnectionsApi:
     @validate_call
     def update_store_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         update_store_request: UpdateStoreRequest,
         _request_timeout: Union[
             None,
@@ -2125,7 +2125,7 @@ class StoreConnectionsApi:
 
         Update store settings such as name, sync interval, or credentials.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param update_store_request: (required)
         :type update_store_request: UpdateStoreRequest
@@ -2162,9 +2162,9 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateStore201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2180,7 +2180,7 @@ class StoreConnectionsApi:
     @validate_call
     def update_store_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         update_store_request: UpdateStoreRequest,
         _request_timeout: Union[
             None,
@@ -2199,7 +2199,7 @@ class StoreConnectionsApi:
 
         Update store settings such as name, sync interval, or credentials.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param update_store_request: (required)
         :type update_store_request: UpdateStoreRequest
@@ -2236,9 +2236,9 @@ class StoreConnectionsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateStore201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

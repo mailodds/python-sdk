@@ -110,10 +110,10 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "AddPolicyRule201Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': None,
             '404': None,
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -185,10 +185,10 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "AddPolicyRule201Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': None,
             '404': None,
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -260,10 +260,10 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "AddPolicyRule201Response",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
             '403': None,
             '404': None,
+            '400': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -407,9 +407,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "PolicyResponse",
+            '403': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -477,9 +477,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "PolicyResponse",
+            '403': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -547,9 +547,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "PolicyResponse",
+            '403': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -970,8 +970,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicy200Response",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1039,8 +1039,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicy200Response",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1108,8 +1108,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicy200Response",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1241,8 +1241,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1314,8 +1314,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1387,8 +1387,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1519,8 +1519,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyResponse",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1588,8 +1588,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyResponse",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1657,8 +1657,8 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyResponse",
-            '401': "ErrorResponse",
             '404': None,
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2301,9 +2301,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyTestResponse",
+            '404': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2371,9 +2371,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyTestResponse",
+            '404': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2441,9 +2441,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyTestResponse",
+            '404': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2588,9 +2588,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyResponse",
+            '404': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2662,9 +2662,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyResponse",
+            '404': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2736,9 +2736,9 @@ class ValidationPoliciesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PolicyResponse",
+            '404': None,
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,

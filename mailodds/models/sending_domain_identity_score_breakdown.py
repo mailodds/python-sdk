@@ -28,13 +28,13 @@ class SendingDomainIdentityScoreBreakdown(BaseModel):
     """
     Per-check scoring breakdown
     """ # noqa: E501
-    dkim: Optional[IdentityScoreCheck] = None
     spf: Optional[IdentityScoreCheck] = None
+    dkim: Optional[IdentityScoreCheck] = None
     dmarc: Optional[IdentityScoreCheck] = None
-    mx: Optional[IdentityScoreCheck] = None
-    return_path: Optional[IdentityScoreCheck] = None
+    bounce: Optional[IdentityScoreCheck] = None
+    tracking: Optional[IdentityScoreCheck] = None
     bimi: Optional[IdentityScoreCheck] = None
-    __properties: ClassVar[List[str]] = ["dkim", "spf", "dmarc", "mx", "return_path", "bimi"]
+    __properties: ClassVar[List[str]] = ["spf", "dkim", "dmarc", "bounce", "tracking", "bimi"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,21 +75,21 @@ class SendingDomainIdentityScoreBreakdown(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of dkim
-        if self.dkim:
-            _dict['dkim'] = self.dkim.to_dict()
         # override the default output from pydantic by calling `to_dict()` of spf
         if self.spf:
             _dict['spf'] = self.spf.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of dkim
+        if self.dkim:
+            _dict['dkim'] = self.dkim.to_dict()
         # override the default output from pydantic by calling `to_dict()` of dmarc
         if self.dmarc:
             _dict['dmarc'] = self.dmarc.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of mx
-        if self.mx:
-            _dict['mx'] = self.mx.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of return_path
-        if self.return_path:
-            _dict['return_path'] = self.return_path.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of bounce
+        if self.bounce:
+            _dict['bounce'] = self.bounce.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tracking
+        if self.tracking:
+            _dict['tracking'] = self.tracking.to_dict()
         # override the default output from pydantic by calling `to_dict()` of bimi
         if self.bimi:
             _dict['bimi'] = self.bimi.to_dict()
@@ -105,11 +105,11 @@ class SendingDomainIdentityScoreBreakdown(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "dkim": IdentityScoreCheck.from_dict(obj["dkim"]) if obj.get("dkim") is not None else None,
             "spf": IdentityScoreCheck.from_dict(obj["spf"]) if obj.get("spf") is not None else None,
+            "dkim": IdentityScoreCheck.from_dict(obj["dkim"]) if obj.get("dkim") is not None else None,
             "dmarc": IdentityScoreCheck.from_dict(obj["dmarc"]) if obj.get("dmarc") is not None else None,
-            "mx": IdentityScoreCheck.from_dict(obj["mx"]) if obj.get("mx") is not None else None,
-            "return_path": IdentityScoreCheck.from_dict(obj["return_path"]) if obj.get("return_path") is not None else None,
+            "bounce": IdentityScoreCheck.from_dict(obj["bounce"]) if obj.get("bounce") is not None else None,
+            "tracking": IdentityScoreCheck.from_dict(obj["tracking"]) if obj.get("tracking") is not None else None,
             "bimi": IdentityScoreCheck.from_dict(obj["bimi"]) if obj.get("bimi") is not None else None
         })
         return _obj

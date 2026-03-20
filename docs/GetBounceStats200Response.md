@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schema_version** | **str** |  | [optional] 
 **request_id** | **str** |  | [optional] 
-**stats** | **List[object]** |  | [optional] 
+**stats** | [**GetBounceStats200ResponseStats**](GetBounceStats200ResponseStats.md) |  | [optional] 
 
 ## Example
 

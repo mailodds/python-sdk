@@ -13,84 +13,44 @@
 """  # noqa: E501
 
 
-from __future__ import annotations
-import pprint
-import re  # noqa: F401
-import json
+import unittest
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
 from mailodds.models.get_bounce_stats200_response_stats import GetBounceStats200ResponseStats
-from typing import Optional, Set
-from typing_extensions import Self
 
-class GetBounceStats200Response(BaseModel):
-    """
-    GetBounceStats200Response
-    """ # noqa: E501
-    schema_version: Optional[StrictStr] = None
-    request_id: Optional[StrictStr] = None
-    stats: Optional[GetBounceStats200ResponseStats] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "stats"]
+class TestGetBounceStats200ResponseStats(unittest.TestCase):
+    """GetBounceStats200ResponseStats unit test stubs"""
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+    def setUp(self):
+        pass
 
+    def tearDown(self):
+        pass
 
-    def to_str(self) -> str:
-        """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
-
-    def to_json(self) -> str:
-        """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
-
-    @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetBounceStats200Response from a JSON string"""
-        return cls.from_dict(json.loads(json_str))
-
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
+    def make_instance(self, include_optional) -> GetBounceStats200ResponseStats:
+        """Test GetBounceStats200ResponseStats
+            include_optional is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # uncomment below to create an instance of `GetBounceStats200ResponseStats`
         """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
+        model = GetBounceStats200ResponseStats()
+        if include_optional:
+            return GetBounceStats200ResponseStats(
+                period = '',
+                group_by = '',
+                data = [
+                    None
+                    ]
+            )
+        else:
+            return GetBounceStats200ResponseStats(
         )
-        # override the default output from pydantic by calling `to_dict()` of stats
-        if self.stats:
-            _dict['stats'] = self.stats.to_dict()
-        return _dict
+        """
 
-    @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetBounceStats200Response from a dict"""
-        if obj is None:
-            return None
+    def testGetBounceStats200ResponseStats(self):
+        """Test GetBounceStats200ResponseStats"""
+        # inst_req_only = self.make_instance(include_optional=False)
+        # inst_req_and_optional = self.make_instance(include_optional=True)
 
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "schema_version": obj.get("schema_version"),
-            "request_id": obj.get("request_id"),
-            "stats": GetBounceStats200ResponseStats.from_dict(obj["stats"]) if obj.get("stats") is not None else None
-        })
-        return _obj
-
-
+if __name__ == '__main__':
+    unittest.main()

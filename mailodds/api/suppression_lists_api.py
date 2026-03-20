@@ -383,6 +383,7 @@ class SuppressionListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SuppressionCheckResponse",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -451,6 +452,7 @@ class SuppressionListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SuppressionCheckResponse",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -519,6 +521,7 @@ class SuppressionListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SuppressionCheckResponse",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1526,6 +1529,7 @@ class SuppressionListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RemoveSuppression200Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1594,6 +1598,7 @@ class SuppressionListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RemoveSuppression200Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1662,6 +1667,7 @@ class SuppressionListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RemoveSuppression200Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(

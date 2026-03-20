@@ -103,6 +103,7 @@ docs/GetBlacklistHistory200ResponseChecksInner.md
 docs/GetBounceRecords200Response.md
 docs/GetBounceRecords200ResponseRecordsInner.md
 docs/GetBounceStats200Response.md
+docs/GetBounceStats200ResponseStats.md
 docs/GetBounceStatsSummary200Response.md
 docs/GetCampaignABResults200Response.md
 docs/GetCampaignABResults200ResponseVariantsInner.md
@@ -423,6 +424,7 @@ mailodds/models/get_blacklist_history200_response_checks_inner.py
 mailodds/models/get_bounce_records200_response.py
 mailodds/models/get_bounce_records200_response_records_inner.py
 mailodds/models/get_bounce_stats200_response.py
+mailodds/models/get_bounce_stats200_response_stats.py
 mailodds/models/get_bounce_stats_summary200_response.py
 mailodds/models/get_campaign_ab_results200_response.py
 mailodds/models/get_campaign_ab_results200_response_variants_inner.py
@@ -707,6 +709,7 @@ test/test_get_blacklist_history200_response_checks_inner.py
 test/test_get_bounce_records200_response.py
 test/test_get_bounce_records200_response_records_inner.py
 test/test_get_bounce_stats200_response.py
+test/test_get_bounce_stats200_response_stats.py
 test/test_get_bounce_stats_summary200_response.py
 test/test_get_campaign_ab_results200_response.py
 test/test_get_campaign_ab_results200_response_variants_inner.py

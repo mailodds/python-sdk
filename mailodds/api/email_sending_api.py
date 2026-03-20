@@ -95,9 +95,9 @@ class EmailSendingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "BatchDeliverResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -165,9 +165,9 @@ class EmailSendingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "BatchDeliverResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -235,9 +235,9 @@ class EmailSendingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "BatchDeliverResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -378,9 +378,9 @@ class EmailSendingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "DeliverResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -448,9 +448,9 @@ class EmailSendingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "DeliverResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -518,9 +518,9 @@ class EmailSendingApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "DeliverResponse",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

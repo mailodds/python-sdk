@@ -36,12 +36,12 @@ class TestSendingDomainIdentityScoreBreakdown(unittest.TestCase):
         model = SendingDomainIdentityScoreBreakdown()
         if include_optional:
             return SendingDomainIdentityScoreBreakdown(
-                dkim = mailodds.models.identity_score_check.IdentityScoreCheck(
+                spf = mailodds.models.identity_score_check.IdentityScoreCheck(
                     status = '', 
                     points = 56, 
                     max_points = 56, 
                     verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
-                spf = mailodds.models.identity_score_check.IdentityScoreCheck(
+                dkim = mailodds.models.identity_score_check.IdentityScoreCheck(
                     status = '', 
                     points = 56, 
                     max_points = 56, 
@@ -51,12 +51,12 @@ class TestSendingDomainIdentityScoreBreakdown(unittest.TestCase):
                     points = 56, 
                     max_points = 56, 
                     verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
-                mx = mailodds.models.identity_score_check.IdentityScoreCheck(
+                bounce = mailodds.models.identity_score_check.IdentityScoreCheck(
                     status = '', 
                     points = 56, 
                     max_points = 56, 
                     verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
-                return_path = mailodds.models.identity_score_check.IdentityScoreCheck(
+                tracking = mailodds.models.identity_score_check.IdentityScoreCheck(
                     status = '', 
                     points = 56, 
                     max_points = 56, 

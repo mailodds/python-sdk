@@ -41,19 +41,19 @@ class TestGetSendingDomainIdentityScore200Response(unittest.TestCase):
                     max_score = 56, 
                     percentage = 56, 
                     breakdown = mailodds.models.sending_domain_identity_score_breakdown.SendingDomainIdentityScore_breakdown(
-                        dkim = mailodds.models.identity_score_check.IdentityScoreCheck(
-                            status = '', 
-                            points = 56, 
-                            max_points = 56, 
-                            verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
                         spf = mailodds.models.identity_score_check.IdentityScoreCheck(
                             status = '', 
                             points = 56, 
                             max_points = 56, 
                             verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
+                        dkim = mailodds.models.identity_score_check.IdentityScoreCheck(
+                            status = '', 
+                            points = 56, 
+                            max_points = 56, 
+                            verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
                         dmarc = , 
-                        mx = , 
-                        return_path = , 
+                        bounce = , 
+                        tracking = , 
                         bimi = , ), 
                     grade = 'A+', )
             )

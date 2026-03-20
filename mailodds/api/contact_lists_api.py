@@ -55,7 +55,7 @@ class ContactListsApi:
     @validate_call
     def add_contact(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         add_contact_request: AddContactRequest,
         _request_timeout: Union[
             None,
@@ -74,7 +74,7 @@ class ContactListsApi:
 
         Add a single contact to a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param add_contact_request: (required)
         :type add_contact_request: AddContactRequest
@@ -111,9 +111,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "AddContact201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -129,7 +129,7 @@ class ContactListsApi:
     @validate_call
     def add_contact_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         add_contact_request: AddContactRequest,
         _request_timeout: Union[
             None,
@@ -148,7 +148,7 @@ class ContactListsApi:
 
         Add a single contact to a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param add_contact_request: (required)
         :type add_contact_request: AddContactRequest
@@ -185,9 +185,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "AddContact201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -203,7 +203,7 @@ class ContactListsApi:
     @validate_call
     def add_contact_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         add_contact_request: AddContactRequest,
         _request_timeout: Union[
             None,
@@ -222,7 +222,7 @@ class ContactListsApi:
 
         Add a single contact to a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param add_contact_request: (required)
         :type add_contact_request: AddContactRequest
@@ -259,9 +259,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "AddContact201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -353,7 +353,7 @@ class ContactListsApi:
     @validate_call
     def append_to_contact_list(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         append_to_contact_list_request: AppendToContactListRequest,
         _request_timeout: Union[
             None,
@@ -372,7 +372,7 @@ class ContactListsApi:
 
         Append validated emails from additional jobs to an existing contact list. Duplicates are automatically skipped.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param append_to_contact_list_request: (required)
         :type append_to_contact_list_request: AppendToContactListRequest
@@ -409,9 +409,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AppendToContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -427,7 +427,7 @@ class ContactListsApi:
     @validate_call
     def append_to_contact_list_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         append_to_contact_list_request: AppendToContactListRequest,
         _request_timeout: Union[
             None,
@@ -446,7 +446,7 @@ class ContactListsApi:
 
         Append validated emails from additional jobs to an existing contact list. Duplicates are automatically skipped.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param append_to_contact_list_request: (required)
         :type append_to_contact_list_request: AppendToContactListRequest
@@ -483,9 +483,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AppendToContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -501,7 +501,7 @@ class ContactListsApi:
     @validate_call
     def append_to_contact_list_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         append_to_contact_list_request: AppendToContactListRequest,
         _request_timeout: Union[
             None,
@@ -520,7 +520,7 @@ class ContactListsApi:
 
         Append validated emails from additional jobs to an existing contact list. Duplicates are automatically skipped.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param append_to_contact_list_request: (required)
         :type append_to_contact_list_request: AppendToContactListRequest
@@ -557,9 +557,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AppendToContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -703,9 +703,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateContactList201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -773,9 +773,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateContactList201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -843,9 +843,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CreateContactList201Response",
+            '403': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '403': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -934,8 +934,8 @@ class ContactListsApi:
     @validate_call
     def delete_contact(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
-        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        list_id: StrictStr,
+        contact_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -953,9 +953,9 @@ class ContactListsApi:
 
         Remove a single contact from a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
-        :param contact_id: Contact ID (required)
+        :param contact_id: (required)
         :type contact_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -990,8 +990,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1007,8 +1007,8 @@ class ContactListsApi:
     @validate_call
     def delete_contact_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
-        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        list_id: StrictStr,
+        contact_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1026,9 +1026,9 @@ class ContactListsApi:
 
         Remove a single contact from a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
-        :param contact_id: Contact ID (required)
+        :param contact_id: (required)
         :type contact_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1063,8 +1063,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1080,8 +1080,8 @@ class ContactListsApi:
     @validate_call
     def delete_contact_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
-        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        list_id: StrictStr,
+        contact_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1099,9 +1099,9 @@ class ContactListsApi:
 
         Remove a single contact from a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
-        :param contact_id: Contact ID (required)
+        :param contact_id: (required)
         :type contact_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1136,8 +1136,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1216,7 +1216,7 @@ class ContactListsApi:
     @validate_call
     def delete_contact_list(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1234,7 +1234,7 @@ class ContactListsApi:
 
         Permanently delete a contact list and all its entries.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1268,8 +1268,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1285,7 +1285,7 @@ class ContactListsApi:
     @validate_call
     def delete_contact_list_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1303,7 +1303,7 @@ class ContactListsApi:
 
         Permanently delete a contact list and all its entries.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1337,8 +1337,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1354,7 +1354,7 @@ class ContactListsApi:
     @validate_call
     def delete_contact_list_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1372,7 +1372,7 @@ class ContactListsApi:
 
         Permanently delete a contact list and all its entries.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1406,8 +1406,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1483,7 +1483,7 @@ class ContactListsApi:
     @validate_call
     def export_contact_list(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1501,7 +1501,7 @@ class ContactListsApi:
 
         Export a contact list as CSV.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1535,8 +1535,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1552,7 +1552,7 @@ class ContactListsApi:
     @validate_call
     def export_contact_list_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1570,7 +1570,7 @@ class ContactListsApi:
 
         Export a contact list as CSV.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1604,8 +1604,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1621,7 +1621,7 @@ class ContactListsApi:
     @validate_call
     def export_contact_list_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1639,7 +1639,7 @@ class ContactListsApi:
 
         Export a contact list as CSV.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1673,8 +1673,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1803,8 +1803,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInactiveContactsReport200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1872,8 +1872,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInactiveContactsReport200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1941,8 +1941,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetInactiveContactsReport200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2020,7 +2020,7 @@ class ContactListsApi:
     @validate_call
     def import_contact_list(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="CSV file (max 10MB)")],
         column_mapping: Annotated[Optional[StrictStr], Field(description="JSON mapping of CSV columns to contact fields")] = None,
         consent_source: Annotated[Optional[StrictStr], Field(description="Source of consent for imported contacts")] = None,
@@ -2042,7 +2042,7 @@ class ContactListsApi:
 
         Import contacts into a list from a CSV file (max 10MB).
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param file: CSV file (max 10MB) (required)
         :type file: bytearray
@@ -2088,9 +2088,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ImportContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2106,7 +2106,7 @@ class ContactListsApi:
     @validate_call
     def import_contact_list_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="CSV file (max 10MB)")],
         column_mapping: Annotated[Optional[StrictStr], Field(description="JSON mapping of CSV columns to contact fields")] = None,
         consent_source: Annotated[Optional[StrictStr], Field(description="Source of consent for imported contacts")] = None,
@@ -2128,7 +2128,7 @@ class ContactListsApi:
 
         Import contacts into a list from a CSV file (max 10MB).
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param file: CSV file (max 10MB) (required)
         :type file: bytearray
@@ -2174,9 +2174,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ImportContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2192,7 +2192,7 @@ class ContactListsApi:
     @validate_call
     def import_contact_list_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
+        list_id: StrictStr,
         file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="CSV file (max 10MB)")],
         column_mapping: Annotated[Optional[StrictStr], Field(description="JSON mapping of CSV columns to contact fields")] = None,
         consent_source: Annotated[Optional[StrictStr], Field(description="Source of consent for imported contacts")] = None,
@@ -2214,7 +2214,7 @@ class ContactListsApi:
 
         Import contacts into a list from a CSV file (max 10MB).
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
         :param file: CSV file (max 10MB) (required)
         :type file: bytearray
@@ -2260,9 +2260,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ImportContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2419,8 +2419,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListContactLists200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2492,8 +2492,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListContactLists200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2565,8 +2565,8 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListContactLists200Response",
-            '401': "ErrorResponse",
             '403': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2649,7 +2649,7 @@ class ContactListsApi:
     @validate_call
     def query_contact_list(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         query_contact_list_request: QueryContactListRequest,
         _request_timeout: Union[
             None,
@@ -2668,7 +2668,7 @@ class ContactListsApi:
 
         Query contact list entries with structured filters. Supports filtering by validation status, domain, and other attributes.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param query_contact_list_request: (required)
         :type query_contact_list_request: QueryContactListRequest
@@ -2705,9 +2705,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "QueryContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2723,7 +2723,7 @@ class ContactListsApi:
     @validate_call
     def query_contact_list_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         query_contact_list_request: QueryContactListRequest,
         _request_timeout: Union[
             None,
@@ -2742,7 +2742,7 @@ class ContactListsApi:
 
         Query contact list entries with structured filters. Supports filtering by validation status, domain, and other attributes.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param query_contact_list_request: (required)
         :type query_contact_list_request: QueryContactListRequest
@@ -2779,9 +2779,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "QueryContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2797,7 +2797,7 @@ class ContactListsApi:
     @validate_call
     def query_contact_list_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list UUID")],
+        list_id: StrictStr,
         query_contact_list_request: QueryContactListRequest,
         _request_timeout: Union[
             None,
@@ -2816,7 +2816,7 @@ class ContactListsApi:
 
         Query contact list entries with structured filters. Supports filtering by validation status, domain, and other attributes.
 
-        :param list_id: Contact list UUID (required)
+        :param list_id: (required)
         :type list_id: str
         :param query_contact_list_request: (required)
         :type query_contact_list_request: QueryContactListRequest
@@ -2853,9 +2853,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "QueryContactList200Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2947,8 +2947,8 @@ class ContactListsApi:
     @validate_call
     def update_contact(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
-        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        list_id: StrictStr,
+        contact_id: StrictStr,
         update_contact_request: UpdateContactRequest,
         _request_timeout: Union[
             None,
@@ -2967,9 +2967,9 @@ class ContactListsApi:
 
         Update a single contact in a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
-        :param contact_id: Contact ID (required)
+        :param contact_id: (required)
         :type contact_id: str
         :param update_contact_request: (required)
         :type update_contact_request: UpdateContactRequest
@@ -3007,9 +3007,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AddContact201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3025,8 +3025,8 @@ class ContactListsApi:
     @validate_call
     def update_contact_with_http_info(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
-        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        list_id: StrictStr,
+        contact_id: StrictStr,
         update_contact_request: UpdateContactRequest,
         _request_timeout: Union[
             None,
@@ -3045,9 +3045,9 @@ class ContactListsApi:
 
         Update a single contact in a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
-        :param contact_id: Contact ID (required)
+        :param contact_id: (required)
         :type contact_id: str
         :param update_contact_request: (required)
         :type update_contact_request: UpdateContactRequest
@@ -3085,9 +3085,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AddContact201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3103,8 +3103,8 @@ class ContactListsApi:
     @validate_call
     def update_contact_without_preload_content(
         self,
-        list_id: Annotated[StrictStr, Field(description="Contact list ID")],
-        contact_id: Annotated[StrictStr, Field(description="Contact ID")],
+        list_id: StrictStr,
+        contact_id: StrictStr,
         update_contact_request: UpdateContactRequest,
         _request_timeout: Union[
             None,
@@ -3123,9 +3123,9 @@ class ContactListsApi:
 
         Update a single contact in a contact list.
 
-        :param list_id: Contact list ID (required)
+        :param list_id: (required)
         :type list_id: str
-        :param contact_id: Contact ID (required)
+        :param contact_id: (required)
         :type contact_id: str
         :param update_contact_request: (required)
         :type update_contact_request: UpdateContactRequest
@@ -3163,9 +3163,9 @@ class ContactListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AddContact201Response",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

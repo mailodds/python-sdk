@@ -19,8 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from mailodds.models.campaign_stats import CampaignStats
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,21 +30,35 @@ class Campaign(BaseModel):
     Campaign
     """ # noqa: E501
     id: StrictStr = Field(description="Campaign UUID")
+    account_id: Optional[StrictInt] = None
     name: StrictStr = Field(description="Campaign name")
     status: StrictStr
-    list_id: StrictStr = Field(description="Target subscriber list UUID")
     domain_id: StrictStr = Field(description="Sending domain UUID")
-    from_email: StrictStr
-    from_name: Optional[StrictStr] = None
+    subject: Optional[StrictStr] = None
+    from_address: StrictStr = Field(description="Sender email address")
     reply_to: Optional[StrictStr] = None
+    html_body: Optional[StrictStr] = None
+    text_body: Optional[StrictStr] = None
+    html_body_dark: Optional[StrictStr] = None
+    text_body_dark: Optional[StrictStr] = None
+    campaign_type: Optional[StrictStr] = None
+    auto_detect_schema: Optional[StrictBool] = None
+    promo_annotations: Optional[Dict[str, Any]] = None
+    throwaway_policy: Optional[StrictStr] = None
     scheduled_at: Optional[datetime] = None
-    sent_at: Optional[datetime] = None
-    cancelled_at: Optional[datetime] = None
-    variant_count: Optional[StrictInt] = Field(default=None, description="Number of A/B variants")
+    started_at: Optional[datetime] = None
+    completed_at: Optional[datetime] = None
+    recipient_count: Optional[StrictInt] = None
+    is_ab_test: Optional[StrictBool] = None
+    winning_variant_id: Optional[StrictStr] = None
+    ab_test_config: Optional[Dict[str, Any]] = None
+    error_message: Optional[StrictStr] = None
     stats: Optional[CampaignStats] = None
+    open_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    click_rate: Optional[Union[StrictFloat, StrictInt]] = None
     created_at: datetime
     updated_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "status", "list_id", "domain_id", "from_email", "from_name", "reply_to", "scheduled_at", "sent_at", "cancelled_at", "variant_count", "stats", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "account_id", "name", "status", "domain_id", "subject", "from_address", "reply_to", "html_body", "text_body", "html_body_dark", "text_body_dark", "campaign_type", "auto_detect_schema", "promo_annotations", "throwaway_policy", "scheduled_at", "started_at", "completed_at", "recipient_count", "is_ab_test", "winning_variant_id", "ab_test_config", "error_message", "stats", "open_rate", "click_rate", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -100,20 +114,65 @@ class Campaign(BaseModel):
         if self.reply_to is None and "reply_to" in self.model_fields_set:
             _dict['reply_to'] = None
 
+        # set to None if html_body (nullable) is None
+        # and model_fields_set contains the field
+        if self.html_body is None and "html_body" in self.model_fields_set:
+            _dict['html_body'] = None
+
+        # set to None if text_body (nullable) is None
+        # and model_fields_set contains the field
+        if self.text_body is None and "text_body" in self.model_fields_set:
+            _dict['text_body'] = None
+
+        # set to None if html_body_dark (nullable) is None
+        # and model_fields_set contains the field
+        if self.html_body_dark is None and "html_body_dark" in self.model_fields_set:
+            _dict['html_body_dark'] = None
+
+        # set to None if text_body_dark (nullable) is None
+        # and model_fields_set contains the field
+        if self.text_body_dark is None and "text_body_dark" in self.model_fields_set:
+            _dict['text_body_dark'] = None
+
+        # set to None if campaign_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.campaign_type is None and "campaign_type" in self.model_fields_set:
+            _dict['campaign_type'] = None
+
+        # set to None if promo_annotations (nullable) is None
+        # and model_fields_set contains the field
+        if self.promo_annotations is None and "promo_annotations" in self.model_fields_set:
+            _dict['promo_annotations'] = None
+
         # set to None if scheduled_at (nullable) is None
         # and model_fields_set contains the field
         if self.scheduled_at is None and "scheduled_at" in self.model_fields_set:
             _dict['scheduled_at'] = None
 
-        # set to None if sent_at (nullable) is None
+        # set to None if started_at (nullable) is None
         # and model_fields_set contains the field
-        if self.sent_at is None and "sent_at" in self.model_fields_set:
-            _dict['sent_at'] = None
+        if self.started_at is None and "started_at" in self.model_fields_set:
+            _dict['started_at'] = None
 
-        # set to None if cancelled_at (nullable) is None
+        # set to None if completed_at (nullable) is None
         # and model_fields_set contains the field
-        if self.cancelled_at is None and "cancelled_at" in self.model_fields_set:
-            _dict['cancelled_at'] = None
+        if self.completed_at is None and "completed_at" in self.model_fields_set:
+            _dict['completed_at'] = None
+
+        # set to None if winning_variant_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.winning_variant_id is None and "winning_variant_id" in self.model_fields_set:
+            _dict['winning_variant_id'] = None
+
+        # set to None if ab_test_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.ab_test_config is None and "ab_test_config" in self.model_fields_set:
+            _dict['ab_test_config'] = None
+
+        # set to None if error_message (nullable) is None
+        # and model_fields_set contains the field
+        if self.error_message is None and "error_message" in self.model_fields_set:
+            _dict['error_message'] = None
 
         return _dict
 
@@ -128,18 +187,32 @@ class Campaign(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "account_id": obj.get("account_id"),
             "name": obj.get("name"),
             "status": obj.get("status"),
-            "list_id": obj.get("list_id"),
             "domain_id": obj.get("domain_id"),
-            "from_email": obj.get("from_email"),
-            "from_name": obj.get("from_name"),
+            "subject": obj.get("subject"),
+            "from_address": obj.get("from_address"),
             "reply_to": obj.get("reply_to"),
+            "html_body": obj.get("html_body"),
+            "text_body": obj.get("text_body"),
+            "html_body_dark": obj.get("html_body_dark"),
+            "text_body_dark": obj.get("text_body_dark"),
+            "campaign_type": obj.get("campaign_type"),
+            "auto_detect_schema": obj.get("auto_detect_schema"),
+            "promo_annotations": obj.get("promo_annotations"),
+            "throwaway_policy": obj.get("throwaway_policy"),
             "scheduled_at": obj.get("scheduled_at"),
-            "sent_at": obj.get("sent_at"),
-            "cancelled_at": obj.get("cancelled_at"),
-            "variant_count": obj.get("variant_count"),
+            "started_at": obj.get("started_at"),
+            "completed_at": obj.get("completed_at"),
+            "recipient_count": obj.get("recipient_count"),
+            "is_ab_test": obj.get("is_ab_test"),
+            "winning_variant_id": obj.get("winning_variant_id"),
+            "ab_test_config": obj.get("ab_test_config"),
+            "error_message": obj.get("error_message"),
             "stats": CampaignStats.from_dict(obj["stats"]) if obj.get("stats") is not None else None,
+            "open_rate": obj.get("open_rate"),
+            "click_rate": obj.get("click_rate"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")
         })

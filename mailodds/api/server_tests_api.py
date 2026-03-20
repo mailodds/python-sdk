@@ -45,7 +45,7 @@ class ServerTestsApi:
     @validate_call
     def get_server_test(
         self,
-        test_id: Annotated[StrictStr, Field(description="Server test UUID")],
+        test_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,7 +63,7 @@ class ServerTestsApi:
 
         Get the detailed results of a specific server test.
 
-        :param test_id: Server test UUID (required)
+        :param test_id: (required)
         :type test_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -97,8 +97,8 @@ class ServerTestsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunServerTest201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -114,7 +114,7 @@ class ServerTestsApi:
     @validate_call
     def get_server_test_with_http_info(
         self,
-        test_id: Annotated[StrictStr, Field(description="Server test UUID")],
+        test_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -132,7 +132,7 @@ class ServerTestsApi:
 
         Get the detailed results of a specific server test.
 
-        :param test_id: Server test UUID (required)
+        :param test_id: (required)
         :type test_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -166,8 +166,8 @@ class ServerTestsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunServerTest201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -183,7 +183,7 @@ class ServerTestsApi:
     @validate_call
     def get_server_test_without_preload_content(
         self,
-        test_id: Annotated[StrictStr, Field(description="Server test UUID")],
+        test_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,7 +201,7 @@ class ServerTestsApi:
 
         Get the detailed results of a specific server test.
 
-        :param test_id: Server test UUID (required)
+        :param test_id: (required)
         :type test_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -235,8 +235,8 @@ class ServerTestsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "RunServerTest201Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

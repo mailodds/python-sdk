@@ -99,9 +99,9 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BounceAnalysisResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -169,9 +169,9 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BounceAnalysisResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -239,9 +239,9 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BounceAnalysisResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -382,8 +382,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CrossReferenceBounces200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -451,8 +451,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CrossReferenceBounces200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -520,8 +520,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CrossReferenceBounces200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -649,8 +649,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -718,8 +718,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -787,8 +787,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeletePolicyRule200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -916,8 +916,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BounceAnalysisResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -985,8 +985,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BounceAnalysisResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1054,8 +1054,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BounceAnalysisResponse",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1195,8 +1195,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceRecords200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1276,8 +1276,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceRecords200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1357,8 +1357,8 @@ class BounceAnalysisApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetBounceRecords200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

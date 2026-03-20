@@ -48,7 +48,7 @@ class ProductsApi:
     @validate_call
     def batch_products(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         batch_products_request: BatchProductsRequest,
         _request_timeout: Union[
             None,
@@ -67,7 +67,7 @@ class ProductsApi:
 
         Push up to 100 products to a custom platform store. Creates new products or updates existing ones matched by external_id. Only available for stores with platform=custom.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param batch_products_request: (required)
         :type batch_products_request: BatchProductsRequest
@@ -104,9 +104,9 @@ class ProductsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchProductsResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -122,7 +122,7 @@ class ProductsApi:
     @validate_call
     def batch_products_with_http_info(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         batch_products_request: BatchProductsRequest,
         _request_timeout: Union[
             None,
@@ -141,7 +141,7 @@ class ProductsApi:
 
         Push up to 100 products to a custom platform store. Creates new products or updates existing ones matched by external_id. Only available for stores with platform=custom.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param batch_products_request: (required)
         :type batch_products_request: BatchProductsRequest
@@ -178,9 +178,9 @@ class ProductsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchProductsResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -196,7 +196,7 @@ class ProductsApi:
     @validate_call
     def batch_products_without_preload_content(
         self,
-        store_id: Annotated[StrictStr, Field(description="Store connection UUID")],
+        store_id: StrictStr,
         batch_products_request: BatchProductsRequest,
         _request_timeout: Union[
             None,
@@ -215,7 +215,7 @@ class ProductsApi:
 
         Push up to 100 products to a custom platform store. Creates new products or updates existing ones matched by external_id. Only available for stores with platform=custom.
 
-        :param store_id: Store connection UUID (required)
+        :param store_id: (required)
         :type store_id: str
         :param batch_products_request: (required)
         :type batch_products_request: BatchProductsRequest
@@ -252,9 +252,9 @@ class ProductsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchProductsResponse",
+            '404': "ErrorResponse",
             '400': "ErrorResponse",
             '401': "ErrorResponse",
-            '404': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -626,7 +626,7 @@ class ProductsApi:
     @validate_call
     def get_product(
         self,
-        product_id: Annotated[StrictStr, Field(description="Product UUID")],
+        product_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -644,7 +644,7 @@ class ProductsApi:
 
         Get detailed information about a specific product.
 
-        :param product_id: Product UUID (required)
+        :param product_id: (required)
         :type product_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -678,8 +678,8 @@ class ProductsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetProduct200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -695,7 +695,7 @@ class ProductsApi:
     @validate_call
     def get_product_with_http_info(
         self,
-        product_id: Annotated[StrictStr, Field(description="Product UUID")],
+        product_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -713,7 +713,7 @@ class ProductsApi:
 
         Get detailed information about a specific product.
 
-        :param product_id: Product UUID (required)
+        :param product_id: (required)
         :type product_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -747,8 +747,8 @@ class ProductsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetProduct200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -764,7 +764,7 @@ class ProductsApi:
     @validate_call
     def get_product_without_preload_content(
         self,
-        product_id: Annotated[StrictStr, Field(description="Product UUID")],
+        product_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -782,7 +782,7 @@ class ProductsApi:
 
         Get detailed information about a specific product.
 
-        :param product_id: Product UUID (required)
+        :param product_id: (required)
         :type product_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -816,8 +816,8 @@ class ProductsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetProduct200Response",
-            '401': "ErrorResponse",
             '404': "ErrorResponse",
+            '401': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

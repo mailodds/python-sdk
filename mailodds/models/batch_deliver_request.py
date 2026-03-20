@@ -34,7 +34,7 @@ class BatchDeliverRequest(BaseModel):
     subject: StrictStr
     html: Optional[StrictStr] = None
     text: Optional[StrictStr] = None
-    domain_id: StrictStr
+    domain_id: Optional[StrictStr] = Field(default=None, description="Sending domain UUID. Optional -- auto-resolved from the from address, or falls back to primary domain.")
     reply_to: Optional[StrictStr] = None
     headers: Optional[Dict[str, Any]] = None
     tags: Optional[List[StrictStr]] = None

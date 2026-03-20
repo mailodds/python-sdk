@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **subject** | **str** |  | 
 **html** | **str** |  | [optional] 
 **text** | **str** |  | [optional] 
-**domain_id** | **str** |  | 
+**domain_id** | **str** | Sending domain UUID. Optional -- auto-resolved from the from address, or falls back to primary domain. | [optional] 
 **reply_to** | **str** |  | [optional] 
 **headers** | **object** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 

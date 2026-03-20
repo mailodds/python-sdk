@@ -26,22 +26,33 @@ __all__ = [
     "BulkValidationApi",
     "CampaignAnalyticsApi",
     "CampaignsApi",
+    "ConfigurationSetsApi",
     "ContactListsApi",
     "ContentClassificationApi",
+    "DKIMManagementApi",
     "DMARCMonitoringApi",
+    "DeliverabilityAdvisorApi",
     "DomainInsightsApi",
     "EmailSendingApi",
     "EmailValidationApi",
     "EngagementApi",
+    "EventDestinationsApi",
     "EventsApi",
+    "GlobalSuppressionsApi",
+    "ISPFBLGuidesApi",
     "InboundProcessingApi",
+    "InboundRulesApi",
+    "ManagedSPFApi",
     "MessageEventsApi",
     "OAuth20Api",
     "OutOfOfficeApi",
+    "PipelineSimulationApi",
     "PixelSettingsApi",
     "ProductsApi",
     "ReputationApi",
+    "ReputationPoliciesApi",
     "SenderHealthApi",
+    "SendingDelegationsApi",
     "SendingDomainsApi",
     "ServerTestsApi",
     "SpamChecksApi",
@@ -49,6 +60,7 @@ __all__ = [
     "SubscriberListsApi",
     "SuppressionListsApi",
     "SystemApi",
+    "TemplateVersionsApi",
     "ValidationPoliciesApi",
     "WebhookCLIApi",
     "ApiResponse",
@@ -334,22 +346,33 @@ from mailodds.api.bounce_analysis_api import BounceAnalysisApi as BounceAnalysis
 from mailodds.api.bulk_validation_api import BulkValidationApi as BulkValidationApi
 from mailodds.api.campaign_analytics_api import CampaignAnalyticsApi as CampaignAnalyticsApi
 from mailodds.api.campaigns_api import CampaignsApi as CampaignsApi
+from mailodds.api.configuration_sets_api import ConfigurationSetsApi as ConfigurationSetsApi
 from mailodds.api.contact_lists_api import ContactListsApi as ContactListsApi
 from mailodds.api.content_classification_api import ContentClassificationApi as ContentClassificationApi
+from mailodds.api.dkim_management_api import DKIMManagementApi as DKIMManagementApi
 from mailodds.api.dmarc_monitoring_api import DMARCMonitoringApi as DMARCMonitoringApi
+from mailodds.api.deliverability_advisor_api import DeliverabilityAdvisorApi as DeliverabilityAdvisorApi
 from mailodds.api.domain_insights_api import DomainInsightsApi as DomainInsightsApi
 from mailodds.api.email_sending_api import EmailSendingApi as EmailSendingApi
 from mailodds.api.email_validation_api import EmailValidationApi as EmailValidationApi
 from mailodds.api.engagement_api import EngagementApi as EngagementApi
+from mailodds.api.event_destinations_api import EventDestinationsApi as EventDestinationsApi
 from mailodds.api.events_api import EventsApi as EventsApi
+from mailodds.api.global_suppressions_api import GlobalSuppressionsApi as GlobalSuppressionsApi
+from mailodds.api.ispfbl_guides_api import ISPFBLGuidesApi as ISPFBLGuidesApi
 from mailodds.api.inbound_processing_api import InboundProcessingApi as InboundProcessingApi
+from mailodds.api.inbound_rules_api import InboundRulesApi as InboundRulesApi
+from mailodds.api.managed_spf_api import ManagedSPFApi as ManagedSPFApi
 from mailodds.api.message_events_api import MessageEventsApi as MessageEventsApi
 from mailodds.api.o_auth20_api import OAuth20Api as OAuth20Api
 from mailodds.api.out_of_office_api import OutOfOfficeApi as OutOfOfficeApi
+from mailodds.api.pipeline_simulation_api import PipelineSimulationApi as PipelineSimulationApi
 from mailodds.api.pixel_settings_api import PixelSettingsApi as PixelSettingsApi
 from mailodds.api.products_api import ProductsApi as ProductsApi
 from mailodds.api.reputation_api import ReputationApi as ReputationApi
+from mailodds.api.reputation_policies_api import ReputationPoliciesApi as ReputationPoliciesApi
 from mailodds.api.sender_health_api import SenderHealthApi as SenderHealthApi
+from mailodds.api.sending_delegations_api import SendingDelegationsApi as SendingDelegationsApi
 from mailodds.api.sending_domains_api import SendingDomainsApi as SendingDomainsApi
 from mailodds.api.server_tests_api import ServerTestsApi as ServerTestsApi
 from mailodds.api.spam_checks_api import SpamChecksApi as SpamChecksApi
@@ -357,6 +380,7 @@ from mailodds.api.store_connections_api import StoreConnectionsApi as StoreConne
 from mailodds.api.subscriber_lists_api import SubscriberListsApi as SubscriberListsApi
 from mailodds.api.suppression_lists_api import SuppressionListsApi as SuppressionListsApi
 from mailodds.api.system_api import SystemApi as SystemApi
+from mailodds.api.template_versions_api import TemplateVersionsApi as TemplateVersionsApi
 from mailodds.api.validation_policies_api import ValidationPoliciesApi as ValidationPoliciesApi
 from mailodds.api.webhook_cli_api import WebhookCLIApi as WebhookCLIApi
 

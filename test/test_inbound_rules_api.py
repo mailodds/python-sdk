@@ -15,61 +15,60 @@
 
 import unittest
 
-from mailodds.models.list_sending_domains200_response import ListSendingDomains200Response
+from mailodds.api.inbound_rules_api import InboundRulesApi
 
-class TestListSendingDomains200Response(unittest.TestCase):
-    """ListSendingDomains200Response unit test stubs"""
 
-    def setUp(self):
+class TestInboundRulesApi(unittest.TestCase):
+    """InboundRulesApi unit test stubs"""
+
+    def setUp(self) -> None:
+        self.api = InboundRulesApi()
+
+    def tearDown(self) -> None:
         pass
 
-    def tearDown(self):
+    def test_create_inbound_rule(self) -> None:
+        """Test case for create_inbound_rule
+
+        Create an inbound rule
+        """
         pass
 
-    def make_instance(self, include_optional) -> ListSendingDomains200Response:
-        """Test ListSendingDomains200Response
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ListSendingDomains200Response`
-        """
-        model = ListSendingDomains200Response()
-        if include_optional:
-            return ListSendingDomains200Response(
-                domains = [
-                    mailodds.models.sending_domain.SendingDomain(
-                        id = '', 
-                        domain = '', 
-                        domain_type = '', 
-                        status = 'pending_dns', 
-                        dkim_selector = '', 
-                        dns_records = mailodds.models.sending_domain_dns_records.SendingDomain_dns_records(
-                            ns = mailodds.models.sending_domain_dns_records_ns.SendingDomain_dns_records_ns(
-                                type = '', 
-                                host = '', 
-                                targets = [
-                                    ''
-                                    ], 
-                                status = 'pending', 
-                                verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), ), 
-                        bimi_svg_url = '', 
-                        bimi_vmc_url = '', 
-                        bimi_enabled = True, 
-                        forward_replies_to = '', 
-                        is_primary = True, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                    ]
-            )
-        else:
-            return ListSendingDomains200Response(
-        )
-        """
+    def test_delete_inbound_rule(self) -> None:
+        """Test case for delete_inbound_rule
 
-    def testListSendingDomains200Response(self):
-        """Test ListSendingDomains200Response"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+        Delete an inbound rule
+        """
+        pass
+
+    def test_dry_run_inbound_rules(self) -> None:
+        """Test case for dry_run_inbound_rules
+
+        Dry-run inbound rules
+        """
+        pass
+
+    def test_get_inbound_rule(self) -> None:
+        """Test case for get_inbound_rule
+
+        Get an inbound rule
+        """
+        pass
+
+    def test_list_inbound_rules(self) -> None:
+        """Test case for list_inbound_rules
+
+        List inbound rules
+        """
+        pass
+
+    def test_update_inbound_rule(self) -> None:
+        """Test case for update_inbound_rule
+
+        Update an inbound rule
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

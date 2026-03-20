@@ -15,61 +15,67 @@
 
 import unittest
 
-from mailodds.models.list_sending_domains200_response import ListSendingDomains200Response
+from mailodds.api.template_versions_api import TemplateVersionsApi
 
-class TestListSendingDomains200Response(unittest.TestCase):
-    """ListSendingDomains200Response unit test stubs"""
 
-    def setUp(self):
+class TestTemplateVersionsApi(unittest.TestCase):
+    """TemplateVersionsApi unit test stubs"""
+
+    def setUp(self) -> None:
+        self.api = TemplateVersionsApi()
+
+    def tearDown(self) -> None:
         pass
 
-    def tearDown(self):
+    def test_canary_template_version(self) -> None:
+        """Test case for canary_template_version
+
+        Start canary deployment
+        """
         pass
 
-    def make_instance(self, include_optional) -> ListSendingDomains200Response:
-        """Test ListSendingDomains200Response
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ListSendingDomains200Response`
-        """
-        model = ListSendingDomains200Response()
-        if include_optional:
-            return ListSendingDomains200Response(
-                domains = [
-                    mailodds.models.sending_domain.SendingDomain(
-                        id = '', 
-                        domain = '', 
-                        domain_type = '', 
-                        status = 'pending_dns', 
-                        dkim_selector = '', 
-                        dns_records = mailodds.models.sending_domain_dns_records.SendingDomain_dns_records(
-                            ns = mailodds.models.sending_domain_dns_records_ns.SendingDomain_dns_records_ns(
-                                type = '', 
-                                host = '', 
-                                targets = [
-                                    ''
-                                    ], 
-                                status = 'pending', 
-                                verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), ), 
-                        bimi_svg_url = '', 
-                        bimi_vmc_url = '', 
-                        bimi_enabled = True, 
-                        forward_replies_to = '', 
-                        is_primary = True, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                    ]
-            )
-        else:
-            return ListSendingDomains200Response(
-        )
-        """
+    def test_create_template_version(self) -> None:
+        """Test case for create_template_version
 
-    def testListSendingDomains200Response(self):
-        """Test ListSendingDomains200Response"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+        Create a template version
+        """
+        pass
+
+    def test_get_template_version(self) -> None:
+        """Test case for get_template_version
+
+        Get a template version
+        """
+        pass
+
+    def test_list_template_versions(self) -> None:
+        """Test case for list_template_versions
+
+        List template versions
+        """
+        pass
+
+    def test_promote_template_version(self) -> None:
+        """Test case for promote_template_version
+
+        Promote a template version
+        """
+        pass
+
+    def test_rollback_template_version(self) -> None:
+        """Test case for rollback_template_version
+
+        Rollback template version
+        """
+        pass
+
+    def test_update_template_version(self) -> None:
+        """Test case for update_template_version
+
+        Update a template version
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

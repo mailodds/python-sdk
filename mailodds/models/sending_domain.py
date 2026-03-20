@@ -39,9 +39,10 @@ class SendingDomain(BaseModel):
     bimi_vmc_url: Optional[StrictStr] = Field(default=None, description="BIMI VMC certificate URL")
     bimi_enabled: Optional[StrictBool] = Field(default=None, description="Whether BIMI is enabled")
     forward_replies_to: Optional[StrictStr] = Field(default=None, description="Reply forwarding address")
+    is_primary: Optional[StrictBool] = Field(default=None, description="Whether this is the account primary/default sending domain")
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "domain", "domain_type", "status", "dkim_selector", "dns_records", "bimi_svg_url", "bimi_vmc_url", "bimi_enabled", "forward_replies_to", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "domain", "domain_type", "status", "dkim_selector", "dns_records", "bimi_svg_url", "bimi_vmc_url", "bimi_enabled", "forward_replies_to", "is_primary", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -132,6 +133,7 @@ class SendingDomain(BaseModel):
             "bimi_vmc_url": obj.get("bimi_vmc_url"),
             "bimi_enabled": obj.get("bimi_enabled"),
             "forward_replies_to": obj.get("forward_replies_to"),
+            "is_primary": obj.get("is_primary"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")
         })

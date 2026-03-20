@@ -15,61 +15,39 @@
 
 import unittest
 
-from mailodds.models.list_sending_domains200_response import ListSendingDomains200Response
+from mailodds.api.sending_delegations_api import SendingDelegationsApi
 
-class TestListSendingDomains200Response(unittest.TestCase):
-    """ListSendingDomains200Response unit test stubs"""
 
-    def setUp(self):
+class TestSendingDelegationsApi(unittest.TestCase):
+    """SendingDelegationsApi unit test stubs"""
+
+    def setUp(self) -> None:
+        self.api = SendingDelegationsApi()
+
+    def tearDown(self) -> None:
         pass
 
-    def tearDown(self):
+    def test_create_delegation(self) -> None:
+        """Test case for create_delegation
+
+        Create a sending delegation
+        """
         pass
 
-    def make_instance(self, include_optional) -> ListSendingDomains200Response:
-        """Test ListSendingDomains200Response
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ListSendingDomains200Response`
-        """
-        model = ListSendingDomains200Response()
-        if include_optional:
-            return ListSendingDomains200Response(
-                domains = [
-                    mailodds.models.sending_domain.SendingDomain(
-                        id = '', 
-                        domain = '', 
-                        domain_type = '', 
-                        status = 'pending_dns', 
-                        dkim_selector = '', 
-                        dns_records = mailodds.models.sending_domain_dns_records.SendingDomain_dns_records(
-                            ns = mailodds.models.sending_domain_dns_records_ns.SendingDomain_dns_records_ns(
-                                type = '', 
-                                host = '', 
-                                targets = [
-                                    ''
-                                    ], 
-                                status = 'pending', 
-                                verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), ), 
-                        bimi_svg_url = '', 
-                        bimi_vmc_url = '', 
-                        bimi_enabled = True, 
-                        forward_replies_to = '', 
-                        is_primary = True, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                    ]
-            )
-        else:
-            return ListSendingDomains200Response(
-        )
-        """
+    def test_list_delegations(self) -> None:
+        """Test case for list_delegations
 
-    def testListSendingDomains200Response(self):
-        """Test ListSendingDomains200Response"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+        List sending delegations
+        """
+        pass
+
+    def test_revoke_delegation(self) -> None:
+        """Test case for revoke_delegation
+
+        Revoke a sending delegation
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

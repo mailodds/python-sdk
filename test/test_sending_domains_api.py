@@ -76,6 +76,13 @@ class TestSendingDomainsApi(unittest.TestCase):
         """
         pass
 
+    def test_set_primary_sending_domain(self) -> None:
+        """Test case for set_primary_sending_domain
+
+        Set primary sending domain
+        """
+        pass
+
     def test_update_reply_forwarding(self) -> None:
         """Test case for update_reply_forwarding
 

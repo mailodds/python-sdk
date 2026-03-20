@@ -36,7 +36,7 @@ class DeliverRequest(BaseModel):
     subject: StrictStr = Field(description="Email subject line")
     html: Optional[StrictStr] = Field(default=None, description="HTML email body")
     text: Optional[StrictStr] = Field(default=None, description="Plain text email body")
-    domain_id: StrictStr = Field(description="Sending domain UUID")
+    domain_id: Optional[StrictStr] = Field(default=None, description="Sending domain UUID. Optional -- auto-resolved from the from address, or falls back to primary domain.")
     reply_to: Optional[StrictStr] = Field(default=None, description="Reply-to address")
     headers: Optional[Dict[str, Any]] = Field(default=None, description="Extra email headers")
     tags: Optional[List[StrictStr]] = Field(default=None, description="Tags for categorization")

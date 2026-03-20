@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_sending_domain_identity_score**](SendingDomainsApi.md#get_sending_domain_identity_score) | **GET** /v1/sending-domains/{domain_id}/identity-score | Get domain identity score
 [**get_sending_stats**](SendingDomainsApi.md#get_sending_stats) | **GET** /v1/sending-stats | Get sending statistics
 [**list_sending_domains**](SendingDomainsApi.md#list_sending_domains) | **GET** /v1/sending-domains | List sending domains
+[**set_primary_sending_domain**](SendingDomainsApi.md#set_primary_sending_domain) | **POST** /v1/sending-domains/{domain_id}/set-primary | Set primary sending domain
 [**update_reply_forwarding**](SendingDomainsApi.md#update_reply_forwarding) | **PATCH** /v1/sending-domains/{domain_id}/reply-forwarding | Update reply forwarding config
 [**verify_sending_domain**](SendingDomainsApi.md#verify_sending_domain) | **POST** /v1/sending-domains/{domain_id}/verify | Verify domain DNS records
 
@@ -572,6 +573,86 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | List of sending domains |  -  |
 **403** | Forbidden - Insufficient permissions or no credits |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_primary_sending_domain**
+> CreateSendingDomain201Response set_primary_sending_domain(domain_id)
+
+Set primary sending domain
+
+Designate a domain as the primary/default sending domain. When domain_id is omitted from deliver calls, the primary domain is used automatically.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.create_sending_domain201_response import CreateSendingDomain201Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.SendingDomainsApi(api_client)
+    domain_id = 'domain_id_example' # str | 
+
+    try:
+        # Set primary sending domain
+        api_response = api_instance.set_primary_sending_domain(domain_id)
+        print("The response of SendingDomainsApi->set_primary_sending_domain:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SendingDomainsApi->set_primary_sending_domain: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain_id** | **str**|  | 
+
+### Return type
+
+[**CreateSendingDomain201Response**](CreateSendingDomain201Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Primary domain set |  -  |
+**404** | Resource not found |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

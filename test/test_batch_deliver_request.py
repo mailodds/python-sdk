@@ -60,7 +60,6 @@ class TestBatchDeliverRequest(unittest.TestCase):
                     ],
                 var_from = '',
                 subject = '',
-                domain_id = '',
         )
         """
 

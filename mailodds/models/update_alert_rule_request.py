@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,19 +31,9 @@ class UpdateAlertRuleRequest(BaseModel):
     metric: Optional[StrictStr] = None
     threshold: Optional[Union[Annotated[float, Field(le=1, strict=True, gt=0)], Annotated[int, Field(le=1, strict=True, gt=0)]]] = None
     channel: Optional[StrictStr] = None
-    window_minutes: Optional[StrictInt] = None
+    window_minutes: Optional[StrictInt] = Field(default=None, description="Evaluation window in minutes (15, 60, 1440, or 2880)")
     enabled: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["metric", "threshold", "channel", "window_minutes", "enabled"]
-
-    @field_validator('window_minutes')
-    def window_minutes_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set([15, 60, 1440, 2880]):
-            raise ValueError("must be one of enum values (15, 60, 1440, 2880)")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

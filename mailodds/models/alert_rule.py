@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -33,21 +33,11 @@ class AlertRule(BaseModel):
     metric: Optional[StrictStr] = Field(default=None, description="Monitored metric name")
     threshold: Optional[Union[Annotated[float, Field(le=1, strict=True, gt=0)], Annotated[int, Field(le=1, strict=True, gt=0)]]] = Field(default=None, description="Alert threshold value (0-1)")
     channel: Optional[StrictStr] = Field(default=None, description="Notification channel")
-    window_minutes: Optional[StrictInt] = Field(default=None, description="Evaluation window in minutes")
+    window_minutes: Optional[StrictInt] = Field(default=None, description="Evaluation window in minutes (15, 60, 1440, or 2880)")
     enabled: Optional[StrictBool] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["id", "metric", "threshold", "channel", "window_minutes", "enabled", "created_at", "updated_at"]
-
-    @field_validator('window_minutes')
-    def window_minutes_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set([15, 60, 1440, 2880]):
-            raise ValueError("must be one of enum values (15, 60, 1440, 2880)")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

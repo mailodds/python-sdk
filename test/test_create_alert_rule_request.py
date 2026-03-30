@@ -39,7 +39,7 @@ class TestCreateAlertRuleRequest(unittest.TestCase):
                 metric = '',
                 threshold = 0,
                 channel = '',
-                window_minutes = 15,
+                window_minutes = 56,
                 enabled = True
             )
         else:

@@ -40,7 +40,7 @@ class TestAlertRule(unittest.TestCase):
                 metric = '',
                 threshold = 0,
                 channel = '',
-                window_minutes = 15,
+                window_minutes = 56,
                 enabled = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')

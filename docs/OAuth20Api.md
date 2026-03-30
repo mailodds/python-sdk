@@ -1,12 +1,13 @@
 # mailodds.OAuth20Api
 
-All URIs are relative to *https://api.mailodds.com/v1*
+All URIs are relative to *https://api.mailodds.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_token**](OAuth20Api.md#create_token) | **POST** /oauth/token | Create token
 [**get_jwks**](OAuth20Api.md#get_jwks) | **GET** /.well-known/jwks.json | Get JSON Web Key Set
 [**introspect_token**](OAuth20Api.md#introspect_token) | **POST** /oauth/introspect | Introspect token
+[**oauth_register_client**](OAuth20Api.md#oauth_register_client) | **POST** /oauth/register | Register OAuth client
 [**oauth_server_metadata**](OAuth20Api.md#oauth_server_metadata) | **GET** /.well-known/oauth-authorization-server | OAuth server metadata
 [**revoke_token**](OAuth20Api.md#revoke_token) | **POST** /oauth/revoke | Revoke token
 
@@ -27,10 +28,10 @@ from mailodds.models.create_token200_response import CreateToken200Response
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 
@@ -112,10 +113,10 @@ from mailodds.models.jwks_response import JwksResponse
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 
@@ -176,10 +177,10 @@ from mailodds.models.introspect_token200_response import IntrospectToken200Respo
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 
@@ -236,6 +237,70 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **oauth_register_client**
+> OAuthClientRegistration oauth_register_client()
+
+Register OAuth client
+
+Dynamic Client Registration (RFC 7591). Allows MCP clients to auto-register without user interaction.
+
+### Example
+
+
+```python
+import mailodds
+from mailodds.models.o_auth_client_registration import OAuthClientRegistration
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com"
+)
+
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.OAuth20Api(api_client)
+
+    try:
+        # Register OAuth client
+        api_response = api_instance.oauth_register_client()
+        print("The response of OAuth20Api->oauth_register_client:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling OAuth20Api->oauth_register_client: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**OAuthClientRegistration**](OAuthClientRegistration.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Registered client credentials |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **oauth_server_metadata**
 > OAuthServerMetadata oauth_server_metadata()
 
@@ -252,10 +317,10 @@ from mailodds.models.o_auth_server_metadata import OAuthServerMetadata
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 
@@ -315,10 +380,10 @@ import mailodds
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 

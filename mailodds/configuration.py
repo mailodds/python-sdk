@@ -195,7 +195,7 @@ class Configuration:
     ) -> None:
         """Constructor
         """
-        self._base_path = "https://api.mailodds.com/v1" if host is None else host
+        self._base_path = "https://api.mailodds.com" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -526,12 +526,8 @@ class Configuration:
         """
         return [
             {
-                'url': "https://api.mailodds.com/v1",
-                'description': "Production server (API v1 endpoints)",
-            },
-            {
                 'url': "https://api.mailodds.com",
-                'description': "Production server (OAuth and discovery endpoints)",
+                'description': "Production server",
             }
         ]
 

@@ -1,6 +1,6 @@
 # mailodds.DMARCMonitoringApi
 
-All URIs are relative to *https://api.mailodds.com/v1*
+All URIs are relative to *https://api.mailodds.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,10 +32,10 @@ from mailodds.models.add_dmarc_domain_request import AddDmarcDomainRequest
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,10 +112,10 @@ from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Re
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,10 +192,10 @@ from mailodds.models.get_dmarc_domain200_response import GetDmarcDomain200Respon
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -274,10 +274,10 @@ from mailodds.models.get_dmarc_recommendation200_response import GetDmarcRecomme
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -354,10 +354,10 @@ from mailodds.models.get_dmarc_sources200_response import GetDmarcSources200Resp
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -440,10 +440,10 @@ from mailodds.models.get_dmarc_trend200_response import GetDmarcTrend200Response
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -522,10 +522,10 @@ from mailodds.models.list_dmarc_domains200_response import ListDmarcDomains200Re
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -597,10 +597,10 @@ from mailodds.models.add_dmarc_domain201_response import AddDmarcDomain201Respon
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters

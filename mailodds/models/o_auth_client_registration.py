@@ -18,20 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from mailodds.models.store_connection import StoreConnection
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ListStores200Response(BaseModel):
+class OAuthClientRegistration(BaseModel):
     """
-    ListStores200Response
+    OAuthClientRegistration
     """ # noqa: E501
-    schema_version: Optional[StrictStr] = None
-    request_id: Optional[StrictStr] = None
-    stores: Optional[List[StoreConnection]] = None
-    __properties: ClassVar[List[str]] = ["schema_version", "request_id", "stores"]
+    client_id: StrictStr = Field(description="Issued client identifier")
+    client_name: StrictStr = Field(description="Human-readable client name")
+    redirect_uris: List[StrictStr] = Field(description="Registered redirect URIs")
+    grant_types: List[StrictStr] = Field(description="Allowed grant types")
+    response_types: List[StrictStr] = Field(description="Allowed response types")
+    token_endpoint_auth_method: StrictStr = Field(description="Token endpoint auth method")
+    scope: Optional[StrictStr] = Field(default=None, description="Allowed scope")
+    client_id_issued_at: StrictInt = Field(description="Unix timestamp of client registration")
+    client_secret: Optional[StrictStr] = Field(default=None, description="Client secret (only for confidential clients, shown once)")
+    client_secret_expires_at: Optional[StrictInt] = Field(default=None, description="Secret expiry (0 = never)")
+    __properties: ClassVar[List[str]] = ["client_id", "client_name", "redirect_uris", "grant_types", "response_types", "token_endpoint_auth_method", "scope", "client_id_issued_at", "client_secret", "client_secret_expires_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +57,7 @@ class ListStores200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ListStores200Response from a JSON string"""
+        """Create an instance of OAuthClientRegistration from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,18 +78,11 @@ class ListStores200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in stores (list)
-        _items = []
-        if self.stores:
-            for _item_stores in self.stores:
-                if _item_stores:
-                    _items.append(_item_stores.to_dict())
-            _dict['stores'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ListStores200Response from a dict"""
+        """Create an instance of OAuthClientRegistration from a dict"""
         if obj is None:
             return None
 
@@ -91,9 +90,16 @@ class ListStores200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "schema_version": obj.get("schema_version"),
-            "request_id": obj.get("request_id"),
-            "stores": [StoreConnection.from_dict(_item) for _item in obj["stores"]] if obj.get("stores") is not None else None
+            "client_id": obj.get("client_id"),
+            "client_name": obj.get("client_name"),
+            "redirect_uris": obj.get("redirect_uris"),
+            "grant_types": obj.get("grant_types"),
+            "response_types": obj.get("response_types"),
+            "token_endpoint_auth_method": obj.get("token_endpoint_auth_method"),
+            "scope": obj.get("scope"),
+            "client_id_issued_at": obj.get("client_id_issued_at"),
+            "client_secret": obj.get("client_secret"),
+            "client_secret_expires_at": obj.get("client_secret_expires_at")
         })
         return _obj
 

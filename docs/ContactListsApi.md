@@ -1,6 +1,6 @@
 # mailodds.ContactListsApi
 
-All URIs are relative to *https://api.mailodds.com/v1*
+All URIs are relative to *https://api.mailodds.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,10 +35,10 @@ from mailodds.models.add_contact_request import AddContactRequest
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -119,10 +119,10 @@ from mailodds.models.append_to_contact_list_request import AppendToContactListRe
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -203,10 +203,10 @@ from mailodds.models.create_contact_list_request import CreateContactListRequest
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -284,10 +284,10 @@ from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Re
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -366,10 +366,10 @@ from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Re
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -445,10 +445,10 @@ import mailodds
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -525,10 +525,10 @@ from mailodds.models.get_inactive_contacts_report200_response import GetInactive
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -605,10 +605,10 @@ from mailodds.models.import_contact_list200_response import ImportContactList200
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -694,10 +694,10 @@ from mailodds.models.list_contact_lists200_response import ListContactLists200Re
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -777,10 +777,10 @@ from mailodds.models.query_contact_list_request import QueryContactListRequest
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -861,10 +861,10 @@ from mailodds.models.update_contact_request import UpdateContactRequest
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters

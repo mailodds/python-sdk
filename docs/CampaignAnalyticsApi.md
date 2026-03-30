@@ -1,6 +1,6 @@
 # mailodds.CampaignAnalyticsApi
 
-All URIs are relative to *https://api.mailodds.com/v1*
+All URIs are relative to *https://api.mailodds.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,10 +28,10 @@ from mailodds.models.get_campaign_ab_results200_response import GetCampaignABRes
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -108,10 +108,10 @@ from mailodds.models.get_campaign_attribution200_response import GetCampaignAttr
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -188,10 +188,10 @@ from mailodds.models.get_campaign_delivery_confidence200_response import GetCamp
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -268,10 +268,10 @@ from mailodds.models.get_campaign_funnel200_response import GetCampaignFunnel200
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -348,10 +348,10 @@ from mailodds.models.get_campaign_provider_intelligence200_response import GetCa
 from mailodds.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mailodds.com/v1
+# Defining the host is optional and defaults to https://api.mailodds.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mailodds.Configuration(
-    host = "https://api.mailodds.com/v1"
+    host = "https://api.mailodds.com"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -36,6 +36,7 @@ class TestDeleteWebhookCliSession200Response(unittest.TestCase):
         model = DeleteWebhookCliSession200Response()
         if include_optional:
             return DeleteWebhookCliSession200Response(
+                deleted = True,
                 status = ''
             )
         else:

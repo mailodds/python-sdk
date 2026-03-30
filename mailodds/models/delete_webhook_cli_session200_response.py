@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,9 @@ class DeleteWebhookCliSession200Response(BaseModel):
     """
     DeleteWebhookCliSession200Response
     """ # noqa: E501
+    deleted: Optional[StrictBool] = None
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["status"]
+    __properties: ClassVar[List[str]] = ["deleted", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +82,7 @@ class DeleteWebhookCliSession200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "deleted": obj.get("deleted"),
             "status": obj.get("status")
         })
         return _obj

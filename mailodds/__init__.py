@@ -48,7 +48,6 @@ __all__ = [
     "OutOfOfficeApi",
     "PipelineSimulationApi",
     "PixelSettingsApi",
-    "ProductsApi",
     "ReputationApi",
     "ReputationPoliciesApi",
     "SenderHealthApi",
@@ -56,7 +55,6 @@ __all__ = [
     "SendingDomainsApi",
     "ServerTestsApi",
     "SpamChecksApi",
-    "StoreConnectionsApi",
     "SubscriberListsApi",
     "SuppressionListsApi",
     "SystemApi",
@@ -103,8 +101,6 @@ __all__ = [
     "BounceAnalysisResponseAnalysis",
     "BounceAnalysisResponseAnalysisCategories",
     "BounceAnalysisResponseAnalysisTopDomainsInner",
-    "BulkUpdateProducts200Response",
-    "BulkUpdateProductsRequest",
     "Campaign",
     "CampaignResponse",
     "CampaignStats",
@@ -131,7 +127,6 @@ __all__ = [
     "CreatePolicyRequest",
     "CreateSendingDomain201Response",
     "CreateSendingDomainRequest",
-    "CreateStore201Response",
     "CreateStoreRequest",
     "CreateToken200Response",
     "CreateVariantRequest",
@@ -151,7 +146,6 @@ __all__ = [
     "DeliverRequestToInner",
     "DeliverResponse",
     "DeliverResponseDelivery",
-    "DisconnectStore200Response",
     "DmarcDomain",
     "ErrorResponse",
     "GetBlacklistHistory200Response",
@@ -204,7 +198,6 @@ __all__ = [
     "GetOooStatus200Response",
     "GetPixelSettings200Response",
     "GetPresignedUploadRequest",
-    "GetProduct200Response",
     "GetReplyForwarding200Response",
     "GetReputation200Response",
     "GetReputationTimeline200Response",
@@ -220,7 +213,6 @@ __all__ = [
     "GetSendingStats200Response",
     "GetSendingStats200ResponseStats",
     "GetSubscribers200Response",
-    "GetSyncJobErrors200Response",
     "HealthCheck200Response",
     "IdentityScoreCheck",
     "ImportContactList200Response",
@@ -242,13 +234,12 @@ __all__ = [
     "ListSendingDomains200Response",
     "ListServerTests200Response",
     "ListSpamChecks200Response",
-    "ListStores200Response",
-    "ListSyncJobs200Response",
     "ListWebhookDeliveries200Response",
     "ListWebhookDeliveries200ResponseDeliveriesInner",
     "McpCapabilities",
     "McpCapabilitiesPillarsInner",
     "McpCapabilitiesPillarsInnerToolsInner",
+    "OAuthClientRegistration",
     "OAuthServerMetadata",
     "Pagination",
     "Policy",
@@ -270,7 +261,6 @@ __all__ = [
     "QueryContactList200ResponseEmailsInner",
     "QueryContactListRequest",
     "QueryContactListRequestFiltersInner",
-    "QueryProducts200Response",
     "RemoveSuppression200Response",
     "RemoveSuppressionRequest",
     "ReplayWebhookDelivery200Response",
@@ -325,7 +315,6 @@ __all__ = [
     "UpdatePixelSettingsRequest",
     "UpdatePolicyRequest",
     "UpdateReplyForwardingRequest",
-    "UpdateStoreRequest",
     "ValidateBatch200Response",
     "ValidateBatch200ResponseSummary",
     "ValidateBatchRequest",
@@ -368,7 +357,6 @@ from mailodds.api.o_auth20_api import OAuth20Api as OAuth20Api
 from mailodds.api.out_of_office_api import OutOfOfficeApi as OutOfOfficeApi
 from mailodds.api.pipeline_simulation_api import PipelineSimulationApi as PipelineSimulationApi
 from mailodds.api.pixel_settings_api import PixelSettingsApi as PixelSettingsApi
-from mailodds.api.products_api import ProductsApi as ProductsApi
 from mailodds.api.reputation_api import ReputationApi as ReputationApi
 from mailodds.api.reputation_policies_api import ReputationPoliciesApi as ReputationPoliciesApi
 from mailodds.api.sender_health_api import SenderHealthApi as SenderHealthApi
@@ -376,7 +364,6 @@ from mailodds.api.sending_delegations_api import SendingDelegationsApi as Sendin
 from mailodds.api.sending_domains_api import SendingDomainsApi as SendingDomainsApi
 from mailodds.api.server_tests_api import ServerTestsApi as ServerTestsApi
 from mailodds.api.spam_checks_api import SpamChecksApi as SpamChecksApi
-from mailodds.api.store_connections_api import StoreConnectionsApi as StoreConnectionsApi
 from mailodds.api.subscriber_lists_api import SubscriberListsApi as SubscriberListsApi
 from mailodds.api.suppression_lists_api import SuppressionListsApi as SuppressionListsApi
 from mailodds.api.system_api import SystemApi as SystemApi
@@ -427,8 +414,6 @@ from mailodds.models.bounce_analysis_response import BounceAnalysisResponse as B
 from mailodds.models.bounce_analysis_response_analysis import BounceAnalysisResponseAnalysis as BounceAnalysisResponseAnalysis
 from mailodds.models.bounce_analysis_response_analysis_categories import BounceAnalysisResponseAnalysisCategories as BounceAnalysisResponseAnalysisCategories
 from mailodds.models.bounce_analysis_response_analysis_top_domains_inner import BounceAnalysisResponseAnalysisTopDomainsInner as BounceAnalysisResponseAnalysisTopDomainsInner
-from mailodds.models.bulk_update_products200_response import BulkUpdateProducts200Response as BulkUpdateProducts200Response
-from mailodds.models.bulk_update_products_request import BulkUpdateProductsRequest as BulkUpdateProductsRequest
 from mailodds.models.campaign import Campaign as Campaign
 from mailodds.models.campaign_response import CampaignResponse as CampaignResponse
 from mailodds.models.campaign_stats import CampaignStats as CampaignStats
@@ -455,7 +440,6 @@ from mailodds.models.create_policy_from_preset_request import CreatePolicyFromPr
 from mailodds.models.create_policy_request import CreatePolicyRequest as CreatePolicyRequest
 from mailodds.models.create_sending_domain201_response import CreateSendingDomain201Response as CreateSendingDomain201Response
 from mailodds.models.create_sending_domain_request import CreateSendingDomainRequest as CreateSendingDomainRequest
-from mailodds.models.create_store201_response import CreateStore201Response as CreateStore201Response
 from mailodds.models.create_store_request import CreateStoreRequest as CreateStoreRequest
 from mailodds.models.create_token200_response import CreateToken200Response as CreateToken200Response
 from mailodds.models.create_variant_request import CreateVariantRequest as CreateVariantRequest
@@ -475,7 +459,6 @@ from mailodds.models.deliver_request_structured_data import DeliverRequestStruct
 from mailodds.models.deliver_request_to_inner import DeliverRequestToInner as DeliverRequestToInner
 from mailodds.models.deliver_response import DeliverResponse as DeliverResponse
 from mailodds.models.deliver_response_delivery import DeliverResponseDelivery as DeliverResponseDelivery
-from mailodds.models.disconnect_store200_response import DisconnectStore200Response as DisconnectStore200Response
 from mailodds.models.dmarc_domain import DmarcDomain as DmarcDomain
 from mailodds.models.error_response import ErrorResponse as ErrorResponse
 from mailodds.models.get_blacklist_history200_response import GetBlacklistHistory200Response as GetBlacklistHistory200Response
@@ -528,7 +511,6 @@ from mailodds.models.get_message_events200_response_summary import GetMessageEve
 from mailodds.models.get_ooo_status200_response import GetOooStatus200Response as GetOooStatus200Response
 from mailodds.models.get_pixel_settings200_response import GetPixelSettings200Response as GetPixelSettings200Response
 from mailodds.models.get_presigned_upload_request import GetPresignedUploadRequest as GetPresignedUploadRequest
-from mailodds.models.get_product200_response import GetProduct200Response as GetProduct200Response
 from mailodds.models.get_reply_forwarding200_response import GetReplyForwarding200Response as GetReplyForwarding200Response
 from mailodds.models.get_reputation200_response import GetReputation200Response as GetReputation200Response
 from mailodds.models.get_reputation_timeline200_response import GetReputationTimeline200Response as GetReputationTimeline200Response
@@ -544,7 +526,6 @@ from mailodds.models.get_sending_domain_identity_score200_response import GetSen
 from mailodds.models.get_sending_stats200_response import GetSendingStats200Response as GetSendingStats200Response
 from mailodds.models.get_sending_stats200_response_stats import GetSendingStats200ResponseStats as GetSendingStats200ResponseStats
 from mailodds.models.get_subscribers200_response import GetSubscribers200Response as GetSubscribers200Response
-from mailodds.models.get_sync_job_errors200_response import GetSyncJobErrors200Response as GetSyncJobErrors200Response
 from mailodds.models.health_check200_response import HealthCheck200Response as HealthCheck200Response
 from mailodds.models.identity_score_check import IdentityScoreCheck as IdentityScoreCheck
 from mailodds.models.import_contact_list200_response import ImportContactList200Response as ImportContactList200Response
@@ -566,13 +547,12 @@ from mailodds.models.list_ooo_contacts200_response import ListOooContacts200Resp
 from mailodds.models.list_sending_domains200_response import ListSendingDomains200Response as ListSendingDomains200Response
 from mailodds.models.list_server_tests200_response import ListServerTests200Response as ListServerTests200Response
 from mailodds.models.list_spam_checks200_response import ListSpamChecks200Response as ListSpamChecks200Response
-from mailodds.models.list_stores200_response import ListStores200Response as ListStores200Response
-from mailodds.models.list_sync_jobs200_response import ListSyncJobs200Response as ListSyncJobs200Response
 from mailodds.models.list_webhook_deliveries200_response import ListWebhookDeliveries200Response as ListWebhookDeliveries200Response
 from mailodds.models.list_webhook_deliveries200_response_deliveries_inner import ListWebhookDeliveries200ResponseDeliveriesInner as ListWebhookDeliveries200ResponseDeliveriesInner
 from mailodds.models.mcp_capabilities import McpCapabilities as McpCapabilities
 from mailodds.models.mcp_capabilities_pillars_inner import McpCapabilitiesPillarsInner as McpCapabilitiesPillarsInner
 from mailodds.models.mcp_capabilities_pillars_inner_tools_inner import McpCapabilitiesPillarsInnerToolsInner as McpCapabilitiesPillarsInnerToolsInner
+from mailodds.models.o_auth_client_registration import OAuthClientRegistration as OAuthClientRegistration
 from mailodds.models.o_auth_server_metadata import OAuthServerMetadata as OAuthServerMetadata
 from mailodds.models.pagination import Pagination as Pagination
 from mailodds.models.policy import Policy as Policy
@@ -594,7 +574,6 @@ from mailodds.models.query_contact_list200_response import QueryContactList200Re
 from mailodds.models.query_contact_list200_response_emails_inner import QueryContactList200ResponseEmailsInner as QueryContactList200ResponseEmailsInner
 from mailodds.models.query_contact_list_request import QueryContactListRequest as QueryContactListRequest
 from mailodds.models.query_contact_list_request_filters_inner import QueryContactListRequestFiltersInner as QueryContactListRequestFiltersInner
-from mailodds.models.query_products200_response import QueryProducts200Response as QueryProducts200Response
 from mailodds.models.remove_suppression200_response import RemoveSuppression200Response as RemoveSuppression200Response
 from mailodds.models.remove_suppression_request import RemoveSuppressionRequest as RemoveSuppressionRequest
 from mailodds.models.replay_webhook_delivery200_response import ReplayWebhookDelivery200Response as ReplayWebhookDelivery200Response
@@ -649,7 +628,6 @@ from mailodds.models.update_ooo_contact_request import UpdateOooContactRequest a
 from mailodds.models.update_pixel_settings_request import UpdatePixelSettingsRequest as UpdatePixelSettingsRequest
 from mailodds.models.update_policy_request import UpdatePolicyRequest as UpdatePolicyRequest
 from mailodds.models.update_reply_forwarding_request import UpdateReplyForwardingRequest as UpdateReplyForwardingRequest
-from mailodds.models.update_store_request import UpdateStoreRequest as UpdateStoreRequest
 from mailodds.models.validate_batch200_response import ValidateBatch200Response as ValidateBatch200Response
 from mailodds.models.validate_batch200_response_summary import ValidateBatch200ResponseSummary as ValidateBatch200ResponseSummary
 from mailodds.models.validate_batch_request import ValidateBatchRequest as ValidateBatchRequest

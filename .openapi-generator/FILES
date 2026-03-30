@@ -36,8 +36,6 @@ docs/BounceAnalysisResponse.md
 docs/BounceAnalysisResponseAnalysis.md
 docs/BounceAnalysisResponseAnalysisCategories.md
 docs/BounceAnalysisResponseAnalysisTopDomainsInner.md
-docs/BulkUpdateProducts200Response.md
-docs/BulkUpdateProductsRequest.md
 docs/BulkValidationApi.md
 docs/Campaign.md
 docs/CampaignAnalyticsApi.md
@@ -70,7 +68,6 @@ docs/CreatePolicyFromPresetRequest.md
 docs/CreatePolicyRequest.md
 docs/CreateSendingDomain201Response.md
 docs/CreateSendingDomainRequest.md
-docs/CreateStore201Response.md
 docs/CreateStoreRequest.md
 docs/CreateToken200Response.md
 docs/CreateVariantRequest.md
@@ -93,7 +90,6 @@ docs/DeliverRequestToInner.md
 docs/DeliverResponse.md
 docs/DeliverResponseDelivery.md
 docs/DeliverabilityAdvisorApi.md
-docs/DisconnectStore200Response.md
 docs/DmarcDomain.md
 docs/DomainInsightsApi.md
 docs/EmailSendingApi.md
@@ -152,7 +148,6 @@ docs/GetMessageEvents200ResponseSummary.md
 docs/GetOooStatus200Response.md
 docs/GetPixelSettings200Response.md
 docs/GetPresignedUploadRequest.md
-docs/GetProduct200Response.md
 docs/GetReplyForwarding200Response.md
 docs/GetReputation200Response.md
 docs/GetReputationTimeline200Response.md
@@ -168,7 +163,6 @@ docs/GetSendingDomainIdentityScore200Response.md
 docs/GetSendingStats200Response.md
 docs/GetSendingStats200ResponseStats.md
 docs/GetSubscribers200Response.md
-docs/GetSyncJobErrors200Response.md
 docs/GlobalSuppressionsApi.md
 docs/HealthCheck200Response.md
 docs/ISPFBLGuidesApi.md
@@ -194,8 +188,6 @@ docs/ListOooContacts200Response.md
 docs/ListSendingDomains200Response.md
 docs/ListServerTests200Response.md
 docs/ListSpamChecks200Response.md
-docs/ListStores200Response.md
-docs/ListSyncJobs200Response.md
 docs/ListWebhookDeliveries200Response.md
 docs/ListWebhookDeliveries200ResponseDeliveriesInner.md
 docs/ManagedSPFApi.md
@@ -204,6 +196,7 @@ docs/McpCapabilitiesPillarsInner.md
 docs/McpCapabilitiesPillarsInnerToolsInner.md
 docs/MessageEventsApi.md
 docs/OAuth20Api.md
+docs/OAuthClientRegistration.md
 docs/OAuthServerMetadata.md
 docs/OutOfOfficeApi.md
 docs/Pagination.md
@@ -224,12 +217,10 @@ docs/ProductFacets.md
 docs/ProductFacetsCategoriesInner.md
 docs/ProductFacetsPriceRangesInner.md
 docs/ProductFacetsStoresInner.md
-docs/ProductsApi.md
 docs/QueryContactList200Response.md
 docs/QueryContactList200ResponseEmailsInner.md
 docs/QueryContactListRequest.md
 docs/QueryContactListRequestFiltersInner.md
-docs/QueryProducts200Response.md
 docs/RemoveSuppression200Response.md
 docs/RemoveSuppressionRequest.md
 docs/ReplayWebhookDelivery200Response.md
@@ -261,7 +252,6 @@ docs/SpamCheck.md
 docs/SpamCheckChecks.md
 docs/SpamChecksApi.md
 docs/StoreConnection.md
-docs/StoreConnectionsApi.md
 docs/StoreProduct.md
 docs/SubscribeRequest.md
 docs/Subscriber.md
@@ -296,7 +286,6 @@ docs/UpdateOooContactRequest.md
 docs/UpdatePixelSettingsRequest.md
 docs/UpdatePolicyRequest.md
 docs/UpdateReplyForwardingRequest.md
-docs/UpdateStoreRequest.md
 docs/ValidateBatch200Response.md
 docs/ValidateBatch200ResponseSummary.md
 docs/ValidateBatchRequest.md
@@ -341,7 +330,6 @@ mailodds/api/o_auth20_api.py
 mailodds/api/out_of_office_api.py
 mailodds/api/pipeline_simulation_api.py
 mailodds/api/pixel_settings_api.py
-mailodds/api/products_api.py
 mailodds/api/reputation_api.py
 mailodds/api/reputation_policies_api.py
 mailodds/api/sender_health_api.py
@@ -349,7 +337,6 @@ mailodds/api/sending_delegations_api.py
 mailodds/api/sending_domains_api.py
 mailodds/api/server_tests_api.py
 mailodds/api/spam_checks_api.py
-mailodds/api/store_connections_api.py
 mailodds/api/subscriber_lists_api.py
 mailodds/api/suppression_lists_api.py
 mailodds/api/system_api.py
@@ -392,8 +379,6 @@ mailodds/models/bounce_analysis_response.py
 mailodds/models/bounce_analysis_response_analysis.py
 mailodds/models/bounce_analysis_response_analysis_categories.py
 mailodds/models/bounce_analysis_response_analysis_top_domains_inner.py
-mailodds/models/bulk_update_products200_response.py
-mailodds/models/bulk_update_products_request.py
 mailodds/models/campaign.py
 mailodds/models/campaign_response.py
 mailodds/models/campaign_stats.py
@@ -420,7 +405,6 @@ mailodds/models/create_policy_from_preset_request.py
 mailodds/models/create_policy_request.py
 mailodds/models/create_sending_domain201_response.py
 mailodds/models/create_sending_domain_request.py
-mailodds/models/create_store201_response.py
 mailodds/models/create_store_request.py
 mailodds/models/create_token200_response.py
 mailodds/models/create_variant_request.py
@@ -440,7 +424,6 @@ mailodds/models/deliver_request_structured_data.py
 mailodds/models/deliver_request_to_inner.py
 mailodds/models/deliver_response.py
 mailodds/models/deliver_response_delivery.py
-mailodds/models/disconnect_store200_response.py
 mailodds/models/dmarc_domain.py
 mailodds/models/error_response.py
 mailodds/models/get_blacklist_history200_response.py
@@ -493,7 +476,6 @@ mailodds/models/get_message_events200_response_summary.py
 mailodds/models/get_ooo_status200_response.py
 mailodds/models/get_pixel_settings200_response.py
 mailodds/models/get_presigned_upload_request.py
-mailodds/models/get_product200_response.py
 mailodds/models/get_reply_forwarding200_response.py
 mailodds/models/get_reputation200_response.py
 mailodds/models/get_reputation_timeline200_response.py
@@ -509,7 +491,6 @@ mailodds/models/get_sending_domain_identity_score200_response.py
 mailodds/models/get_sending_stats200_response.py
 mailodds/models/get_sending_stats200_response_stats.py
 mailodds/models/get_subscribers200_response.py
-mailodds/models/get_sync_job_errors200_response.py
 mailodds/models/health_check200_response.py
 mailodds/models/identity_score_check.py
 mailodds/models/import_contact_list200_response.py
@@ -531,13 +512,12 @@ mailodds/models/list_ooo_contacts200_response.py
 mailodds/models/list_sending_domains200_response.py
 mailodds/models/list_server_tests200_response.py
 mailodds/models/list_spam_checks200_response.py
-mailodds/models/list_stores200_response.py
-mailodds/models/list_sync_jobs200_response.py
 mailodds/models/list_webhook_deliveries200_response.py
 mailodds/models/list_webhook_deliveries200_response_deliveries_inner.py
 mailodds/models/mcp_capabilities.py
 mailodds/models/mcp_capabilities_pillars_inner.py
 mailodds/models/mcp_capabilities_pillars_inner_tools_inner.py
+mailodds/models/o_auth_client_registration.py
 mailodds/models/o_auth_server_metadata.py
 mailodds/models/pagination.py
 mailodds/models/policy.py
@@ -559,7 +539,6 @@ mailodds/models/query_contact_list200_response.py
 mailodds/models/query_contact_list200_response_emails_inner.py
 mailodds/models/query_contact_list_request.py
 mailodds/models/query_contact_list_request_filters_inner.py
-mailodds/models/query_products200_response.py
 mailodds/models/remove_suppression200_response.py
 mailodds/models/remove_suppression_request.py
 mailodds/models/replay_webhook_delivery200_response.py
@@ -614,7 +593,6 @@ mailodds/models/update_ooo_contact_request.py
 mailodds/models/update_pixel_settings_request.py
 mailodds/models/update_policy_request.py
 mailodds/models/update_reply_forwarding_request.py
-mailodds/models/update_store_request.py
 mailodds/models/validate_batch200_response.py
 mailodds/models/validate_batch200_response_summary.py
 mailodds/models/validate_batch_request.py
@@ -666,8 +644,6 @@ test/test_bounce_analysis_response.py
 test/test_bounce_analysis_response_analysis.py
 test/test_bounce_analysis_response_analysis_categories.py
 test/test_bounce_analysis_response_analysis_top_domains_inner.py
-test/test_bulk_update_products200_response.py
-test/test_bulk_update_products_request.py
 test/test_bulk_validation_api.py
 test/test_campaign.py
 test/test_campaign_analytics_api.py
@@ -700,7 +676,6 @@ test/test_create_policy_from_preset_request.py
 test/test_create_policy_request.py
 test/test_create_sending_domain201_response.py
 test/test_create_sending_domain_request.py
-test/test_create_store201_response.py
 test/test_create_store_request.py
 test/test_create_token200_response.py
 test/test_create_variant_request.py
@@ -721,7 +696,6 @@ test/test_deliver_request_to_inner.py
 test/test_deliver_response.py
 test/test_deliver_response_delivery.py
 test/test_deliverability_advisor_api.py
-test/test_disconnect_store200_response.py
 test/test_dkim_management_api.py
 test/test_dmarc_domain.py
 test/test_dmarc_monitoring_api.py
@@ -782,7 +756,6 @@ test/test_get_message_events200_response_summary.py
 test/test_get_ooo_status200_response.py
 test/test_get_pixel_settings200_response.py
 test/test_get_presigned_upload_request.py
-test/test_get_product200_response.py
 test/test_get_reply_forwarding200_response.py
 test/test_get_reputation200_response.py
 test/test_get_reputation_timeline200_response.py
@@ -798,7 +771,6 @@ test/test_get_sending_domain_identity_score200_response.py
 test/test_get_sending_stats200_response.py
 test/test_get_sending_stats200_response_stats.py
 test/test_get_subscribers200_response.py
-test/test_get_sync_job_errors200_response.py
 test/test_global_suppressions_api.py
 test/test_health_check200_response.py
 test/test_identity_score_check.py
@@ -824,8 +796,6 @@ test/test_list_ooo_contacts200_response.py
 test/test_list_sending_domains200_response.py
 test/test_list_server_tests200_response.py
 test/test_list_spam_checks200_response.py
-test/test_list_stores200_response.py
-test/test_list_sync_jobs200_response.py
 test/test_list_webhook_deliveries200_response.py
 test/test_list_webhook_deliveries200_response_deliveries_inner.py
 test/test_managed_spf_api.py
@@ -834,6 +804,7 @@ test/test_mcp_capabilities_pillars_inner.py
 test/test_mcp_capabilities_pillars_inner_tools_inner.py
 test/test_message_events_api.py
 test/test_o_auth20_api.py
+test/test_o_auth_client_registration.py
 test/test_o_auth_server_metadata.py
 test/test_out_of_office_api.py
 test/test_pagination.py
@@ -854,12 +825,10 @@ test/test_product_facets.py
 test/test_product_facets_categories_inner.py
 test/test_product_facets_price_ranges_inner.py
 test/test_product_facets_stores_inner.py
-test/test_products_api.py
 test/test_query_contact_list200_response.py
 test/test_query_contact_list200_response_emails_inner.py
 test/test_query_contact_list_request.py
 test/test_query_contact_list_request_filters_inner.py
-test/test_query_products200_response.py
 test/test_remove_suppression200_response.py
 test/test_remove_suppression_request.py
 test/test_replay_webhook_delivery200_response.py
@@ -891,7 +860,6 @@ test/test_spam_check.py
 test/test_spam_check_checks.py
 test/test_spam_checks_api.py
 test/test_store_connection.py
-test/test_store_connections_api.py
 test/test_store_product.py
 test/test_subscribe_request.py
 test/test_subscriber.py
@@ -926,7 +894,6 @@ test/test_update_ooo_contact_request.py
 test/test_update_pixel_settings_request.py
 test/test_update_policy_request.py
 test/test_update_reply_forwarding_request.py
-test/test_update_store_request.py
 test/test_validate_batch200_response.py
 test/test_validate_batch200_response_summary.py
 test/test_validate_batch_request.py

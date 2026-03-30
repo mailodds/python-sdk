@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +29,21 @@ class CreateAlertRuleRequest(BaseModel):
     CreateAlertRuleRequest
     """ # noqa: E501
     metric: StrictStr = Field(description="Metric to monitor (e.g., bounce_rate, complaint_rate)")
-    threshold: Union[StrictFloat, StrictInt] = Field(description="Threshold value to trigger alert")
+    threshold: Union[Annotated[float, Field(le=1, strict=True, gt=0)], Annotated[int, Field(le=1, strict=True, gt=0)]] = Field(description="Threshold value (0-1, e.g. 0.02 for 2%)")
     channel: StrictStr = Field(description="Notification channel (e.g., webhook)")
     window_minutes: Optional[StrictInt] = Field(default=60, description="Evaluation window in minutes")
     enabled: Optional[StrictBool] = True
     __properties: ClassVar[List[str]] = ["metric", "threshold", "channel", "window_minutes", "enabled"]
+
+    @field_validator('window_minutes')
+    def window_minutes_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set([15, 60, 1440, 2880]):
+            raise ValueError("must be one of enum values (15, 60, 1440, 2880)")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

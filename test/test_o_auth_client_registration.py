@@ -15,10 +15,10 @@
 
 import unittest
 
-from mailodds.models.update_store_request import UpdateStoreRequest
+from mailodds.models.o_auth_client_registration import OAuthClientRegistration
 
-class TestUpdateStoreRequest(unittest.TestCase):
-    """UpdateStoreRequest unit test stubs"""
+class TestOAuthClientRegistration(unittest.TestCase):
+    """OAuthClientRegistration unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,53 @@ class TestUpdateStoreRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> UpdateStoreRequest:
-        """Test UpdateStoreRequest
+    def make_instance(self, include_optional) -> OAuthClientRegistration:
+        """Test OAuthClientRegistration
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `UpdateStoreRequest`
+        # uncomment below to create an instance of `OAuthClientRegistration`
         """
-        model = UpdateStoreRequest()
+        model = OAuthClientRegistration()
         if include_optional:
-            return UpdateStoreRequest(
-                store_name = '',
-                sync_interval_seconds = 1800,
-                settings = None,
-                credentials = None
+            return OAuthClientRegistration(
+                client_id = '',
+                client_name = '',
+                redirect_uris = [
+                    ''
+                    ],
+                grant_types = [
+                    ''
+                    ],
+                response_types = [
+                    ''
+                    ],
+                token_endpoint_auth_method = '',
+                scope = '',
+                client_id_issued_at = 56,
+                client_secret = '',
+                client_secret_expires_at = 56
             )
         else:
-            return UpdateStoreRequest(
+            return OAuthClientRegistration(
+                client_id = '',
+                client_name = '',
+                redirect_uris = [
+                    ''
+                    ],
+                grant_types = [
+                    ''
+                    ],
+                response_types = [
+                    ''
+                    ],
+                token_endpoint_auth_method = '',
+                client_id_issued_at = 56,
         )
         """
 
-    def testUpdateStoreRequest(self):
-        """Test UpdateStoreRequest"""
+    def testOAuthClientRegistration(self):
+        """Test OAuthClientRegistration"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

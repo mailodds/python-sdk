@@ -37,9 +37,9 @@ class TestUpdateAlertRuleRequest(unittest.TestCase):
         if include_optional:
             return UpdateAlertRuleRequest(
                 metric = '',
-                threshold = 1.337,
+                threshold = 0,
                 channel = '',
-                window_minutes = 56,
+                window_minutes = 15,
                 enabled = True
             )
         else:

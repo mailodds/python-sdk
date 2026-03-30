@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **metric** | **str** | Metric to monitor (e.g., bounce_rate, complaint_rate) | 
-**threshold** | **float** | Threshold value to trigger alert | 
+**threshold** | **float** | Threshold value (0-1, e.g. 0.02 for 2%) | 
 **channel** | **str** | Notification channel (e.g., webhook) | 
 **window_minutes** | **int** | Evaluation window in minutes | [optional] [default to 60]
 **enabled** | **bool** |  | [optional] [default to True]

@@ -30,7 +30,6 @@ from mailodds.api.o_auth20_api import OAuth20Api
 from mailodds.api.out_of_office_api import OutOfOfficeApi
 from mailodds.api.pipeline_simulation_api import PipelineSimulationApi
 from mailodds.api.pixel_settings_api import PixelSettingsApi
-from mailodds.api.products_api import ProductsApi
 from mailodds.api.reputation_api import ReputationApi
 from mailodds.api.reputation_policies_api import ReputationPoliciesApi
 from mailodds.api.sender_health_api import SenderHealthApi
@@ -38,7 +37,6 @@ from mailodds.api.sending_delegations_api import SendingDelegationsApi
 from mailodds.api.sending_domains_api import SendingDomainsApi
 from mailodds.api.server_tests_api import ServerTestsApi
 from mailodds.api.spam_checks_api import SpamChecksApi
-from mailodds.api.store_connections_api import StoreConnectionsApi
 from mailodds.api.subscriber_lists_api import SubscriberListsApi
 from mailodds.api.suppression_lists_api import SuppressionListsApi
 from mailodds.api.system_api import SystemApi

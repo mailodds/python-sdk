@@ -37,15 +37,15 @@ class TestCreateAlertRuleRequest(unittest.TestCase):
         if include_optional:
             return CreateAlertRuleRequest(
                 metric = '',
-                threshold = 1.337,
+                threshold = 0,
                 channel = '',
-                window_minutes = 56,
+                window_minutes = 15,
                 enabled = True
             )
         else:
             return CreateAlertRuleRequest(
                 metric = '',
-                threshold = 1.337,
+                threshold = 0,
                 channel = '',
         )
         """

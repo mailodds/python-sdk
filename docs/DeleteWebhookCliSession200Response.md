@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleted** | **bool** |  | [optional] 
 **status** | **str** |  | [optional] 
 
 ## Example

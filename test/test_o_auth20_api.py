@@ -48,6 +48,13 @@ class TestOAuth20Api(unittest.TestCase):
         """
         pass
 
+    def test_oauth_register_client(self) -> None:
+        """Test case for oauth_register_client
+
+        Register OAuth client
+        """
+        pass
+
     def test_oauth_server_metadata(self) -> None:
         """Test case for oauth_server_metadata
 

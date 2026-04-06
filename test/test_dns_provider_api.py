@@ -15,71 +15,36 @@
 
 import unittest
 
-from mailodds.api.campaigns_api import CampaignsApi
+from mailodds.api.dns_provider_api import DNSProviderApi
 
 
-class TestCampaignsApi(unittest.TestCase):
-    """CampaignsApi unit test stubs"""
+class TestDNSProviderApi(unittest.TestCase):
+    """DNSProviderApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = CampaignsApi()
+        self.api = DNSProviderApi()
 
     def tearDown(self) -> None:
         pass
 
-    def test_cancel_campaign(self) -> None:
-        """Test case for cancel_campaign
+    def test_connect_dns_provider(self) -> None:
+        """Test case for connect_dns_provider
 
-        Cancel a campaign
+        Connect DNS provider
         """
         pass
 
-    def test_create_campaign(self) -> None:
-        """Test case for create_campaign
+    def test_disconnect_dns_provider(self) -> None:
+        """Test case for disconnect_dns_provider
 
-        Create a campaign
+        Disconnect DNS provider
         """
         pass
 
-    def test_create_campaign_variant(self) -> None:
-        """Test case for create_campaign_variant
+    def test_get_dns_provider(self) -> None:
+        """Test case for get_dns_provider
 
-        Create A/B variant
-        """
-        pass
-
-    def test_delete_campaign(self) -> None:
-        """Test case for delete_campaign
-
-        Delete a campaign
-        """
-        pass
-
-    def test_get_campaign(self) -> None:
-        """Test case for get_campaign
-
-        Get campaign with stats
-        """
-        pass
-
-    def test_list_campaigns(self) -> None:
-        """Test case for list_campaigns
-
-        List campaigns
-        """
-        pass
-
-    def test_schedule_campaign(self) -> None:
-        """Test case for schedule_campaign
-
-        Schedule a campaign
-        """
-        pass
-
-    def test_send_campaign(self) -> None:
-        """Test case for send_campaign
-
-        Send a campaign
+        Get DNS provider status
         """
         pass
 

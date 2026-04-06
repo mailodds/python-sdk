@@ -13,76 +13,85 @@
 """  # noqa: E501
 
 
-import unittest
+from __future__ import annotations
+import pprint
+import re  # noqa: F401
+import json
 
-from mailodds.api.campaigns_api import CampaignsApi
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from typing import Optional, Set
+from typing_extensions import Self
+
+class ConnectDnsProviderRequest(BaseModel):
+    """
+    ConnectDnsProviderRequest
+    """ # noqa: E501
+    provider: StrictStr = Field(description="DNS provider")
+    api_token: StrictStr = Field(description="API token with Zone > DNS > Edit permission")
+    __properties: ClassVar[List[str]] = ["provider", "api_token"]
+
+    @field_validator('provider')
+    def provider_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['cloudflare']):
+            raise ValueError("must be one of enum values ('cloudflare')")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
-class TestCampaignsApi(unittest.TestCase):
-    """CampaignsApi unit test stubs"""
+    def to_str(self) -> str:
+        """Returns the string representation of the model using alias"""
+        return pprint.pformat(self.model_dump(by_alias=True))
 
-    def setUp(self) -> None:
-        self.api = CampaignsApi()
+    def to_json(self) -> str:
+        """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
+        return json.dumps(self.to_dict())
 
-    def tearDown(self) -> None:
-        pass
+    @classmethod
+    def from_json(cls, json_str: str) -> Optional[Self]:
+        """Create an instance of ConnectDnsProviderRequest from a JSON string"""
+        return cls.from_dict(json.loads(json_str))
 
-    def test_cancel_campaign(self) -> None:
-        """Test case for cancel_campaign
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
 
-        Cancel a campaign
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
         """
-        pass
+        excluded_fields: Set[str] = set([
+        ])
 
-    def test_create_campaign(self) -> None:
-        """Test case for create_campaign
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
+        return _dict
 
-        Create a campaign
-        """
-        pass
+    @classmethod
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+        """Create an instance of ConnectDnsProviderRequest from a dict"""
+        if obj is None:
+            return None
 
-    def test_create_campaign_variant(self) -> None:
-        """Test case for create_campaign_variant
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
 
-        Create A/B variant
-        """
-        pass
-
-    def test_delete_campaign(self) -> None:
-        """Test case for delete_campaign
-
-        Delete a campaign
-        """
-        pass
-
-    def test_get_campaign(self) -> None:
-        """Test case for get_campaign
-
-        Get campaign with stats
-        """
-        pass
-
-    def test_list_campaigns(self) -> None:
-        """Test case for list_campaigns
-
-        List campaigns
-        """
-        pass
-
-    def test_schedule_campaign(self) -> None:
-        """Test case for schedule_campaign
-
-        Schedule a campaign
-        """
-        pass
-
-    def test_send_campaign(self) -> None:
-        """Test case for send_campaign
-
-        Send a campaign
-        """
-        pass
+        _obj = cls.model_validate({
+            "provider": obj.get("provider"),
+            "api_token": obj.get("api_token")
+        })
+        return _obj
 
 
-if __name__ == '__main__':
-    unittest.main()

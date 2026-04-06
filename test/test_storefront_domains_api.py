@@ -15,71 +15,50 @@
 
 import unittest
 
-from mailodds.api.campaigns_api import CampaignsApi
+from mailodds.api.storefront_domains_api import StorefrontDomainsApi
 
 
-class TestCampaignsApi(unittest.TestCase):
-    """CampaignsApi unit test stubs"""
+class TestStorefrontDomainsApi(unittest.TestCase):
+    """StorefrontDomainsApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = CampaignsApi()
+        self.api = StorefrontDomainsApi()
 
     def tearDown(self) -> None:
         pass
 
-    def test_cancel_campaign(self) -> None:
-        """Test case for cancel_campaign
+    def test_create_storefront_domain(self) -> None:
+        """Test case for create_storefront_domain
 
-        Cancel a campaign
+        Add a custom storefront domain
         """
         pass
 
-    def test_create_campaign(self) -> None:
-        """Test case for create_campaign
+    def test_delete_storefront_domain(self) -> None:
+        """Test case for delete_storefront_domain
 
-        Create a campaign
+        Delete a storefront domain
         """
         pass
 
-    def test_create_campaign_variant(self) -> None:
-        """Test case for create_campaign_variant
+    def test_get_storefront_domain(self) -> None:
+        """Test case for get_storefront_domain
 
-        Create A/B variant
+        Get storefront domain details
         """
         pass
 
-    def test_delete_campaign(self) -> None:
-        """Test case for delete_campaign
+    def test_list_storefront_domains(self) -> None:
+        """Test case for list_storefront_domains
 
-        Delete a campaign
+        List storefront domains
         """
         pass
 
-    def test_get_campaign(self) -> None:
-        """Test case for get_campaign
+    def test_verify_storefront_domain(self) -> None:
+        """Test case for verify_storefront_domain
 
-        Get campaign with stats
-        """
-        pass
-
-    def test_list_campaigns(self) -> None:
-        """Test case for list_campaigns
-
-        List campaigns
-        """
-        pass
-
-    def test_schedule_campaign(self) -> None:
-        """Test case for schedule_campaign
-
-        Schedule a campaign
-        """
-        pass
-
-    def test_send_campaign(self) -> None:
-        """Test case for send_campaign
-
-        Send a campaign
+        Verify storefront domain DNS
         """
         pass
 

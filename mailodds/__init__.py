@@ -31,6 +31,7 @@ __all__ = [
     "ContentClassificationApi",
     "DKIMManagementApi",
     "DMARCMonitoringApi",
+    "DNSProviderApi",
     "DeliverabilityAdvisorApi",
     "DomainInsightsApi",
     "EmailSendingApi",
@@ -55,6 +56,7 @@ __all__ = [
     "SendingDomainsApi",
     "ServerTestsApi",
     "SpamChecksApi",
+    "StorefrontDomainsApi",
     "SubscriberListsApi",
     "SuppressionListsApi",
     "SystemApi",
@@ -110,6 +112,7 @@ __all__ = [
     "ClassifyContent200ResponseContentCheck",
     "ClassifyContentRequest",
     "ConfirmSubscription200Response",
+    "ConnectDnsProviderRequest",
     "ContactList",
     "CorrectInboundMessageRequest",
     "CreateAlertRule201Response",
@@ -128,6 +131,7 @@ __all__ = [
     "CreateSendingDomain201Response",
     "CreateSendingDomainRequest",
     "CreateStoreRequest",
+    "CreateStorefrontDomainRequest",
     "CreateToken200Response",
     "CreateVariantRequest",
     "CreateWebhookCliSession201Response",
@@ -340,6 +344,7 @@ from mailodds.api.contact_lists_api import ContactListsApi as ContactListsApi
 from mailodds.api.content_classification_api import ContentClassificationApi as ContentClassificationApi
 from mailodds.api.dkim_management_api import DKIMManagementApi as DKIMManagementApi
 from mailodds.api.dmarc_monitoring_api import DMARCMonitoringApi as DMARCMonitoringApi
+from mailodds.api.dns_provider_api import DNSProviderApi as DNSProviderApi
 from mailodds.api.deliverability_advisor_api import DeliverabilityAdvisorApi as DeliverabilityAdvisorApi
 from mailodds.api.domain_insights_api import DomainInsightsApi as DomainInsightsApi
 from mailodds.api.email_sending_api import EmailSendingApi as EmailSendingApi
@@ -364,6 +369,7 @@ from mailodds.api.sending_delegations_api import SendingDelegationsApi as Sendin
 from mailodds.api.sending_domains_api import SendingDomainsApi as SendingDomainsApi
 from mailodds.api.server_tests_api import ServerTestsApi as ServerTestsApi
 from mailodds.api.spam_checks_api import SpamChecksApi as SpamChecksApi
+from mailodds.api.storefront_domains_api import StorefrontDomainsApi as StorefrontDomainsApi
 from mailodds.api.subscriber_lists_api import SubscriberListsApi as SubscriberListsApi
 from mailodds.api.suppression_lists_api import SuppressionListsApi as SuppressionListsApi
 from mailodds.api.system_api import SystemApi as SystemApi
@@ -423,6 +429,7 @@ from mailodds.models.classify_content200_response import ClassifyContent200Respo
 from mailodds.models.classify_content200_response_content_check import ClassifyContent200ResponseContentCheck as ClassifyContent200ResponseContentCheck
 from mailodds.models.classify_content_request import ClassifyContentRequest as ClassifyContentRequest
 from mailodds.models.confirm_subscription200_response import ConfirmSubscription200Response as ConfirmSubscription200Response
+from mailodds.models.connect_dns_provider_request import ConnectDnsProviderRequest as ConnectDnsProviderRequest
 from mailodds.models.contact_list import ContactList as ContactList
 from mailodds.models.correct_inbound_message_request import CorrectInboundMessageRequest as CorrectInboundMessageRequest
 from mailodds.models.create_alert_rule201_response import CreateAlertRule201Response as CreateAlertRule201Response
@@ -441,6 +448,7 @@ from mailodds.models.create_policy_request import CreatePolicyRequest as CreateP
 from mailodds.models.create_sending_domain201_response import CreateSendingDomain201Response as CreateSendingDomain201Response
 from mailodds.models.create_sending_domain_request import CreateSendingDomainRequest as CreateSendingDomainRequest
 from mailodds.models.create_store_request import CreateStoreRequest as CreateStoreRequest
+from mailodds.models.create_storefront_domain_request import CreateStorefrontDomainRequest as CreateStorefrontDomainRequest
 from mailodds.models.create_token200_response import CreateToken200Response as CreateToken200Response
 from mailodds.models.create_variant_request import CreateVariantRequest as CreateVariantRequest
 from mailodds.models.create_webhook_cli_session201_response import CreateWebhookCliSession201Response as CreateWebhookCliSession201Response

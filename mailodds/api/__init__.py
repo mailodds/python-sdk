@@ -13,6 +13,7 @@ from mailodds.api.contact_lists_api import ContactListsApi
 from mailodds.api.content_classification_api import ContentClassificationApi
 from mailodds.api.dkim_management_api import DKIMManagementApi
 from mailodds.api.dmarc_monitoring_api import DMARCMonitoringApi
+from mailodds.api.dns_provider_api import DNSProviderApi
 from mailodds.api.deliverability_advisor_api import DeliverabilityAdvisorApi
 from mailodds.api.domain_insights_api import DomainInsightsApi
 from mailodds.api.email_sending_api import EmailSendingApi
@@ -37,6 +38,7 @@ from mailodds.api.sending_delegations_api import SendingDelegationsApi
 from mailodds.api.sending_domains_api import SendingDomainsApi
 from mailodds.api.server_tests_api import ServerTestsApi
 from mailodds.api.spam_checks_api import SpamChecksApi
+from mailodds.api.storefront_domains_api import StorefrontDomainsApi
 from mailodds.api.subscriber_lists_api import SubscriberListsApi
 from mailodds.api.suppression_lists_api import SuppressionListsApi
 from mailodds.api.system_api import SystemApi

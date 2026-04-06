@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**cancel_campaign**](CampaignsApi.md#cancel_campaign) | **POST** /v1/campaigns/{campaign_id}/cancel | Cancel a campaign
 [**create_campaign**](CampaignsApi.md#create_campaign) | **POST** /v1/campaigns | Create a campaign
 [**create_campaign_variant**](CampaignsApi.md#create_campaign_variant) | **POST** /v1/campaigns/{campaign_id}/variants | Create A/B variant
+[**delete_campaign**](CampaignsApi.md#delete_campaign) | **DELETE** /v1/campaigns/{campaign_id} | Delete a campaign
 [**get_campaign**](CampaignsApi.md#get_campaign) | **GET** /v1/campaigns/{campaign_id} | Get campaign with stats
 [**list_campaigns**](CampaignsApi.md#list_campaigns) | **GET** /v1/campaigns | List campaigns
 [**schedule_campaign**](CampaignsApi.md#schedule_campaign) | **POST** /v1/campaigns/{campaign_id}/schedule | Schedule a campaign
@@ -256,6 +257,86 @@ Name | Type | Description  | Notes
 **201** | Variant created |  -  |
 **404** | Resource not found |  -  |
 **400** | Bad request |  -  |
+**401** | Unauthorized - Invalid or missing API key |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_campaign**
+> DeletePolicyRule200Response delete_campaign(campaign_id)
+
+Delete a campaign
+
+Permanently delete a campaign. Only campaigns in draft, sent, failed, or cancelled status can be deleted.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import mailodds
+from mailodds.models.delete_policy_rule200_response import DeletePolicyRule200Response
+from mailodds.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.mailodds.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = mailodds.Configuration(
+    host = "https://api.mailodds.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = mailodds.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with mailodds.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = mailodds.CampaignsApi(api_client)
+    campaign_id = 'campaign_id_example' # str | Campaign UUID
+
+    try:
+        # Delete a campaign
+        api_response = api_instance.delete_campaign(campaign_id)
+        print("The response of CampaignsApi->delete_campaign:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling CampaignsApi->delete_campaign: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaign_id** | **str**| Campaign UUID | 
+
+### Return type
+
+[**DeletePolicyRule200Response**](DeletePolicyRule200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Campaign deleted |  -  |
+**404** | Resource not found |  -  |
 **401** | Unauthorized - Invalid or missing API key |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

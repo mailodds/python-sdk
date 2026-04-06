@@ -15,74 +15,41 @@
 
 import unittest
 
-from mailodds.api.campaigns_api import CampaignsApi
+from mailodds.models.connect_dns_provider_request import ConnectDnsProviderRequest
 
+class TestConnectDnsProviderRequest(unittest.TestCase):
+    """ConnectDnsProviderRequest unit test stubs"""
 
-class TestCampaignsApi(unittest.TestCase):
-    """CampaignsApi unit test stubs"""
-
-    def setUp(self) -> None:
-        self.api = CampaignsApi()
-
-    def tearDown(self) -> None:
+    def setUp(self):
         pass
 
-    def test_cancel_campaign(self) -> None:
-        """Test case for cancel_campaign
+    def tearDown(self):
+        pass
 
-        Cancel a campaign
+    def make_instance(self, include_optional) -> ConnectDnsProviderRequest:
+        """Test ConnectDnsProviderRequest
+            include_optional is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # uncomment below to create an instance of `ConnectDnsProviderRequest`
         """
-        pass
-
-    def test_create_campaign(self) -> None:
-        """Test case for create_campaign
-
-        Create a campaign
+        model = ConnectDnsProviderRequest()
+        if include_optional:
+            return ConnectDnsProviderRequest(
+                provider = 'cloudflare',
+                api_token = ''
+            )
+        else:
+            return ConnectDnsProviderRequest(
+                provider = 'cloudflare',
+                api_token = '',
+        )
         """
-        pass
 
-    def test_create_campaign_variant(self) -> None:
-        """Test case for create_campaign_variant
-
-        Create A/B variant
-        """
-        pass
-
-    def test_delete_campaign(self) -> None:
-        """Test case for delete_campaign
-
-        Delete a campaign
-        """
-        pass
-
-    def test_get_campaign(self) -> None:
-        """Test case for get_campaign
-
-        Get campaign with stats
-        """
-        pass
-
-    def test_list_campaigns(self) -> None:
-        """Test case for list_campaigns
-
-        List campaigns
-        """
-        pass
-
-    def test_schedule_campaign(self) -> None:
-        """Test case for schedule_campaign
-
-        Schedule a campaign
-        """
-        pass
-
-    def test_send_campaign(self) -> None:
-        """Test case for send_campaign
-
-        Send a campaign
-        """
-        pass
-
+    def testConnectDnsProviderRequest(self):
+        """Test ConnectDnsProviderRequest"""
+        # inst_req_only = self.make_instance(include_optional=False)
+        # inst_req_and_optional = self.make_instance(include_optional=True)
 
 if __name__ == '__main__':
     unittest.main()

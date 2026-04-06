@@ -49,6 +49,7 @@ docs/ClassifyContent200ResponseContentCheck.md
 docs/ClassifyContentRequest.md
 docs/ConfigurationSetsApi.md
 docs/ConfirmSubscription200Response.md
+docs/ConnectDnsProviderRequest.md
 docs/ContactList.md
 docs/ContactListsApi.md
 docs/ContentClassificationApi.md
@@ -69,6 +70,7 @@ docs/CreatePolicyRequest.md
 docs/CreateSendingDomain201Response.md
 docs/CreateSendingDomainRequest.md
 docs/CreateStoreRequest.md
+docs/CreateStorefrontDomainRequest.md
 docs/CreateToken200Response.md
 docs/CreateVariantRequest.md
 docs/CreateWebhookCliSession201Response.md
@@ -78,6 +80,7 @@ docs/CrossReferenceBounces200ResponseCrossReference.md
 docs/CrossReferenceBounces200ResponseCrossReferenceEntriesInner.md
 docs/DKIMManagementApi.md
 docs/DMARCMonitoringApi.md
+docs/DNSProviderApi.md
 docs/DeleteJob200Response.md
 docs/DeleteOooContact200Response.md
 docs/DeletePolicy200Response.md
@@ -253,6 +256,7 @@ docs/SpamCheckChecks.md
 docs/SpamChecksApi.md
 docs/StoreConnection.md
 docs/StoreProduct.md
+docs/StorefrontDomainsApi.md
 docs/SubscribeRequest.md
 docs/Subscriber.md
 docs/SubscriberList.md
@@ -314,6 +318,7 @@ mailodds/api/content_classification_api.py
 mailodds/api/deliverability_advisor_api.py
 mailodds/api/dkim_management_api.py
 mailodds/api/dmarc_monitoring_api.py
+mailodds/api/dns_provider_api.py
 mailodds/api/domain_insights_api.py
 mailodds/api/email_sending_api.py
 mailodds/api/email_validation_api.py
@@ -337,6 +342,7 @@ mailodds/api/sending_delegations_api.py
 mailodds/api/sending_domains_api.py
 mailodds/api/server_tests_api.py
 mailodds/api/spam_checks_api.py
+mailodds/api/storefront_domains_api.py
 mailodds/api/subscriber_lists_api.py
 mailodds/api/suppression_lists_api.py
 mailodds/api/system_api.py
@@ -388,6 +394,7 @@ mailodds/models/classify_content200_response.py
 mailodds/models/classify_content200_response_content_check.py
 mailodds/models/classify_content_request.py
 mailodds/models/confirm_subscription200_response.py
+mailodds/models/connect_dns_provider_request.py
 mailodds/models/contact_list.py
 mailodds/models/correct_inbound_message_request.py
 mailodds/models/create_alert_rule201_response.py
@@ -406,6 +413,7 @@ mailodds/models/create_policy_request.py
 mailodds/models/create_sending_domain201_response.py
 mailodds/models/create_sending_domain_request.py
 mailodds/models/create_store_request.py
+mailodds/models/create_storefront_domain_request.py
 mailodds/models/create_token200_response.py
 mailodds/models/create_variant_request.py
 mailodds/models/create_webhook_cli_session201_response.py
@@ -657,6 +665,7 @@ test/test_classify_content200_response_content_check.py
 test/test_classify_content_request.py
 test/test_configuration_sets_api.py
 test/test_confirm_subscription200_response.py
+test/test_connect_dns_provider_request.py
 test/test_contact_list.py
 test/test_contact_lists_api.py
 test/test_content_classification_api.py
@@ -677,6 +686,7 @@ test/test_create_policy_request.py
 test/test_create_sending_domain201_response.py
 test/test_create_sending_domain_request.py
 test/test_create_store_request.py
+test/test_create_storefront_domain_request.py
 test/test_create_token200_response.py
 test/test_create_variant_request.py
 test/test_create_webhook_cli_session201_response.py
@@ -699,6 +709,7 @@ test/test_deliverability_advisor_api.py
 test/test_dkim_management_api.py
 test/test_dmarc_domain.py
 test/test_dmarc_monitoring_api.py
+test/test_dns_provider_api.py
 test/test_domain_insights_api.py
 test/test_email_sending_api.py
 test/test_email_validation_api.py
@@ -861,6 +872,7 @@ test/test_spam_check_checks.py
 test/test_spam_checks_api.py
 test/test_store_connection.py
 test/test_store_product.py
+test/test_storefront_domains_api.py
 test/test_subscribe_request.py
 test/test_subscriber.py
 test/test_subscriber_list.py
